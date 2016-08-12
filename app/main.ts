@@ -1,10 +1,3 @@
-﻿// Imports for loading & configuring the in-memory web api
-import {XHRBackend} from '@angular/http';
-
-// The usual bootstrapping imports
-import {bootstrap}      from '@angular/platform-browser-dynamic';
-import {HTTP_PROVIDERS} from '@angular/http';
-
-import {AppComponent}         from './app.component';
-
-bootstrap(AppComponent, []);
+﻿import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app.module';
+platformBrowserDynamic().bootstrapModule(AppModule);

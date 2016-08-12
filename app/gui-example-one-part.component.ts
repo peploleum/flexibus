@@ -2,7 +2,8 @@
 import * as d3 from 'd3';
 @Component({
     selector: 'part-one',
-    templateUrl: 'app/gui-example-one-part.html'
+    templateUrl: 'app/gui-example-one-part.html',
+    styleUrls: ['app/gui-example-one-part.css']
 })
 export class GuiExampleOnePartComponent implements OnInit {
 
@@ -19,6 +20,5 @@ export class GuiExampleOnePartComponent implements OnInit {
             .attr("cy", 30)
             .attr("r", 20);
     }
-
 
 }
