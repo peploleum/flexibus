@@ -1,4 +1,5 @@
 ﻿import {Component, OnInit} from '@angular/core';
+import {Foo} from './gui-example-one-part.service';
 import * as d3 from 'd3';
 @Component({
     selector: 'part-one',
@@ -20,5 +21,7 @@ export class GuiExampleOnePartComponent implements OnInit {
             .attr("cy", 30)
             .attr("r", 20);
     }
+
+    foo:Foo = {foo: 'FooTest', bar: 'BarTest'};
 
 }
