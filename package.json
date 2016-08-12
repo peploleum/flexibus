@@ -28,7 +28,8 @@
     "zone.js": "^0.6.12",
     "angular2-in-memory-web-api": "0.0.14",
     "bootstrap": "^3.3.6",
-    "openlayers": "3.14.2"
+    "openlayers": "3.14.2",
+    "d3" : "3.0.0"
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
