@@ -7,13 +7,14 @@ import * as customComponents from './index';
 
 // auto discover "indexed" Components
 var ngDeclarations = [AppComponent];
-var staticCustomDeclaration = [MainContainerComponent];
+var staticCustomDeclarations = [];
+staticCustomDeclarations.push(MainContainerComponent);
 var customDeclarations = [];
 for (var customComp in customComponents) {
     customDeclarations.push(customComponents[customComp]);
 }
 
-var finalDeclarations = ngDeclarations.concat(customDeclarations).concat(staticCustomDeclaration);
+var finalDeclarations = ngDeclarations.concat(customDeclarations).concat(staticCustomDeclarations);
 @NgModule({
     imports: [BrowserModule],
     declarations: finalDeclarations,
