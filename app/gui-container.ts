@@ -1,6 +1,5 @@
 ﻿import {GuiPartContext} from './gui-part-context';
-
-export abstract class GuiPart {
+export abstract class GuiContainer {
     protected _leaf:boolean; //can have child components
 
     protected _multiple:boolean; //can open multiple times
@@ -9,9 +8,9 @@ export abstract class GuiPart {
 
     protected _refreshed:boolean //needs refresh
     protected _id:string;
-    protected _title:string;
+    protected _title:any;
 
-    constructor(id:string, title:string) {
+    constructor(id:string, title:any) {
         this._id = id;
         this._title = title;
     }
@@ -24,11 +23,11 @@ export abstract class GuiPart {
         this._id = value;
     }
 
-    get title():string {
+    get title():any {
         return this._title;
     }
 
-    set title(value:string) {
+    set title(value:any) {
         this._title = value;
     }
 

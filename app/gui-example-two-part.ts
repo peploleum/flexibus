@@ -1,5 +1,5 @@
-﻿import {GuiPart} from './gui-part';
-import {GuiPartContext} from './gui-part-context';
-export class ExampleTwoPart extends GuiPart{
-   constructor(){super('002', 'GuiExampleTwoPartComponent')};
+﻿import {GuiContainer} from './gui-container';
+import {GuiExampleTwoPartComponent} from './gui-example-two-part.component';
+export class ExampleTwoPart extends GuiContainer{
+   constructor(){super('002', GuiExampleTwoPartComponent)};
 }

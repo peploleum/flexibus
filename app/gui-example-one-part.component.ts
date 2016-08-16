@@ -1,12 +1,19 @@
 ﻿import {Component, OnInit} from '@angular/core';
-import {Foo} from './gui-example-one-part.service';
+import {UserContextDto, GuiExampleOnePartService} from './gui-example-one-part.service';
 import * as d3 from 'd3';
 @Component({
     selector: 'part-one',
     templateUrl: 'app/gui-example-one-part.html',
-    styleUrls: ['app/gui-example-one-part.css']
+    styleUrls: ['app/gui-example-one-part.css'],
+    providers: [GuiExampleOnePartService]
 })
 export class GuiExampleOnePartComponent implements OnInit {
+
+    userContext:UserContextDto = new UserContextDto("", []);
+
+    constructor(private geops:GuiExampleOnePartService) {
+    }
+
 
     ngOnInit() {
         var selectedSvgAnchor = d3.select('#svganchor');
@@ -20,8 +27,12 @@ export class GuiExampleOnePartComponent implements OnInit {
             .attr("cx", 30)
             .attr("cy", 30)
             .attr("r", 20);
+
+       this.getUserContextDto();
     }
 
-    foo:Foo = {foo: 'FooTest', bar: 'BarTest'};
+    getUserContextDto(){
+       this.geops.getUserContext().then(result => this.userContext = result).catch(error => console.error(error));
+    }
 
 }

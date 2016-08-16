@@ -1,20 +1,20 @@
-﻿import {GuiPart} from './gui-part';
+﻿import {GuiContainer} from './gui-container';
 export class GuiManager {
-    private _guiParts:GuiPart[];
+    private _guiParts:GuiContainer[];
 
     constructor() {
         this._guiParts = [];
     }
 
-    get guiParts():GuiPart[] {
+    get guiParts():GuiContainer[] {
         return this._guiParts;
     }
 
-    set guiParts(value:GuiPart[]) {
+    set guiParts(value:GuiContainer[]) {
         this._guiParts = value;
     }
 
-    addGuiPart(guiPart:GuiPart) {
+    addGuiPart(guiPart:GuiContainer) {
         this._guiParts.push(guiPart);
     }
 

@@ -1,10 +1,12 @@
 ﻿<div class="guiPartDiv">
-    <div>
-        <label>foo: </label>
-        <input [(ngModel)]="foo.foo" placeholder="FooTest">
+    <div *ngIf="userContext">
+        <div>
+            <label>foo: </label>
+            <input [(ngModel)]="userContext.userName" placeholder="FooTest">
+        </div>
+        <h1>{{userContext.userName}} details!</h1>
+        <span>svg component with d3js</span>
+        <div id="svganchor"></div>
     </div>
-    <h1>{{foo.foo}} details!</h1>
-    <span>svg component with d3js</span>
-    <div id="svganchor"></div>
 </div>
 
