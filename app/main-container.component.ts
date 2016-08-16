@@ -4,7 +4,7 @@
     ComponentFactoryResolver,
     ViewContainerRef,
 } from '@angular/core';
-import {GuiPart} from './gui-part';
+import {GuiContainer} from './gui-container';
 import {GuiManagerService} from './gui-manager.service';
 import * as components from './index';
 
@@ -36,7 +36,7 @@ export class MainContainerComponent implements OnInit {
         for (var guiPart of guiParts) {
             console.log('trying to inject :) ' + guiPart.title + ' component in the container');
             // angular2 needs 'entryComponents' to be declared in a Component to enable dynamic component loading
-            let customComp = components[guiPart.title];
+            let customComp = guiPart.title;
             let resolvedComponentFactory = this.cfr.resolveComponentFactory(customComp);
             // check if the create method can be used
             // let resolvedComponent = resolvedComponentFactory.create(this.vcr.injector, null, 'my-app');
@@ -44,7 +44,7 @@ export class MainContainerComponent implements OnInit {
         }
     }
 
-    goToPart(guiPart:GuiPart) {
+    goToPart(guiPart:GuiContainer) {
         // console.log('going to part ' + guiPart.id);
     }
 
