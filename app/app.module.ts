@@ -5,6 +5,7 @@ import {FormsModule}   from '@angular/forms';
 import {AppComponent}  from './app.component';
 import {MainContainerComponent} from './main-container.component';
 import * as customComponents from './index';
+import {SimplePanelComponent} from "./panels/simple-panel.component";
 
 var ngDeclarations = [AppComponent];
 var staticCustomDeclarations = [];
@@ -14,6 +15,7 @@ var customDeclarations = [];
 for (var customComp in customComponents) {
     customDeclarations.push(customComponents[customComp]);
 }
+customDeclarations.push(SimplePanelComponent);
 
 var finalDeclarations = ngDeclarations.concat(customDeclarations).concat(staticCustomDeclarations);
 @NgModule({

@@ -7,7 +7,7 @@ export abstract class GuiContainer {
     protected _minimized:boolean;
     protected _context:GuiPartContext;
 
-    protected _refreshed:boolean //needs refresh
+    protected _refreshed:boolean; //needs refresh
     protected _id:string;
     protected _title:any;
 
