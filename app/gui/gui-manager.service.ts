@@ -5,7 +5,7 @@ import {Injectable} from '@angular/core';
 import {GuiManager} from "./gui-manager";
 import {GuiContainer} from "./gui-container";
 import {GuiItem} from "./gui-item";
-import {ExampleGuiComponent} from "../test-module/example-gui-component";
+import {ExampleGuiComponent} from "../test-module/example-gui-component.component";
 
 
 @Injectable()
