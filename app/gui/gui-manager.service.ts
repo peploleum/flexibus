@@ -13,7 +13,17 @@ export class GuiManagerService {
     guiManager: GuiManager = new GuiManager();
 
     constructor() {
-        this.guiManager.addGuiContainer(new GuiContainer(new GuiItem('Carto', ExampleGuiComponent)));
+        let container = new GuiContainer(new GuiItem('Carto', ExampleGuiComponent));
+        container.addLeftItem(new GuiItem('test1', ExampleGuiComponent));
+        container.addLeftItem(new GuiItem('test3', ExampleGuiComponent));
+        container.addLeftItem(new GuiItem('test3', ExampleGuiComponent));
+        container.addLeftItem(new GuiItem('test3', ExampleGuiComponent));
+        container.addLeftItem(new GuiItem('test3', ExampleGuiComponent));
+        container.addLeftItem(new GuiItem('test3', ExampleGuiComponent));
+        container.addRightItem(new GuiItem('test2', ExampleGuiComponent));
+
+
+        this.guiManager.addGuiContainer(container);
     }
 
     getGuiContainers(): Array<GuiContainer> {

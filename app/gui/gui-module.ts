@@ -6,11 +6,12 @@ import {CommonModule} from '@angular/common';
 import {GuiComponent} from "./gui-component";
 import {GuiManagerService} from "./gui-manager.service";
 import {ExampleGuiComponent} from "./examples/ExampleGuiComponent";
+import {GuiView} from "./gui-view.component";
 
 @NgModule({
     imports: [CommonModule],
-    declarations: [GuiComponent, ExampleGuiComponent],
-    exports: [ExampleGuiComponent]
+    declarations: [GuiComponent, GuiView, ExampleGuiComponent],
+    exports: [ExampleGuiComponent, GuiView]
 })
 export class GuiModule {
     static forRoot():ModuleWithProviders {
@@ -21,6 +22,6 @@ export class GuiModule {
     }
 
     static getComponents() {
-        return [ExampleGuiComponent];
+        return [ExampleGuiComponent, GuiView];
     }
 }

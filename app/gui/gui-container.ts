@@ -4,11 +4,19 @@ import {GuiItem} from "./gui-item";
  */
 
 export class GuiContainer {
-    mainItem: GuiItem;
-    leftItems: Array<GuiItem>;
-    rightItems: Array<GuiItem>;
+    mainItem:GuiItem;
+    leftItems:Array<GuiItem> = new Array();
+    rightItems:Array<GuiItem> = new Array();
 
-    constructor(mainItem: GuiItem){
+    constructor(mainItem:GuiItem) {
         this.mainItem = mainItem;
+    }
+
+    addLeftItem(item:GuiItem):void {
+        this.leftItems.push(item);
+    }
+
+    addRightItem(item:GuiItem):void {
+        this.rightItems.push(item);
     }
 }
