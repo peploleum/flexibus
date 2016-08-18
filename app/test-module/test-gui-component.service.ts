@@ -1,6 +1,6 @@
 ﻿import {Injectable} from "@angular/core";
 @Injectable()
-export class GuiExampleOnePartService {
+export class TestGuiComponentService {
     private _userContext =  new UserContextDto("fooUserName", ["foo", "bar"]);
 
     get userContext():UserContextDto {
