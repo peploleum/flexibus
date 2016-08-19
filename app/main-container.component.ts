@@ -30,7 +30,7 @@ var customEntryComponents = [];
 export class MainContainerComponent implements OnInit {
     @ViewChild('mainAnchor', {read: ViewContainerRef}) anchor:ViewContainerRef;
 
-    constructor(private cfr:ComponentFactoryResolver, private vcr:ViewContainerRef, private gms:GuiManagerService) {
+    constructor(private cfr:ComponentFactoryResolver, private gms:GuiManagerService) {
     }
 
     ngOnInit() {
