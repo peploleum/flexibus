@@ -3,12 +3,12 @@
  */
 import {Component, ViewChild, ViewContainerRef, ComponentFactoryResolver, OnInit, AfterViewInit} from '@angular/core';
 import {IGuiComponent} from "./gui-component";
-
+import * as d3 from 'd3';
 @Component({
     selector: 'gui-view',
     templateUrl: 'app/gui/gui-view.component.html'
 })
-export class GuiView implements OnInit, AfterViewInit {
+export class GuiView implements OnInit {
     @ViewChild('left', {read: ViewContainerRef}) leftAnchor:ViewContainerRef;
     @ViewChild('main', {read: ViewContainerRef}) mainAnchor:ViewContainerRef;
     @ViewChild('right', {read: ViewContainerRef}) rightAnchor:ViewContainerRef;
@@ -19,16 +19,12 @@ export class GuiView implements OnInit, AfterViewInit {
     private rightComponents:Array<IGuiComponent> = new Array();
 
     constructor(private cfr:ComponentFactoryResolver) {
+        console.log("constructing GuiView");
     }
 
     ngOnInit() {
-        console.log('Composant main : ');
-        console.log(this.mainAnchor.element);
-    }
-
-    ngAfterViewInit() {
+        console.log("initializing GuiView");
         this.viewInitialized = true;
-
         this.initMainView();
         this.initLeftViews();
         this.initRightViews();
@@ -45,6 +41,7 @@ export class GuiView implements OnInit, AfterViewInit {
         if (this.mainComponent) {
             let componentFactory = this.cfr.resolveComponentFactory(this.mainComponent);
             this.mainAnchor.createComponent(componentFactory);
+
         }
     }
 

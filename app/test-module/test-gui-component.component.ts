@@ -1,10 +1,10 @@
-import {Component, OnInit} from "@angular/core"
+import {Component, OnInit} from "@angular/core";
 import {GuiComponent} from "../gui/gui-component";
-import {TestGuiComponentService, UserContextDto} from './test-gui-component.service';
-import * as d3 from 'd3';
+import {TestGuiComponentService, UserContextDto} from "./test-gui-component.service";
+import * as d3 from "d3";
 @Component({
     selector: 'test',
-    template: 'app/test-module/test-gui-component.html',
+    templateUrl: 'app/test-module/test-gui-component.html',
     providers : [TestGuiComponentService]
 })
 export class TestGuiComponent extends GuiComponent implements OnInit{
@@ -14,9 +14,9 @@ export class TestGuiComponent extends GuiComponent implements OnInit{
         super();
     }
 
-
     ngOnInit() {
         var selectedSvgAnchor = d3.select('#svganchor');
+
         //Make an SVG Container
         var svgContainer = selectedSvgAnchor.append("svg")
             .attr("width", 200)
@@ -27,11 +27,12 @@ export class TestGuiComponent extends GuiComponent implements OnInit{
             .attr("cx", 30)
             .attr("cy", 30)
             .attr("r", 20);
-
         this.getUserContextDto();
     }
 
     getUserContextDto(){
         this.geops.getUserContext().then(result => this.userContext = result).catch(error => console.error(error));
     }
+
+
 }

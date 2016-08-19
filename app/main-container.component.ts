@@ -1,6 +1,11 @@
-﻿import {Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChild} from "@angular/core";
-import {GuiContainer} from "./gui/gui-container";
-import {GuiManagerService} from "./gui/gui-manager.service";
+import {
+    Component,
+    OnInit,
+    ComponentFactoryResolver,
+    ViewContainerRef,
+} from '@angular/core';
+import {GuiContainer} from './gui/gui-container';
+import {GuiManagerService} from './gui/gui-manager.service';
 import {GuiView} from "./gui/gui-view.component";
 //import * as components from './index';
 
@@ -25,11 +30,10 @@ var customEntryComponents = [];
 export class MainContainerComponent implements OnInit {
     @ViewChild('mainAnchor', {read: ViewContainerRef}) anchor:ViewContainerRef;
 
-    constructor(private cfr:ComponentFactoryResolver, private gms:GuiManagerService) {
+    constructor(private cfr:ComponentFactoryResolver, private vcr:ViewContainerRef, private gms:GuiManagerService) {
     }
 
     ngOnInit() {
-        console.log("Main View initialisée");
         let containers:Array<GuiContainer> = this.gms.getGuiContainers();
 
         for (var container of containers) {
@@ -45,6 +49,12 @@ export class MainContainerComponent implements OnInit {
             for (var rightItem of container.rightItems) {
                 viewComponentRef.instance.addRight(rightItem.componentType);
             }
+
+
+            // angular2 needs 'entryComponents' to be declared in a Component to enable dynamic component loading
+            /*let customComp = container.mainItem.componentType;
+             let resolvedComponentFactory = this.cfr.resolveComponentFactory(customComp);
+             this.vcr.createComponent(resolvedComponentFactory);*/
         }
     }
 

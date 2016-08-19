@@ -8,12 +8,12 @@ import {Component} from "@angular/core"
     template: ''
 })
 export class GuiComponent {
-    constructor() {
-
-    }
+    // constructor(...args: any[]) {
+    //
+    // }
 }
 
 export interface IGuiComponent{
-    new (): GuiComponent;
+    new (...args: any[]): any;
 }
 
