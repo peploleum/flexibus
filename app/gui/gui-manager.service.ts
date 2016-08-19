@@ -8,10 +8,11 @@ import {GuiItem} from "./gui-item";
 import {ExampleGuiComponent} from "../test-module/example-gui-component.component";
 import {TestGuiComponent} from "../test-module/test-gui-component.component";
 import {SimplePanelComponent} from "../panels/simple-panel.component";
+import {AnotherTestGuiComponent} from "../test-module/another-test-gui-component.component";
 
 @Injectable()
 export class GuiManagerService {
-    guiManager: GuiManager = new GuiManager();
+    guiManager:GuiManager = new GuiManager();
 
     constructor() {
         let container = new GuiContainer(new GuiItem('Cartographie', SimplePanelComponent));
@@ -23,14 +24,17 @@ export class GuiManagerService {
         container.addLeftItem(new GuiItem('test3', SimplePanelComponent));
         container.addLeftItem(new GuiItem('test3', SimplePanelComponent));
         container.addRightItem(new GuiItem('test2', SimplePanelComponent));
+        container.addRightItem(new GuiItem('test2', SimplePanelComponent));
+        container.addRightItem(new GuiItem('test2', SimplePanelComponent));
 
         let container2 = new GuiContainer(new GuiItem('Test', TestGuiComponent));
+        container2.addLeftItem(new GuiItem('test left item', AnotherTestGuiComponent));
 
-        this.guiManager.addGuiContainer(container);
-        /*this.guiManager.addGuiContainer(container2);*/
+        // this.guiManager.addGuiContainer(container);
+        this.guiManager.addGuiContainer(container2);
     }
 
-    getGuiContainers(): Array<GuiContainer> {
+    getGuiContainers():Array<GuiContainer> {
         return this.guiManager.getGuiContainers();
     }
 }

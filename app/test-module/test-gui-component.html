@@ -1,4 +1,4 @@
-﻿﻿<div class="guiPartDiv">
+﻿<div class="guiPartDiv">
     <div *ngIf="userContext">
         <div>
             <label>foo: </label>
@@ -8,5 +8,13 @@
         <span>svg component with d3js</span>
     </div>
     <div id="svganchor"></div>
+    <ul>
+        <li *ngFor="let userRight of userContext.userRights" (click)="onSelect(userRight)">
+    <span>
+      {{userRight}}
+    </span>
+            <button (click)="goToRight(userRight)">Go To</button>
+        </li>
+    </ul>
 </div>
 

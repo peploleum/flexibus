@@ -42,5 +42,14 @@ export class TestGuiComponent extends GuiComponent implements OnInit {
         return reveivedUserContextDto;
     }
 
+    goToRight(clickedRight:string){
+        console.log("go to right requested " + clickedRight);
+    }
+
+    onSelect(selectedRight:string){
+        console.log("selected right " + selectedRight);
+    }
+
+
 
 }

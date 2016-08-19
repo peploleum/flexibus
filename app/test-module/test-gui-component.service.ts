@@ -8,7 +8,6 @@ export class TestGuiComponentService {
     private _userContextUrl = 'http://localhost:8080/jeecdi/rest';
 
     constructor(private http : Http){
-
     }
 
     getUserContextMock():Promise<UserContextDto>{
