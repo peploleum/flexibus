@@ -2,7 +2,7 @@ import {
     Component,
     OnInit,
     ComponentFactoryResolver,
-    ViewContainerRef,
+    ViewContainerRef, ViewChild,
 } from '@angular/core';
 import {GuiContainer} from './gui/gui-container';
 import {GuiManagerService} from './gui/gui-manager.service';
