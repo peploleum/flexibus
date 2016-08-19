@@ -9,11 +9,12 @@ import {ExampleGuiComponent} from "../test-module/example-gui-component.componen
 import {GuiView} from "./gui-view.component";
 import {TestGuiComponent} from "../test-module/test-gui-component.component";
 import {FormsModule} from "@angular/forms";
+import {SimplePanelComponent} from "../panels/simple-panel.component";
 
 @NgModule({
     imports: [CommonModule, FormsModule],
-    declarations: [GuiComponent, GuiView, ExampleGuiComponent, TestGuiComponent],
-    exports: [ExampleGuiComponent, GuiView, TestGuiComponent]
+    declarations: [GuiComponent, GuiView, ExampleGuiComponent, TestGuiComponent, SimplePanelComponent],
+    exports: [ExampleGuiComponent, GuiView, TestGuiComponent, SimplePanelComponent]
 })
 export class GuiModule {
     static forRoot():ModuleWithProviders {
@@ -24,6 +25,6 @@ export class GuiModule {
     }
 
     static getComponents() {
-        return [ExampleGuiComponent, GuiView, TestGuiComponent];
+        return [ExampleGuiComponent, GuiView, TestGuiComponent, SimplePanelComponent];
     }
 }

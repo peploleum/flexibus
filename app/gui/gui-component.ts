@@ -4,7 +4,7 @@
 import {Component} from "@angular/core"
 
 @Component({
-    selector: 'fake-comp',
+    selector: 'root-comp',
     template: ''
 })
 export class GuiComponent {
