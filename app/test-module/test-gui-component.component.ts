@@ -1,7 +1,7 @@
-import {Component, OnInit, AfterViewInit} from "@angular/core"
+import {Component, OnInit} from "@angular/core";
 import {GuiComponent} from "../gui/gui-component";
-import {TestGuiComponentService, UserContextDto} from './test-gui-component.service';
-import * as d3 from 'd3';
+import {TestGuiComponentService, UserContextDto} from "./test-gui-component.service";
+import * as d3 from "d3";
 @Component({
     selector: 'test',
     templateUrl: 'app/test-module/test-gui-component.html',
