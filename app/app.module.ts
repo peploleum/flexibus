@@ -16,7 +16,6 @@ var customDeclarations = [];
 //for (var customComp in customComponents) {
 //    customDeclarations.push(customComponents[customComp]);
 //}
-customDeclarations.push(SimplePanelComponent);
 
 var finalDeclarations = ngDeclarations.concat(customDeclarations).concat(staticCustomDeclarations);
 @NgModule({

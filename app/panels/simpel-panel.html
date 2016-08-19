@@ -2,30 +2,37 @@
     .simple-panel {
 
     }
+
     .simple-panel .header {
 
     }
+
     .simple-panel .header.normal {
         background-color: cornflowerblue;
         color: white;
     }
+
     .simple-panel .header.warning {
         background-color: coral;
         color: black;
     }
+
     .simple-panel .header.error {
         background-color: crimson;
         color: white
     }
 </style>
 
-<div class="simple-panel" style="margin:5px; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); border-radius: 2px;">
-    <div class="header" style="padding: 16px; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom: 2px solid gray; font-size: 24px; font-weight: 400; cursor: pointer"
+<div class="simple-panel"
+     style="margin:5px; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); border-radius: 2px; display:flex; flex-direction:column">
+    <div class="header"
+         style="padding: 16px; border-top-left-radius: 2px; border-top-right-radius: 2px; font-size: 24px; font-weight: 400; cursor: pointer"
          (click)="displayContent=!displayContent"
          [ngClass]="type">
         {{titre}}
     </div>
-    <div style="padding: 5px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px" *ngIf="displayContent">
+    <div style="background-color: white; padding: 5px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; flex-grow:1"
+         *ngIf="displayContent">
         Contenu<br>
         Ca a l'air pas mal<br>
         Voir si c'est bien le cas...
