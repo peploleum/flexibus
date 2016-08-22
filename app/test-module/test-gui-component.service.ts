@@ -1,16 +1,32 @@
 ﻿import {Injectable} from "@angular/core";
+import {Http} from "@angular/http";
+import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class TestGuiComponentService {
     private _userContext =  new UserContextDto("fooUserName", ["foo", "bar"]);
 
-    get userContext():UserContextDto {
-        return this._userContext;
+    private _userContextUrl = 'http://localhost:8080/jeecdi/rest';
+
+    constructor(private http : Http){
     }
 
-    getUserContext(){
+    getUserContextMock():Promise<UserContextDto>{
         return new Promise<UserContextDto>(resolve =>
-            setTimeout(() => resolve(this.userContext), 2000) // 2 seconds
+            setTimeout(() => resolve(this._userContext), 2000) // 2 seconds
         );
+    }
+
+    getUserContext():Promise<UserContextDto>{
+        function extracted() {
+            let newVar = response => response.json() as UserContextDto;
+            return newVar;
+        }
+        return this.http.get(this._userContextUrl).toPromise().then(extracted()).catch(this.handleError);
+    }
+
+    private handleError(error: any): Promise<any> {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
     }
 }
 

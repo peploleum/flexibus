@@ -5,9 +5,9 @@ import * as d3 from "d3";
 @Component({
     selector: 'test',
     templateUrl: 'app/test-module/test-gui-component.html',
-    providers : [TestGuiComponentService]
+    providers: [TestGuiComponentService]
 })
-export class TestGuiComponent extends GuiComponent implements OnInit{
+export class TestGuiComponent extends GuiComponent implements OnInit {
     userContext:UserContextDto = new UserContextDto("", []);
 
     constructor(private geops:TestGuiComponentService) {
@@ -30,9 +30,26 @@ export class TestGuiComponent extends GuiComponent implements OnInit{
         this.getUserContextDto();
     }
 
-    getUserContextDto(){
-        this.geops.getUserContext().then(result => this.userContext = result).catch(error => console.error(error));
+    getUserContextDto() {
+        this.geops.getUserContext().then(this.onUserContextDto()).catch(error => console.error(error));
     }
+
+    private onUserContextDto() {
+        let reveivedUserContextDto = result => {
+            console.log("received " + result);
+            this.userContext = result
+        };
+        return reveivedUserContextDto;
+    }
+
+    goToRight(clickedRight:string){
+        console.log("go to right requested " + clickedRight);
+    }
+
+    onSelect(selectedRight:string){
+        console.log("selected right " + selectedRight);
+    }
+
 
 
 }

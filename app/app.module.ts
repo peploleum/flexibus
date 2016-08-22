@@ -4,9 +4,9 @@ import {FormsModule}   from '@angular/forms';
 
 import {AppComponent}  from './app.component';
 import {MainContainerComponent} from './main-container.component';
-//import * as customComponents from './index';
 import {SimplePanelComponent} from "./panels/simple-panel.component";
 import {GuiModule} from "./gui/gui-module";
+import {HttpModule} from "@angular/http";
 
 var ngDeclarations = [AppComponent];
 var staticCustomDeclarations = [];
@@ -19,7 +19,7 @@ var customDeclarations = [];
 
 var finalDeclarations = ngDeclarations.concat(customDeclarations).concat(staticCustomDeclarations);
 @NgModule({
-    imports: [BrowserModule, FormsModule, GuiModule.forRoot()],
+    imports: [BrowserModule, FormsModule, HttpModule, GuiModule.forRoot()],
     declarations: finalDeclarations,
     entryComponents: GuiModule.getComponents(),
     bootstrap: [AppComponent]
