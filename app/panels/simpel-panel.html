@@ -31,10 +31,9 @@
          [ngClass]="type">
         {{titre}}
     </div>
+    <!-- TBA : Ici, il faut mettre hidden et pas ngIf sinon on n'arrive pas à rapatrier #panelContent dans @ViewChild... en tous cas pas encore -->
     <div style="background-color: white; padding: 5px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; flex-grow:1"
-         *ngIf="displayContent">
-        Contenu<br>
-        Ca a l'air pas mal<br>
-        Voir si c'est bien le cas...
+         [hidden]="!displayContent">
+        <div #panelContent></div>
     </div>
 </div>

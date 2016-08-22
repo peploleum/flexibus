@@ -1,7 +1,7 @@
-import {IGuiComponent} from "./gui-component";
 /**
  * Created by tbonavia on 17/08/2016.
  */
+import {IGuiComponent} from "./gui-component";
 
 export class GuiItem {
     name:string;
