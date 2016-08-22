@@ -34,8 +34,8 @@ export class GuiManagerService {
 */
         // let container2 = new GuiContainer(new GuiItem('Test', TestGuiComponent));
 
-        // this.guiManager.addGuiContainer(container);
-        this.guiManager.addGuiContainer(container2);
+        this.guiManager.addGuiContainer(container);
+        // this.guiManager.addGuiContainer(container2);
     }
 
     getGuiContainers():Array<GuiContainer> {

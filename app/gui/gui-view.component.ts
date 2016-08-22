@@ -41,19 +41,19 @@ export class GuiView implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        // if (this.mainComponentRef) {
-        //     this.renderer.setElementStyle(this.mainComponentRef.location.nativeElement, 'flex-grow', '1');
-        // }
-        // if (this.leftComponentsRefs.length > 0) {
-        //     for (var ref of this.leftComponentsRefs) {
-        //         this.renderer.setElementStyle(ref.location.nativeElement, 'flex-grow', '1');
-        //     }
-        // }
-        // if (this.rightComponentsRefs.length > 0) {
-        //     for (var ref of this.rightComponentsRefs) {
-        //         this.renderer.setElementStyle(ref.location.nativeElement, 'flex-grow', '1');
-        //     }
-        // }
+        if (this.mainComponentRef) {
+            this.renderer.setElementStyle(this.mainComponentRef.location.nativeElement, 'flex-grow', '1');
+        }
+        if (this.leftComponentsRefs.length > 0) {
+            for (var ref of this.leftComponentsRefs) {
+                this.renderer.setElementStyle(ref.location.nativeElement, 'flex-grow', '1');
+            }
+        }
+        if (this.rightComponentsRefs.length > 0) {
+            for (var ref of this.rightComponentsRefs) {
+                this.renderer.setElementStyle(ref.location.nativeElement, 'flex-grow', '1');
+            }
+        }
     }
 
     setMain(component:IGuiComponent) {

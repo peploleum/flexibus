@@ -2,16 +2,20 @@
  * Created by tbonavia on 17/08/2016.
  */
 import {
-    Component, OnInit, Input, ViewContainerRef, ViewChild, ComponentFactoryResolver,
-    KeyValueDiffers, KeyValueDiffer, ChangeDetectionStrategy, AfterViewInit, AfterContentInit, ElementRef, Injector,
-    ReflectiveInjector, ComponentRef
+    Component,
+    OnInit,
+    Input,
+    ViewContainerRef,
+    ViewChild,
+    ComponentFactoryResolver,
+    ElementRef,
+    ComponentRef
 } from "@angular/core";
 import {IGuiComponent, GuiComponent} from "../gui/gui-component";
 
 @Component({
     selector: 'simple-panel',
-    templateUrl: 'app/panels/simpel-panel.html',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    templateUrl: 'app/panels/simpel-panel.html'
 })
 export class SimplePanelComponent implements OnInit {
     @Input()
@@ -42,6 +46,7 @@ export class SimplePanelComponent implements OnInit {
             this.instantiateContent();
         }
 
+        // Lorsque le composant aura été instancié... il sera renvoyé au demandeur
         return new Promise((resolve) => {
             this.promiseResolver = resolve
         });
@@ -52,6 +57,7 @@ export class SimplePanelComponent implements OnInit {
             var factory = this.cfr.resolveComponentFactory(this.panelContentType);
             var contentComponent = this.contentAnchor.createComponent(factory);
 
+            // On renvoie le Component à celui qui a demandé l'instantiation... il en fera ce qu'il veut
             this.promiseResolver(contentComponent);
         }
     }
