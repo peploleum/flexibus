@@ -13,7 +13,7 @@ export class GuiComponent {
     // }
 }
 
-export interface IGuiComponent{
-    new (...args: any[]): any;
+export interface IGuiComponent {
+    new (...args:any[]):GuiComponent;
 }
 

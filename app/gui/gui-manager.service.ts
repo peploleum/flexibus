@@ -9,17 +9,19 @@ import {ExampleGuiComponent} from "../test-module/example-gui-component.componen
 import {TestGuiComponent} from "../test-module/test-gui-component.component";
 import {SimplePanelComponent} from "../panels/simple-panel.component";
 import {AnotherTestGuiComponent} from "../test-module/another-test-gui-component.component";
+import {CartoComponent} from "../test-module/carto.component";
 
 @Injectable()
 export class GuiManagerService {
     guiManager:GuiManager = new GuiManager();
 
     constructor() {
-        let container = new GuiContainer(new GuiItem('Cartographie', SimplePanelComponent));
+        let container = new GuiContainer(new GuiItem('Cartographie', CartoComponent));
 
-        container.addLeftItem(new GuiItem('test1', SimplePanelComponent));
-        container.addLeftItem(new GuiItem('test3', SimplePanelComponent));
-        container.addLeftItem(new GuiItem('test3', SimplePanelComponent));
+
+        container.addLeftItem(new GuiItem('test1', CartoComponent));
+        container.addLeftItem(new GuiItem('test3', CartoComponent));
+        /*container.addLeftItem(new GuiItem('test3', SimplePanelComponent));
         container.addLeftItem(new GuiItem('test3', SimplePanelComponent));
         container.addLeftItem(new GuiItem('test3', SimplePanelComponent));
         container.addLeftItem(new GuiItem('test3', SimplePanelComponent));
@@ -29,6 +31,8 @@ export class GuiManagerService {
 
         let container2 = new GuiContainer(new GuiItem('Test', TestGuiComponent));
         container2.addLeftItem(new GuiItem('test left item', AnotherTestGuiComponent));
+*/
+        // let container2 = new GuiContainer(new GuiItem('Test', TestGuiComponent));
 
         // this.guiManager.addGuiContainer(container);
         this.guiManager.addGuiContainer(container2);
