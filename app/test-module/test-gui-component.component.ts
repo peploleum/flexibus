@@ -27,7 +27,7 @@ export class TestGuiComponent extends GuiComponent implements OnInit {
             .attr("cx", 30)
             .attr("cy", 30)
             .attr("r", 20);
-        this.getUserContextDto();
+        // this.getUserContextDto();
     }
 
     getUserContextDto() {

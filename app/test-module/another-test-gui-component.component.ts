@@ -20,7 +20,7 @@ export class AnotherTestGuiComponent extends GuiComponent implements OnInit, DoC
 
     ngOnInit() {
         this.atgcs.getResults().then(result => {
-            console.log(this.searchResultList[0]);
+            console.log(result);
             this.searchResultList = result;
             // this.cdr.markForCheck();
             this.resultList = this.searchTerms
@@ -29,7 +29,7 @@ export class AnotherTestGuiComponent extends GuiComponent implements OnInit, DoC
                 .switchMap(term => term   // switch to new observable each time
                     // return the http search observable
                     ? this.atgcs.search(term)
-                    // or the observable of empty heroes if no search term
+                    // or the observable of empty items if no search term
                     : Observable.of<SearchResultDto[]>([]))
                 .catch(error => {
                     // TODO: real error handling
