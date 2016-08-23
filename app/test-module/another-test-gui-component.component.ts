@@ -1,26 +1,42 @@
 import {
-    Component, OnInit, DoCheck, AfterViewChecked,
-    AfterViewInit, ChangeDetectorRef, Input
+    Component,
+    OnInit,
+    DoCheck,
+    AfterViewChecked,
+    AfterViewInit,
+    ChangeDetectorRef,
+    Input,
+    OnDestroy
 } from "@angular/core";
 import {GuiComponent} from "../gui/gui-component";
 import {AnotherTestGuiComponentService, SearchResultDto} from "./another-test-gui-component.service";
-import {Subject, Observable} from "rxjs/Rx";
+import {Subject, Observable, Subscription} from "rxjs/Rx";
 import {UserContextDto} from "./test-gui-component.service";
+import {GuiContextService, GuiContext} from "./gui-context.service";
 @Component({
     selector: 'another-test',
     templateUrl: 'app/test-module/another-test-gui-component.component.html',
     providers: [AnotherTestGuiComponentService]
 })
-export class AnotherTestGuiComponent extends GuiComponent implements OnInit, DoCheck, AfterViewChecked, AfterViewInit {
+export class AnotherTestGuiComponent extends GuiComponent implements OnInit, OnDestroy, DoCheck, AfterViewChecked, AfterViewInit {
 
     @Input() selectedContext:UserContextDto;
     searchResultList:SearchResultDto[] = [new SearchResultDto("a", "b")];
     resultList:Observable<SearchResultDto[]>;
     pouet:string;
+    guiContextHistory:Array<GuiContext> = new Array<GuiContext>();
     private searchTerms = new Subject<string>();
 
-    constructor(private atgcs:AnotherTestGuiComponentService, private cdr:ChangeDetectorRef) {
+    // listening to GuiContext broadcasting from other components
+    subscription: Subscription;
+
+    constructor(private atgcs:AnotherTestGuiComponentService, private cdr:ChangeDetectorRef, private gcs:GuiContextService) {
         super();
+        this.subscription = this.gcs.guiContext$.subscribe(guiContext => {
+            console.log("AnotherTestGuiComponent received GuiContext: " + guiContext);
+            this.guiContextHistory.push(guiContext);
+            this.cdr.markForCheck();
+        });
     }
 
     ngOnInit() {
@@ -28,7 +44,7 @@ export class AnotherTestGuiComponent extends GuiComponent implements OnInit, DoC
         this.atgcs.getResults().then(result => {
             this.searchResultList = this.searchResultList.concat(result);
             this.pouet = "recool";
-            // this.cdr.markForCheck();
+            this.cdr.markForCheck();
         });
         this.resultList = this.searchTerms
             .debounceTime(300)        // wait for 300ms pause in events
@@ -60,6 +76,15 @@ export class AnotherTestGuiComponent extends GuiComponent implements OnInit, DoC
     }
 
     onResultClicked(result:string) {
-        console.log('clicked on ' + result)
+    }
+
+    goToId(id:string){
+        let guiContext = new GuiContext([id]);
+        this.gcs.broadcastContext(guiContext);
+    }
+
+    ngOnDestroy(){
+        console.log("destroying component");
+        this.subscription.unsubscribe();
     }
 }

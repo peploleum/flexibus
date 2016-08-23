@@ -13,8 +13,11 @@
     <span>
       {{userRight}}
     </span>
-            <button (click)="goToRight(userContext)">Go To</button>
+            <button (click)="goToRight(userRight)">Go To</button>
         </li>
     </ul>
+    <div *ngFor="let guiContext of guiContextHistory">
+        <span *ngFor="let guiContextId of guiContext.ids">{{guiContextId}}</span>
+    </div>
 </div>
 

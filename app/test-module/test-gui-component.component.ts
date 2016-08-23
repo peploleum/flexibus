@@ -1,19 +1,28 @@
-import {Component, OnInit, Output, EventEmitter, ChangeDetectorRef} from "@angular/core";
+import {Component, OnInit, ChangeDetectorRef, OnDestroy} from "@angular/core";
 import {GuiComponent} from "../gui/gui-component";
 import {TestGuiComponentService, UserContextDto} from "./test-gui-component.service";
 import * as d3 from "d3";
+import {GuiContextService, GuiContext} from "./gui-context.service";
+import {Subscription} from "rxjs/Rx";
 @Component({
     selector: 'test',
     templateUrl: 'app/test-module/test-gui-component.component.html',
     providers: [TestGuiComponentService]
 })
-export class TestGuiComponent extends GuiComponent implements OnInit {
+export class TestGuiComponent extends GuiComponent implements OnInit, OnDestroy {
 
     userContext:UserContextDto = new UserContextDto("", []);
-    @Output() contextSelectedEventEmitter: EventEmitter<UserContextDto> = new EventEmitter<UserContextDto>();
+    guiContextHistory:Array<GuiContext> = new Array<GuiContext>();
 
-    constructor(private geops:TestGuiComponentService, private cdr:ChangeDetectorRef) {
+    subscription: Subscription;
+
+    constructor(private geops:TestGuiComponentService, private cdr:ChangeDetectorRef, private gcs:GuiContextService) {
         super();
+        this.subscription = gcs.guiContext$.subscribe(guiContext => {
+            console.log("TestGuiComponent received new guiContext " + guiContext.ids);
+            this.guiContextHistory.push(guiContext);
+            this.cdr.markForCheck();
+        });
     }
 
     ngOnInit() {
@@ -39,21 +48,26 @@ export class TestGuiComponent extends GuiComponent implements OnInit {
     private onUserContextDto() {
         let receivedUserContextDto = result => {
             console.log("received dto" + result);
-            this.userContext = result
+            this.userContext = result;
             this.cdr.markForCheck();
         };
         return receivedUserContextDto;
     }
 
-    goToRight(clickedRight:UserContextDto){
+    goToRight(clickedRight:string) {
         console.log("go to right requested " + clickedRight);
-        this.contextSelectedEventEmitter.emit(clickedRight);
+        let guiContext = new GuiContext([clickedRight]);
+        this.gcs.broadcastContext(guiContext);
     }
 
-    onSelect(selectedRight:string){
+    onSelect(selectedRight:string) {
         console.log("selected right " + selectedRight);
     }
 
+    ngOnDestroy() {
+        console.log("destroying");
+        this.subscription.unsubscribe();
+    }
 
 
 }

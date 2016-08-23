@@ -1,7 +1,7 @@
 ﻿<div>
     Antoher test
     <h4>Search {{pouet}}</h4>
-    <input #searchBox (keyup)="search(searchBox.value)" />
+    <input #searchBox (keyup)="search(searchBox.value)"/>
     <div>
         <div *ngFor="let result of resultList| async"
              (click)="onResultClicked(result)">
@@ -10,10 +10,13 @@
     </div>
     <div *ngIf="!searchResultList">chouettos</div>
     <div *ngIf="searchResultList">
-    <ul>
-        <li *ngFor="let searchResultItem of searchResultList"><span>{{searchResultItem.id}}</span><span>{{searchResultItem.value}}</span>
-        </li>
-    </ul>
+        <ul>
+            <li *ngFor="let searchResultItem of searchResultList">
+                <span>{{searchResultItem.id}}</span><span>     </span><span>{{searchResultItem.value}}</span>
+                <button (click)="goToId(searchResultItem.id)">Go To</button>
+            </li>
+        </ul>
     </div>
+    <gui-context-history[guiContextHistory]="guiContextHistory"></gui-context-history>
 </div>
 

@@ -14,6 +14,7 @@
 // 4 - navbar / sidebar
 // 5 - try AOT instead of JIT compilation http://angularjs.blogspot.fr/2016/08/angular-2-rc5-ngmodules-lazy-loading.html
 // https://medium.freecodecamp.com/angular-2-versus-react-there-will-be-blood-66595faafd51
+
 export class AppComponent implements OnInit {
     title = 'Flexibus';
 
