@@ -2,14 +2,14 @@
  * Created by tbonavia on 18/08/2016.
  */
 import {Injectable} from "@angular/core";
-import {GuiManager} from "./gui-manager";
-import {GuiContainer} from "./gui-container";
-import {GuiItem} from "./gui-item";
-import {TestGuiComponent} from "../test-module/test-gui-component.component";
-import {AnotherTestGuiComponent} from "../test-module/another-test-gui-component.component";
-import {CartoComponent} from "../test-module/carto.component";
-import {ResultDisplayComponent} from "../test-module/result-display-component.component";
-import {EasyComponent} from "../test-module/easiest-gui-component.component";
+import {GuiManager} from "./gui/gui-manager";
+import {GuiContainer} from "./gui-api/gui-container";
+import {GuiItem} from "./gui-api/gui-item";
+import {TestGuiComponent} from "./test-module/test-gui-component.component";
+import {AnotherTestGuiComponent} from "./test-module/another-test-gui-component.component";
+import {CartoComponent} from "./test-module/carto.component";
+import {ResultDisplayComponent} from "./test-module/result-display-component.component";
+import {EasyComponent} from "./test-module/easiest-gui-component.component";
 
 @Injectable()
 export class GuiManagerService {
