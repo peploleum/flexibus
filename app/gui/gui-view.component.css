@@ -28,3 +28,15 @@
 
     background-color: orangered;
 }
+
+#left-container.empty, #right-container.empty {
+    width: 0%;
+}
+
+#main-container.withoutOneSide {
+    width: 80%;
+}
+
+#main-container.withoutBothSides {
+    width: 100%;
+}
