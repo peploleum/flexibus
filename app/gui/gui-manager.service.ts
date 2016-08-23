@@ -20,7 +20,7 @@ export class GuiManagerService {
 
 
         container.addLeftItem(new GuiItem('test1', EasyComponent));
-        container.addLeftItem(new GuiItem('test3', EasyComponent));
+        container.addLeftItem(new GuiItem('test3', CartoComponent));
         container.addLeftItem(new GuiItem('test3', EasyComponent));
         container.addLeftItem(new GuiItem('test3', EasyComponent));
         container.addLeftItem(new GuiItem('test3', EasyComponent));
@@ -31,7 +31,7 @@ export class GuiManagerService {
 
         // let container2 = new GuiContainer(new GuiItem('Test', AnotherTestGuiComponent));
         // container2.addLeftItem(new GuiItem('test left item', ResultDisplayComponent));
-        container2.addRightItem(new GuiItem('test left item', TestGuiComponent));
+        // container2.addRightItem(new GuiItem('test left item', TestGuiComponent));
 
 
         this.guiManager.addGuiContainer(container);
