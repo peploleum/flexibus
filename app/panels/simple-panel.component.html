@@ -1,31 +1,6 @@
-<style>
-    .simple-panel {
-
-    }
-
-    .simple-panel .header {
-
-    }
-
-    .simple-panel .header.normal {
-        background-color: cornflowerblue;
-        color: white;
-    }
-
-    .simple-panel .header.warning {
-        background-color: coral;
-        color: black;
-    }
-
-    .simple-panel .header.error {
-        background-color: crimson;
-        color: white
-    }
-</style>
-
 <div class="simple-panel"
      style="margin:5px; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); border-radius: 2px;
-     display:flex; flex-direction:column">
+     display:flex; flex-direction:column; flex-wrap: nowrap;">
     <div class="header"
          style="padding: 16px; border-top-left-radius: 2px; border-top-right-radius: 2px; font-size: 24px; font-weight: 400; cursor: pointer"
          (click)="displayContent=!displayContent"
@@ -36,6 +11,6 @@
      Par la suite il faudra réfléchir à savoir si on veut détruire le composant et le réinstantier à chaque fois ou bien juste le masquer -->
     <div style="background-color: white; padding: 5px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; flex-grow:1"
          [hidden]="!displayContent">
-        <div #panelContent></div>
+        <div *contentLoader="panelContentType"></div>
     </div>
 </div>

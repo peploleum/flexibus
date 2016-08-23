@@ -8,7 +8,8 @@ import * as ol from 'openlayers'
 
 @Component({
     selector: 'carto',
-    template: '<div id="mapAnchor"></div>',
+    template: '<div id="mapAnchor" style="height:800px"></div>',
+    styleUrls: ['app/test-module/carto.component.css']
 })
 export class CartoComponent extends GuiComponent implements OnInit {
     constructor(private element:ElementRef) {

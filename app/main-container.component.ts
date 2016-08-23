@@ -2,10 +2,17 @@ import {
     Component,
     OnInit,
     ComponentFactoryResolver,
-    ViewContainerRef, ViewChild,
-} from '@angular/core';
-import {GuiContainer} from './gui/gui-container';
-import {GuiManagerService} from './gui/gui-manager.service';
+    ViewContainerRef,
+    ViewChild,
+    AfterViewInit,
+    ViewChildren,
+    QueryList
+} from "@angular/core";
+import {GuiContainer} from "./gui/gui-container";
+import {GuiManagerService} from "./gui/gui-manager.service";
+import {IGuiComponent} from "./gui/gui-component";
+import {EasyComponent} from "./test-module/easiest-gui-component.component";
+import {SimplePanelComponent} from "./panels/simple-panel.component";
 import {GuiView} from "./gui/gui-view.component";
 //import * as components from './index';
 
@@ -27,17 +34,35 @@ var customEntryComponents = [];
 // 3 - flexbox containers for modules
 // 4 - navbar / sidebar
 // 5 - try AOT instead of JIT compilation http://angularjs.blogspot.fr/2016/08/angular-2-rc5-ngmodules-lazy-loading.html
-export class MainContainerComponent implements OnInit {
+export class MainContainerComponent implements OnInit, AfterViewInit {
     @ViewChild('mainAnchor', {read: ViewContainerRef}) anchor:ViewContainerRef;
 
+    personalContent: IGuiComponent = EasyComponent;
+
     constructor(private cfr:ComponentFactoryResolver, private gms:GuiManagerService) {
+    }
+
+    ngAfterViewInit(){
+        if(this.panels && this.panels.length > 0){
+            for(let panel of this.panels.toArray()){
+                console.log(panel.panelContent);
+            }
+        }
+
+        this.panels.changes.map((panel) => {
+            console.log(panel)
+        });
     }
 
     ngOnInit() {
         let containers:Array<GuiContainer> = this.gms.getGuiContainers();
 
+
+
         for (var container of containers) {
             console.log('trying to inject :) ' + container.mainItem.name + ' component in the container');
+
+
 
             let view = this.cfr.resolveComponentFactory(GuiView);
             let viewComponentRef = this.anchor.createComponent(view);
