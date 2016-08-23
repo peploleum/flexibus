@@ -18,7 +18,6 @@ export class GuiManagerService {
     constructor() {
         let container = new GuiContainer(new GuiItem('Cartographie', CartoComponent));
 
-
         container.addLeftItem(new GuiItem('test1', EasyComponent));
         container.addLeftItem(new GuiItem('test3', EasyComponent));
         container.addLeftItem(new GuiItem('test3', EasyComponent));
@@ -29,13 +28,13 @@ export class GuiManagerService {
         container.addRightItem(new GuiItem('test2', EasyComponent));
         container.addRightItem(new GuiItem('test2', EasyComponent));
 
-        // let container2 = new GuiContainer(new GuiItem('Test', AnotherTestGuiComponent));
-        // container2.addLeftItem(new GuiItem('test left item', ResultDisplayComponent));
+        let container2 = new GuiContainer(new GuiItem('Test', AnotherTestGuiComponent));
+        container2.addLeftItem(new GuiItem('test left item', ResultDisplayComponent));
         container2.addRightItem(new GuiItem('test left item', TestGuiComponent));
 
 
-        this.guiManager.addGuiContainer(container);
-        // this.guiManager.addGuiContainer(container2);
+        // this.guiManager.addGuiContainer(container);
+        this.guiManager.addGuiContainer(container2);
     }
 
     getGuiContainers():Array<GuiContainer> {

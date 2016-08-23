@@ -16,8 +16,6 @@
             <button (click)="goToRight(userRight)">Go To</button>
         </li>
     </ul>
-    <div *ngFor="let guiContext of guiContextHistory">
-        <span *ngFor="let guiContextId of guiContext.ids">{{guiContextId}}</span>
-    </div>
+    <gui-context-history [guiContextHistory]="guiContextHistory"></gui-context-history>
 </div>
 
