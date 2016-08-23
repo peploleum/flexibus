@@ -11,7 +11,7 @@ import {TestModule} from "./test-module/test-module";
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule, FooModule, TestModule, GuiModule],
     declarations: [MainContainerComponent, AppComponent],
-    entryComponents: [FooModule.getComponents(), GuiModule.getComponents()],
+    entryComponents: [FooModule.getComponents(), GuiModule.getComponents(), TestModule.getComponents()],
     bootstrap: [AppComponent]
 })
 export class AppModule {

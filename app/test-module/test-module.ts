@@ -3,7 +3,6 @@ import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {ExampleGuiComponent} from "./example-gui-component.component";
 import {TestGuiComponent} from "./test-gui-component.component";
-import {SimplePanelComponent} from "../panels/simple-panel.component";
 import {CartoComponent} from "./carto.component";
 import {AnotherTestGuiComponent} from "./another-test-gui-component.component";
 import {EasyComponent} from "./easiest-gui-component.component";
@@ -17,6 +16,6 @@ import {GuiModule} from "../gui/gui-module";
 })
 export class TestModule {
     static getComponents() {
-        return [ExampleGuiComponent, TestGuiComponent, SimplePanelComponent, CartoComponent, AnotherTestGuiComponent, EasyComponent, ResultDisplayComponent];
+        return [ExampleGuiComponent, TestGuiComponent, CartoComponent, AnotherTestGuiComponent, EasyComponent, ResultDisplayComponent];
     }
 }

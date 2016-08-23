@@ -7,8 +7,8 @@ import {GuiComponent} from "./gui-component";
 import {GuiManagerService} from "./gui-manager.service";
 import {GuiView} from "./gui-view.component";
 import {FormsModule} from "@angular/forms";
-import {SimplePanelComponent} from "../panels/simple-panel.component";
 import {GuiContextHistory} from "../test-module/gui-context-history.component";
+import {SimplePanelComponent} from "../panels/simple-panel.component";
 
 @NgModule({
     imports: [CommonModule, FormsModule],
@@ -25,6 +25,6 @@ export class GuiModule {
 
     static getComponents() {
         // return [ExampleGuiComponent, GuiView, TestGuiComponent, SimplePanelComponent,CartoComponent, AnotherTestGuiComponent, EasyComponent, ResultDisplayComponent, GuiContextHistory];
-        return [ GuiView ];
+        return [ GuiView, SimplePanelComponent ];
     }
 }
