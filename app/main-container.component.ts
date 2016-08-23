@@ -37,28 +37,14 @@ var customEntryComponents = [];
 export class MainContainerComponent implements OnInit, AfterViewInit {
     @ViewChild('mainAnchor', {read: ViewContainerRef}) anchor:ViewContainerRef;
 
-    personalContent: IGuiComponent = EasyComponent;
-
     constructor(private cfr:ComponentFactoryResolver, private gms:GuiManagerService) {
     }
 
     ngAfterViewInit(){
-        if(this.panels && this.panels.length > 0){
-            for(let panel of this.panels.toArray()){
-                console.log(panel.panelContent);
-            }
-        }
-
-        this.panels.changes.map((panel) => {
-            console.log(panel)
-        });
     }
 
     ngOnInit() {
         let containers:Array<GuiContainer> = this.gms.getGuiContainers();
-
-
-
         for (var container of containers) {
             console.log('trying to inject :) ' + container.mainItem.name + ' component in the container');
 
