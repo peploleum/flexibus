@@ -1,18 +1,6 @@
-import {
-    Component,
-    OnInit,
-    ComponentFactoryResolver,
-    ViewContainerRef,
-    ViewChild,
-    AfterViewInit,
-    ViewChildren,
-    QueryList
-} from "@angular/core";
+import {Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChild, AfterViewInit} from "@angular/core";
 import {GuiContainer} from "./gui/gui-container";
 import {GuiManagerService} from "./gui/gui-manager.service";
-import {IGuiComponent} from "./gui/gui-component";
-import {EasyComponent} from "./test-module/easiest-gui-component.component";
-import {SimplePanelComponent} from "./panels/simple-panel.component";
 import {GuiView} from "./gui/gui-view.component";
 //import * as components from './index';
 
@@ -47,8 +35,6 @@ export class MainContainerComponent implements OnInit, AfterViewInit {
         let containers:Array<GuiContainer> = this.gms.getGuiContainers();
         for (var container of containers) {
             console.log('trying to inject :) ' + container.mainItem.name + ' component in the container');
-
-
 
             let view = this.cfr.resolveComponentFactory(GuiView);
             let viewComponentRef = this.anchor.createComponent(view);
