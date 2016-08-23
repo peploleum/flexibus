@@ -1,0 +1,22 @@
+.simple-panel {
+
+}
+
+.simple-panel .header {
+
+}
+
+.simple-panel .header.normal {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.simple-panel .header.warning {
+    background-color: coral;
+    color: black;
+}
+
+.simple-panel .header.error {
+    background-color: crimson;
+    color: white
+}
