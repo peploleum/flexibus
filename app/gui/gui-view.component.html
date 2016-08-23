@@ -1,10 +1,16 @@
-<div id="left-container" [class.empty]="leftComponents.length == 0">
-    <simple-panel class="left" *ngFor="let compType of leftComponents" [content]="compType"></simple-panel>
+<div id="full-left-container" [class.empty]="leftComponents.length == 0" [style.width]="leftSize">
+    <div id="left-container">
+        <simple-panel class="left" *ngFor="let compType of leftComponents" [content]="compType"></simple-panel>
+    </div>
+    <div id="left-resizer" style="width:5px;cursor: ew-resize" (mousedown)="startResize(sides.Left)"></div>
 </div>
 <div id="main-container" [class.withoutOneSide]="leftComponents.length == 0 || rightComponents.length == 0"
-     [class.withoutBothSides]="leftComponents.length == 0 && rightComponents.length == 0">
+     [class.withoutBothSides]="leftComponents.length == 0 && rightComponents.length == 0" [style.width]="mainSize">
     <simple-panel class="main" [content]="mainComponent"></simple-panel>
 </div>
-<div id="right-container" [class.empty]="rightComponents.length == 0">
-    <simple-panel class="right" *ngFor="let compType of rightComponents" [content]="compType"></simple-panel>
+<div id="full-right-container" [class.empty]="rightComponents.length == 0" [style.width]="rightSize">
+    <div id="right-resizer" style="width:5px; cursor:ew-resize" (mousedown)="startResize(sides.Right)"></div>
+    <div id="right-container">
+        <simple-panel class="right" *ngFor="let compType of rightComponents" [content]="compType"></simple-panel>
+    </div>
 </div>
