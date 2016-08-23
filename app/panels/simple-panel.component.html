@@ -8,8 +8,7 @@
          [ngClass]="type">
         {{titre}}
     </div>
-    <!-- TODO TBA : Ici, il faut mettre hidden et pas ngIf sinon on n'arrive pas à rapatrier #panelContent dans @ViewChild... en tous cas pas encore.
-     Par la suite il faudra réfléchir à savoir si on veut détruire le composant et le réinstantier à chaque fois ou bien juste le masquer -->
+
     <div style="background-color: white; padding: 5px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; flex-grow:1; display:flex; flex-direction: column"
          *ngIf="displayContent">
         <div *contentLoader="panelContentType"></div>

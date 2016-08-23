@@ -1,9 +1,10 @@
-<div id="left-container">
+<div id="left-container" [class.empty]="leftComponents.length == 0">
     <simple-panel class="left" *ngFor="let compType of leftComponents" [content]="compType"></simple-panel>
 </div>
-<div id="main-container">
+<div id="main-container" [class.withoutOneSide]="leftComponents.length == 0 || rightComponents.length == 0"
+     [class.withoutBothSides]="leftComponents.length == 0 && rightComponents.length == 0">
     <simple-panel class="main" [content]="mainComponent"></simple-panel>
 </div>
-<div id="right-container">
+<div id="right-container" [class.empty]="rightComponents.length == 0">
     <simple-panel class="right" *ngFor="let compType of rightComponents" [content]="compType"></simple-panel>
 </div>

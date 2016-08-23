@@ -19,12 +19,12 @@ export class GuiManagerService {
         let container = new GuiContainer(new GuiItem('Cartographie', CartoComponent));
 
 
-        container.addLeftItem(new GuiItem('test1', EasyComponent));
-        container.addLeftItem(new GuiItem('test3', CartoComponent));
-        container.addLeftItem(new GuiItem('test3', EasyComponent));
-        container.addLeftItem(new GuiItem('test3', EasyComponent));
-        container.addLeftItem(new GuiItem('test3', EasyComponent));
-        container.addLeftItem(new GuiItem('test3', EasyComponent));
+        // container.addLeftItem(new GuiItem('test1', EasyComponent));
+        // container.addLeftItem(new GuiItem('test3', CartoComponent));
+        // container.addLeftItem(new GuiItem('test3', EasyComponent));
+        // container.addLeftItem(new GuiItem('test3', EasyComponent));
+        // container.addLeftItem(new GuiItem('test3', EasyComponent));
+        // container.addLeftItem(new GuiItem('test3', EasyComponent));
         container.addRightItem(new GuiItem('test2', EasyComponent));
         container.addRightItem(new GuiItem('test2', EasyComponent));
         container.addRightItem(new GuiItem('test2', EasyComponent));
