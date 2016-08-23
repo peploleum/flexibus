@@ -1,7 +1,7 @@
 /**
  * Created by tbonavia on 17/08/2016.
  */
-import {GuiContainer} from "./gui-container";
+import {GuiContainer} from "../gui-api/gui-container";
 
 export class GuiManager {
     containers: Array<GuiContainer> = new Array<GuiContainer>();

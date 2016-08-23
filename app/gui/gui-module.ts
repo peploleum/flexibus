@@ -4,11 +4,11 @@
 import {NgModule, ModuleWithProviders} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {GuiComponent} from "./gui-component";
-import {GuiManagerService} from "./gui-manager.service";
+import {GuiManagerService} from "../main-container.service";
 import {GuiView} from "./gui-view.component";
 import {FormsModule} from "@angular/forms";
 import {GuiContextHistory} from "../test-module/gui-context-history.component";
-import {SimplePanelComponent} from "../panels/simple-panel.component";
+import {SimplePanelComponent} from "./simple-panel.component";
 
 @NgModule({
     imports: [CommonModule, FormsModule],

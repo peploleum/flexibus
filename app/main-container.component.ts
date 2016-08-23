@@ -1,6 +1,6 @@
 import {Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChild, AfterViewInit} from "@angular/core";
-import {GuiContainer} from "./gui/gui-container";
-import {GuiManagerService} from "./gui/gui-manager.service";
+import {GuiContainer} from "./gui-api/gui-container";
+import {GuiManagerService} from "./main-container.service";
 import {GuiView} from "./gui/gui-view.component";
 
 @Component({

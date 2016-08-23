@@ -7,7 +7,7 @@ import {Subscription} from "rxjs/Rx";
 @Component({
     moduleId: module.id,
     selector: 'test',
-    templateUrl: 'test-gui-component.component.html',
+    templateUrl: './test-gui-component.component.html',
     providers: [TestGuiComponentService]
 })
 export class TestGuiComponent extends GuiComponent implements OnInit, OnDestroy {

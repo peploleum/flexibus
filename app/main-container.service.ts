@@ -2,14 +2,12 @@
  * Created by tbonavia on 18/08/2016.
  */
 import {Injectable} from "@angular/core";
-import {GuiManager} from "./gui-manager";
-import {GuiContainer} from "./gui-container";
-import {GuiItem} from "./gui-item";
-import {TestGuiComponent} from "../test-module/test-gui-component.component";
-import {AnotherTestGuiComponent} from "../test-module/another-test-gui-component.component";
-import {CartoComponent} from "../test-module/carto.component";
-import {ResultDisplayComponent} from "../test-module/result-display-component.component";
-import {EasyComponent} from "../test-module/easiest-gui-component.component";
+import {GuiManager} from "./gui/gui-manager";
+import {GuiContainer} from "./gui-api/gui-container";
+import {GuiItem} from "./gui-api/gui-item";
+import {TestGuiComponent} from "./test-module/test-gui-component.component";
+import {AnotherTestGuiComponent} from "./test-module/another-test-gui-component.component";
+import {CartoComponent} from "./test-module/carto.component";
 
 @Injectable()
 export class GuiManagerService {
@@ -25,9 +23,9 @@ export class GuiManagerService {
         // container.addLeftItem(new GuiItem('test3', EasyComponent));
         // container.addLeftItem(new GuiItem('test3', EasyComponent));
         // container.addLeftItem(new GuiItem('test3', EasyComponent));
-        container.addRightItem(new GuiItem('test2', EasyComponent));
-        container.addRightItem(new GuiItem('test2', EasyComponent));
-        container.addRightItem(new GuiItem('test2', EasyComponent));
+        container.addRightItem(new GuiItem('test2', TestGuiComponent));
+        container.addRightItem(new GuiItem('test2', AnotherTestGuiComponent));
+        // container.addRightItem(new GuiItem('test2', EasyComponent));
 
         // let container2 = new GuiContainer(new GuiItem('Test', AnotherTestGuiComponent));
         // container2.addLeftItem(new GuiItem('test left item', ResultDisplayComponent));
