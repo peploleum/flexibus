@@ -6,9 +6,10 @@ import {MainContainerComponent} from "./main-container.component";
 import {HttpModule} from "@angular/http";
 import {FooModule} from "./foo-module/foo-module";
 import {GuiModule} from "./gui/gui-module";
+import {TestModule} from "./test-module/test-module";
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, HttpModule, FooModule, GuiModule],
+    imports: [BrowserModule, FormsModule, HttpModule, FooModule, TestModule, GuiModule],
     declarations: [MainContainerComponent, AppComponent],
     entryComponents: [FooModule.getComponents(), GuiModule.getComponents()],
     bootstrap: [AppComponent]
