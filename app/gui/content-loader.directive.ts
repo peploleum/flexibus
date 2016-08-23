@@ -3,7 +3,7 @@
  */
 
 import {Directive, Input, ComponentFactoryResolver, ViewContainerRef, ComponentRef} from "@angular/core";
-import {GuiComponent, IGuiComponent} from "../gui/gui-component";
+import {GuiComponent, IGuiComponent} from "./gui-component";
 @Directive({
     selector: '[contentLoader]'
 })

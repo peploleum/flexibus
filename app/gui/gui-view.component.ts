@@ -3,7 +3,7 @@
  */
 import {Component, AfterViewInit, Renderer, ComponentRef, ViewChildren, QueryList} from "@angular/core";
 import {IGuiComponent, GuiComponent} from "./gui-component";
-import {SimplePanelComponent} from "../panels/simple-panel.component";
+import {SimplePanelComponent} from "./simple-panel.component";
 import {GuiContextService} from "./gui-context.service";
 
 @Component({
