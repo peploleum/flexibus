@@ -1,12 +1,9 @@
 <div id="left-container">
-    <!--<div #left></div>-->
-    <simple-panel *ngFor="let compType of leftComponents" [content]="compType"></simple-panel>
+    <simple-panel class="left" *ngFor="let compType of leftComponents" [content]="compType"></simple-panel>
 </div>
 <div id="main-container">
-    <!--<div #main></div>-->
-    <simple-panel [content]="mainComponent"></simple-panel>
+    <simple-panel class="main" [content]="mainComponent"></simple-panel>
 </div>
 <div id="right-container">
-    <!--<div #right></div>-->
-    <simple-panel *ngFor="let compType of rightComponents" [content]="compType"></simple-panel>
+    <simple-panel class="right" *ngFor="let compType of rightComponents" [content]="compType"></simple-panel>
 </div>

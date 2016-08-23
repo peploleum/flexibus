@@ -1,14 +1,7 @@
 /**
  * Created by tbonavia on 17/08/2016.
  */
-import {
-    Component,
-    Input,
-    ComponentFactoryResolver,
-    ComponentRef,
-    QueryList,
-    AfterViewInit, ViewChild
-} from "@angular/core";
+import {Component, Input, ComponentFactoryResolver, AfterViewInit, ViewChild, HostBinding} from "@angular/core";
 import {IGuiComponent, GuiComponent} from "../gui/gui-component";
 import {ContentLoader} from "./content-loader.directive";
 
@@ -24,14 +17,15 @@ export class SimplePanelComponent implements AfterViewInit {
     @Input()
     type:PanelType = 'normal';
 
+    @HostBinding('class.active')
     displayContent = true;
-    initialized = false;
 
     @Input('content')
     panelContentType:IGuiComponent;
     private _panelContent: GuiComponent;
 
     @ViewChild(ContentLoader) loader: ContentLoader;
+
 
     constructor(private cfr:ComponentFactoryResolver) {
     }
