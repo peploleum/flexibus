@@ -7,6 +7,7 @@ import {Subscription} from "rxjs/Rx";
     moduleId: module.id,
     selector: 'foo-form',
     templateUrl: 'foo-form.component.html',
+    styleUrls:['foo-form.component.css'],
     providers: [FooFormService]
 })
 export class FooForm extends GuiComponent implements OnInit, OnDestroy {

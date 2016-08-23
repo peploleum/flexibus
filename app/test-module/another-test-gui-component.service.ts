@@ -10,28 +10,28 @@ export class AnotherTestGuiComponentService {
     constructor(private http:Http) {
     }
 
-    getResults(): Promise<SearchResultDto[]> {
+    getResults():Promise<SearchResultDto[]> {
         return this.http.get(this._searchUrl)
             .toPromise()
             .then(response => response.json() as SearchResultDto[])
             .catch(this.handleError);
     }
 
-    search(item:string):Observable<SearchResultDto[]>{
+    search(item:string):Observable<SearchResultDto[]> {
         let finalUrl = this._searchUrl + '/substring/' + item;
         console.log("searching @ " + finalUrl);
-        return this.http.get(finalUrl).map((r: Response) => r.json() as SearchResultDto[]);
+        return this.http.get(finalUrl).map((r:Response) => r.json() as SearchResultDto[]);
     }
 
-    private handleError(error: any): Promise<any> {
+    private handleError(error:any):Promise<any> {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     }
 }
 
 export class SearchResultDto {
-    private _id:string;
-    private _value:string;
+    _id:string;
+    _value:string;
 
     constructor(id:string, value:string) {
         this._id = id;
