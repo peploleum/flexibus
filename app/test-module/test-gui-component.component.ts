@@ -2,11 +2,12 @@ import {Component, OnInit, OnDestroy} from "@angular/core";
 import {GuiComponent} from "../gui/gui-component";
 import {TestGuiComponentService, UserContextDto} from "./test-gui-component.service";
 import * as d3 from "d3";
-import {GuiContextService, GuiContext} from "./gui-context.service";
+import {GuiContextService, GuiContext} from "../gui/gui-context.service";
 import {Subscription} from "rxjs/Rx";
 @Component({
+    moduleId: module.id,
     selector: 'test',
-    templateUrl: 'app/test-module/test-gui-component.component.html',
+    templateUrl: 'test-gui-component.component.html',
     providers: [TestGuiComponentService]
 })
 export class TestGuiComponent extends GuiComponent implements OnInit, OnDestroy {
@@ -19,7 +20,7 @@ export class TestGuiComponent extends GuiComponent implements OnInit, OnDestroy 
     constructor(private geops:TestGuiComponentService, private gcs:GuiContextService) {
         super();
         this.subscription = gcs.guiContext$.subscribe(guiContext => {
-            console.log("TestGuiComponent received new guiContext " + guiContext.ids);
+            console.log("FooForm received new guiContext " + guiContext.ids);
             this.guiContextHistory.push(guiContext);
         });
     }

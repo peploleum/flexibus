@@ -4,7 +4,7 @@
 import {Component, AfterViewInit, Renderer, ComponentRef, ViewChildren, QueryList} from "@angular/core";
 import {IGuiComponent, GuiComponent} from "./gui-component";
 import {SimplePanelComponent} from "../panels/simple-panel.component";
-import {GuiContextService} from "../test-module/gui-context.service";
+import {GuiContextService} from "./gui-context.service";
 
 @Component({
     selector: 'gui-view',

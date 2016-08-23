@@ -1,0 +1,22 @@
+import {NgModule} from "@angular/core";
+import {CommonModule} from "@angular/common";
+import {FormsModule} from "@angular/forms";
+import {ExampleGuiComponent} from "./example-gui-component.component";
+import {TestGuiComponent} from "./test-gui-component.component";
+import {SimplePanelComponent} from "../panels/simple-panel.component";
+import {CartoComponent} from "./carto.component";
+import {AnotherTestGuiComponent} from "./another-test-gui-component.component";
+import {EasyComponent} from "./easiest-gui-component.component";
+import {ContentLoader} from "../panels/content-loader.directive";
+import {ResultDisplayComponent} from "./result-display-component.component";
+
+@NgModule({
+    imports: [CommonModule, FormsModule],
+    declarations: [ ExampleGuiComponent, TestGuiComponent, SimplePanelComponent, CartoComponent, AnotherTestGuiComponent, EasyComponent, ContentLoader, ResultDisplayComponent ],
+    exports: [ExampleGuiComponent, TestGuiComponent, SimplePanelComponent, CartoComponent, AnotherTestGuiComponent, EasyComponent, ContentLoader, ResultDisplayComponent]
+})
+export class TestModule {
+    static getComponents() {
+        return [ExampleGuiComponent, TestGuiComponent, SimplePanelComponent, CartoComponent, AnotherTestGuiComponent, EasyComponent, ContentLoader, ResultDisplayComponent];
+    }
+}

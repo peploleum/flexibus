@@ -3,10 +3,11 @@ import {GuiComponent} from "../gui/gui-component";
 import {AnotherTestGuiComponentService, SearchResultDto} from "./another-test-gui-component.service";
 import {Subject, Observable, Subscription} from "rxjs/Rx";
 import {UserContextDto} from "./test-gui-component.service";
-import {GuiContextService, GuiContext} from "./gui-context.service";
+import {GuiContextService, GuiContext} from "../gui/gui-context.service";
 @Component({
+    moduleId: module.id, //https://angular.io/docs/ts/latest/cookbook/component-relative-paths.html
     selector: 'another-test',
-    templateUrl: 'app/test-module/another-test-gui-component.component.html',
+    templateUrl: 'another-test-gui-component.component.html',
     providers: [AnotherTestGuiComponentService]
 })
 export class AnotherTestGuiComponent extends GuiComponent implements OnInit, OnDestroy, DoCheck, AfterViewChecked, AfterViewInit {
