@@ -1,4 +1,4 @@
-import {Component, OnInit, ChangeDetectorRef, OnDestroy} from "@angular/core";
+import {Component, OnInit, OnDestroy} from "@angular/core";
 import {GuiComponent} from "../gui/gui-component";
 import {TestGuiComponentService, UserContextDto} from "./test-gui-component.service";
 import * as d3 from "d3";
@@ -16,12 +16,11 @@ export class TestGuiComponent extends GuiComponent implements OnInit, OnDestroy 
 
     subscription: Subscription;
 
-    constructor(private geops:TestGuiComponentService, private cdr:ChangeDetectorRef, private gcs:GuiContextService) {
+    constructor(private geops:TestGuiComponentService, private gcs:GuiContextService) {
         super();
         this.subscription = gcs.guiContext$.subscribe(guiContext => {
             console.log("TestGuiComponent received new guiContext " + guiContext.ids);
             this.guiContextHistory.push(guiContext);
-            this.cdr.markForCheck();
         });
     }
 
@@ -49,7 +48,6 @@ export class TestGuiComponent extends GuiComponent implements OnInit, OnDestroy 
         let receivedUserContextDto = result => {
             console.log("received dto" + result);
             this.userContext = result;
-            this.cdr.markForCheck();
         };
         return receivedUserContextDto;
     }

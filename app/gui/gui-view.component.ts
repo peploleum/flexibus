@@ -4,11 +4,13 @@
 import {Component, AfterViewInit, Renderer, ComponentRef, ViewChildren, QueryList} from "@angular/core";
 import {IGuiComponent, GuiComponent} from "./gui-component";
 import {SimplePanelComponent} from "../panels/simple-panel.component";
+import {GuiContextService} from "../test-module/gui-context.service";
 
 @Component({
     selector: 'gui-view',
     templateUrl: 'app/gui/gui-view.component.html',
-    styleUrls: ['app/gui/gui-view.component.css']
+    styleUrls: ['app/gui/gui-view.component.css'],
+    providers: [GuiContextService]
 })
 export class GuiView implements AfterViewInit {
     @ViewChildren(SimplePanelComponent) panels: QueryList<SimplePanelComponent>;

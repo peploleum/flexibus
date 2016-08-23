@@ -1,13 +1,4 @@
-import {
-    Component,
-    OnInit,
-    DoCheck,
-    AfterViewChecked,
-    AfterViewInit,
-    ChangeDetectorRef,
-    Input,
-    OnDestroy
-} from "@angular/core";
+import {Component, OnInit, DoCheck, AfterViewChecked, AfterViewInit, Input, OnDestroy} from "@angular/core";
 import {GuiComponent} from "../gui/gui-component";
 import {AnotherTestGuiComponentService, SearchResultDto} from "./another-test-gui-component.service";
 import {Subject, Observable, Subscription} from "rxjs/Rx";
@@ -30,12 +21,11 @@ export class AnotherTestGuiComponent extends GuiComponent implements OnInit, OnD
     // listening to GuiContext broadcasting from other components
     subscription: Subscription;
 
-    constructor(private atgcs:AnotherTestGuiComponentService, private cdr:ChangeDetectorRef, private gcs:GuiContextService) {
+    constructor(private atgcs:AnotherTestGuiComponentService, private gcs:GuiContextService) {
         super();
         this.subscription = this.gcs.guiContext$.subscribe(guiContext => {
             console.log("AnotherTestGuiComponent received GuiContext: " + guiContext);
             this.guiContextHistory.push(guiContext);
-            this.cdr.markForCheck();
         });
     }
 
@@ -44,7 +34,6 @@ export class AnotherTestGuiComponent extends GuiComponent implements OnInit, OnD
         this.atgcs.getResults().then(result => {
             this.searchResultList = this.searchResultList.concat(result);
             this.pouet = "recool";
-            this.cdr.markForCheck();
         });
         this.resultList = this.searchTerms
             .debounceTime(300)        // wait for 300ms pause in events

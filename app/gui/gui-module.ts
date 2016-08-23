@@ -15,11 +15,12 @@ import {AnotherTestGuiComponent} from "../test-module/another-test-gui-component
 import {ResultDisplayComponent} from "../test-module/result-display-component.component";
 import {EasyComponent} from "../test-module/easiest-gui-component.component";
 import {ContentLoader} from "../panels/content-loader.directive";
+import {GuiContextHistory} from "../test-module/gui-context-history.component";
 
 @NgModule({
     imports: [CommonModule, FormsModule],
-    declarations: [GuiComponent, GuiView, ExampleGuiComponent, TestGuiComponent, SimplePanelComponent, CartoComponent, AnotherTestGuiComponent, EasyComponent, ContentLoader, ResultDisplayComponent],
-    exports: [ExampleGuiComponent, GuiView, TestGuiComponent, SimplePanelComponent,CartoComponent, AnotherTestGuiComponent, EasyComponent, ResultDisplayComponent]
+    declarations: [GuiComponent, GuiView, ExampleGuiComponent, TestGuiComponent, SimplePanelComponent, CartoComponent, AnotherTestGuiComponent, EasyComponent, ContentLoader, ResultDisplayComponent, GuiContextHistory],
+    exports: [ExampleGuiComponent, GuiView, TestGuiComponent, SimplePanelComponent,CartoComponent, AnotherTestGuiComponent, EasyComponent, ResultDisplayComponent, GuiContextHistory]
 })
 export class GuiModule {
     static forRoot():ModuleWithProviders {
@@ -30,6 +31,6 @@ export class GuiModule {
     }
 
     static getComponents() {
-        return [ExampleGuiComponent, GuiView, TestGuiComponent, SimplePanelComponent,CartoComponent, AnotherTestGuiComponent, EasyComponent, ResultDisplayComponent];
+        return [ExampleGuiComponent, GuiView, TestGuiComponent, SimplePanelComponent,CartoComponent, AnotherTestGuiComponent, EasyComponent, ResultDisplayComponent, GuiContextHistory];
     }
 }
