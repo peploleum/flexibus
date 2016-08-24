@@ -27,24 +27,6 @@ export class MainContainerComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.containers = this.gms.getGuiContainers();
-        // for (var container of this.containers) {
-        //     let view = this.cfr.resolveComponentFactory(GuiView);
-        //     let viewComponentRef = this.anchor.createComponent(view);
-        //
-        //     viewComponentRef.instance.setMain(container.mainItem.descriptor);
-        //     for (var leftItem of container.leftItems) {
-        //         viewComponentRef.instance.addLeft(leftItem.descriptor);
-        //     }
-        //     for (var rightItem of container.rightItems) {
-        //         viewComponentRef.instance.addRight(rightItem.descriptor);
-        //     }
-        //
-        //
-        //     // angular2 needs 'entryComponents' to be declared in the module to enable dynamic component loading
-        //     /*let customComp = container.mainItem.componentType;
-        //      let resolvedComponentFactory = this.cfr.resolveComponentFactory(customComp);
-        //      this.vcr.createComponent(resolvedComponentFactory);*/
-        // }
     }
 
     goToPart(guiPart:GuiContainer) {
