@@ -36,14 +36,14 @@
     flex-direction: column;
 }
 
-#full-left-container.empty, #full-right-container.empty {
-    width: 0;
-}
+/*#full-left-container.empty, #full-right-container.empty {*/
+    /*width: 0;*/
+/*}*/
 
-#main-container.withoutOneSide {
-    width: 80%;
-}
+/*#main-container.withoutOneSide {*/
+    /*width: 80%;*/
+/*}*/
 
-#main-container.withoutBothSides {
-    width: 100%;
-}
+/*#main-container.withoutBothSides {*/
+    /*width: 100%;*/
+/*}*/

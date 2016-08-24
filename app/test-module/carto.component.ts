@@ -20,15 +20,9 @@ export class CartoComponent extends GuiComponent implements AfterViewInit {
 
     onResize(event) {
         this.height = this.element.nativeElement.offsetHeight;
-
-        console.log('Taille MODIFIEE du parent : ');
-        console.log(this.element.nativeElement.offsetHeight)
     }
 
     ngAfterViewInit() {
-        console.log('Taille INITIALE du parent : ');
-        console.log(this.element.nativeElement.offsetHeight);
-
         // Fonctionnement standard : on modifie le bindings dans la boucle. Il faut donc faire le setTimeout pour forcer
         // la relecture : @link https://github.com/angular/angular/issues/6005
         setTimeout(() => {
