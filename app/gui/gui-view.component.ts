@@ -5,6 +5,7 @@ import {Component, AfterViewInit, Renderer, ComponentRef, ViewChildren, QueryLis
 import {IGuiComponent, GuiComponent} from "./gui-component";
 import {SimplePanelComponent} from "./simple-panel.component";
 import {GuiContextService} from "./gui-context.service";
+import {GuiItemDescriptor} from "../gui-api/gui-item";
 
 @Component({
     selector: 'gui-view',
@@ -15,19 +16,17 @@ import {GuiContextService} from "./gui-context.service";
 export class GuiView implements AfterViewInit {
     @ViewChildren(SimplePanelComponent) panels:QueryList<SimplePanelComponent>;
 
-    // A priori il faut garder ces variable - au moins le temps que le composant soit initialisé, pour pouvoir
-    // instancier ensuite correctement les composants eux-même.
-    private mainComponent:IGuiComponent;
-    private leftComponents:Array<IGuiComponent> = new Array();
-    private rightComponents:Array<IGuiComponent> = new Array();
+    private mainComponentDescriptor:GuiItemDescriptor;
+    private leftComponentsDescriptors:Array<GuiItemDescriptor> = new Array();
+    private rightComponentsDescriptors:Array<GuiItemDescriptor> = new Array();
 
     private mainComponentRef:ComponentRef<GuiComponent>;
     private leftComponentsRefs:Array<ComponentRef<GuiComponent>> = new Array();
     private rightComponentsRefs:Array<ComponentRef<GuiComponent>> = new Array();
 
-    left:number;
-    right:number;
-    main:number;
+    private left:number;
+    private right:number;
+    private main:number;
 
     private stopMouseMoveListener:Function;
     private stopMouseUpListener:Function;
@@ -40,8 +39,8 @@ export class GuiView implements AfterViewInit {
     }
 
     private processSizes(){
-        this.left = this.leftComponents.length == 0 ? 0 : 20;
-        this.right = this.rightComponents.length == 0 ? 0 : 20;
+        this.left = this.leftComponentsDescriptors.length == 0 ? 0 : 20;
+        this.right = this.rightComponentsDescriptors.length == 0 ? 0 : 20;
         this.main = 100 - this.left - this.right;
     }
 
@@ -85,17 +84,17 @@ export class GuiView implements AfterViewInit {
 
     }
 
-    setMain(component:IGuiComponent) {
-        this.mainComponent = component;
+    setMain(mainDescriptor:GuiItemDescriptor) {
+        this.mainComponentDescriptor = mainDescriptor;
     }
 
-    addLeft(component:IGuiComponent) {
-        this.leftComponents.push(component);
+    addLeft(descriptor:GuiItemDescriptor) {
+        this.leftComponentsDescriptors.push(descriptor);
         this.processSizes();
     }
 
-    addRight(component:IGuiComponent) {
-        this.rightComponents.push(component);
+    addRight(descriptor:GuiItemDescriptor) {
+        this.rightComponentsDescriptors.push(descriptor);
         this.processSizes();
     }
 }

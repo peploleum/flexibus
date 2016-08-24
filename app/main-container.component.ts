@@ -26,17 +26,15 @@ export class MainContainerComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         let containers:Array<GuiContainer> = this.gms.getGuiContainers();
         for (var container of containers) {
-            console.log('trying to inject :) ' + container.mainItem.name + ' component in the container');
-
             let view = this.cfr.resolveComponentFactory(GuiView);
             let viewComponentRef = this.anchor.createComponent(view);
 
-            viewComponentRef.instance.setMain(container.mainItem.componentType);
+            viewComponentRef.instance.setMain(container.mainItem.descriptor);
             for (var leftItem of container.leftItems) {
-                viewComponentRef.instance.addLeft(leftItem.componentType);
+                viewComponentRef.instance.addLeft(leftItem.descriptor);
             }
             for (var rightItem of container.rightItems) {
-                viewComponentRef.instance.addRight(rightItem.componentType);
+                viewComponentRef.instance.addRight(rightItem.descriptor);
             }
 
 
