@@ -1,12 +1,10 @@
 /**
  * Created by tbonavia on 17/08/2016.
  */
-import {
-    Component, Input, ComponentFactoryResolver, AfterViewInit, ViewChild, HostBinding,
-    ChangeDetectionStrategy
-} from "@angular/core";
+import {Component, Input, ComponentFactoryResolver, AfterViewInit, ViewChild, HostBinding} from "@angular/core";
 import {IGuiComponent, GuiComponent} from "./gui-component";
 import {ContentLoader} from "./content-loader.directive";
+import {GuiItemType} from "../gui-api/gui-item";
 
 @Component({
     moduleId: module.id,
@@ -19,7 +17,7 @@ export class SimplePanelComponent implements AfterViewInit {
     @Input()
     titre:string;
     @Input()
-    type:PanelType;
+    type:GuiItemType;
     @Input('content')
     panelContentType:IGuiComponent;
 
@@ -43,11 +41,11 @@ export class SimplePanelComponent implements AfterViewInit {
 
     private getPanelClass(): string{
         switch(this.type){
-            case PanelType.error:
+            case GuiItemType.error:
                 return 'error';
-            case PanelType.normal:
+            case GuiItemType.normal:
                 return 'normal';
-            case PanelType.warning:
+            case GuiItemType.warning:
                 return 'warning';
             default:
                 throw new Error('Le type ' + this.type + 'n\'est pas pris en charge par le SimplePanel.');
@@ -59,8 +57,3 @@ export class SimplePanelComponent implements AfterViewInit {
     }
 }
 
-export enum PanelType {
-    normal,
-    warning,
-    error
-}

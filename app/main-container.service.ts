@@ -4,10 +4,9 @@
 import {Injectable} from "@angular/core";
 import {GuiManager} from "./gui/gui-manager";
 import {GuiContainer} from "./gui-api/gui-container";
-import {GuiItem, GuiItemDescriptor} from "./gui-api/gui-item";
+import {GuiItem, GuiItemDescriptor, GuiItemType} from "./gui-api/gui-item";
 import {CartoComponent} from "./test-module/carto.component";
 import {EasyComponent} from "./test-module/easiest-gui-component.component";
-import {PanelType} from "./gui/simple-panel.component";
 import {FooForm} from "./foo-module/foo-form.component";
 import {ResultDisplayComponent} from "./test-module/result-display-component.component";
 
@@ -19,8 +18,8 @@ export class GuiManagerService {
         let container = new GuiContainer(new GuiItem(new GuiItemDescriptor('Cartographie', CartoComponent)));
 
 
-        container.addLeftItem(new GuiItem(new GuiItemDescriptor('Plan de classement ', EasyComponent, PanelType.error)));
-        container.addLeftItem(new GuiItem(new GuiItemDescriptor('Plan de classement 2', EasyComponent, PanelType.warning)));
+        container.addLeftItem(new GuiItem(new GuiItemDescriptor('Plan de classement ', EasyComponent, GuiItemType.error)));
+        container.addLeftItem(new GuiItem(new GuiItemDescriptor('Plan de classement 2', EasyComponent, GuiItemType.warning)));
         container.addLeftItem(new GuiItem(new GuiItemDescriptor('J. Peglion', FooForm)));
         // container.addLeftItem(new GuiItem('test3', EasyComponent));
         // container.addLeftItem(new GuiItem('test3', EasyComponent));
@@ -34,8 +33,8 @@ export class GuiManagerService {
         // container.addLeftItem(new GuiItem('test3', EasyComponent));
         // container.addRightItem(new GuiItem('test2', EasyComponent));
         // container.addRightItem(new GuiItem('test2', EasyComponent));
-        container.addRightItem(new GuiItem(new GuiItemDescriptor('Alléluia !', EasyComponent, PanelType.warning)));
-        container.addRightItem(new GuiItem(new GuiItemDescriptor('Alléluia !', EasyComponent, PanelType.warning)));
+        container.addRightItem(new GuiItem(new GuiItemDescriptor('Alléluia !', EasyComponent, GuiItemType.warning)));
+        container.addRightItem(new GuiItem(new GuiItemDescriptor('Alléluia !', EasyComponent, GuiItemType.warning)));
         container.addRightItem(new GuiItem(new GuiItemDescriptor('Moteur de recherche', ResultDisplayComponent)));
 
         // let container2 = new GuiContainer(new GuiItem('Test', AnotherTestGuiComponent));
