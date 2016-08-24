@@ -1,13 +1,14 @@
 import {Injectable} from "@angular/core";
 import * as ol from "openlayers";
+import ReadOptions = olx.format.ReadOptions;
 
 @Injectable()
-export class MapService{
+export class MapService {
 
     private _businessLayer:ol.layer.Layer;
     businessSource:ol.source.Vector;
 
-    constructor(){
+    constructor() {
         this._businessLayer = new ol.layer.Vector();
         this.businessSource = new ol.source.Vector();
         this._businessLayer.setSource(this.businessSource);
@@ -18,7 +19,19 @@ export class MapService{
         return this._businessLayer;
     }
 
-    addLocation(){
+    addLocation(location:string) {
+        let feature = new ol.format.WKT().readFeature(location, {
+            dataProjection: "EPSG:4326",
+            featureProjection: "EPSG:3857"
+        });
+        if (feature == null || feature == undefined) {
+            console.log("cannot read proper WKT feature " + location);
+            return;
+        }
+        this.businessSource.addFeature(feature);
+    }
+
+    initLocations() {
         var geojsonObject = {
             'type': 'FeatureCollection',
             'crs': {
@@ -31,7 +44,7 @@ export class MapService{
                 'type': 'Feature',
                 'geometry': {
                     'type': 'Point',
-                    'coordinates': [0, 0]
+                    'coordinates': [4e6, -2e6]
                 }
             }, {
                 'type': 'Feature',

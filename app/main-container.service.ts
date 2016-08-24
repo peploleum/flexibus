@@ -9,13 +9,14 @@ import {CartoComponent} from "./test-module/carto.component";
 import {EasyComponent} from "./test-module/easiest-gui-component.component";
 import {FooForm} from "./foo-module/foo-form.component";
 import {ResultDisplayComponent} from "./test-module/result-display-component.component";
+import {MapComponent} from "./map-module/map.component";
 
 @Injectable()
 export class GuiManagerService {
     guiManager:GuiManager = new GuiManager();
 
     constructor() {
-        let container = new GuiContainer("1er atelier", new GuiItem(new GuiItemDescriptor('Cartographie', CartoComponent)));
+        let container = new GuiContainer("1er atelier", new GuiItem(new GuiItemDescriptor('Map', MapComponent)));
 
 
         container.addLeftItem(new GuiItem(new GuiItemDescriptor('Plan de classement ', EasyComponent, GuiItemType.error)));

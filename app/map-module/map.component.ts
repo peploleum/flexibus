@@ -25,7 +25,7 @@ export class MapComponent extends GuiComponent implements AfterViewInit {
 
     onGuiContext(guiContext:GuiContext) {
         console.log("map received: " + guiContext.freeContent);
-        this.ms.addLocation();
+        this.ms.addLocation(guiContext.freeContent);
     }
 
     onResize(event) {
@@ -52,6 +52,7 @@ export class MapComponent extends GuiComponent implements AfterViewInit {
                 })
 
             });
+            this.ms.initLocations();
             this.map.getLayers().push(this.ms.businessLayer);
         });
     }
