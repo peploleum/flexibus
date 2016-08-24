@@ -1,8 +1,8 @@
 /**
  * Created by tbonavia on 18/08/2016.
  */
-import {Component, AfterViewInit, Renderer, ComponentRef, ViewChildren, QueryList} from "@angular/core";
-import {IGuiComponent, GuiComponent} from "./gui-component";
+import {Component, AfterViewInit, Renderer, ComponentRef, ViewChildren, QueryList, Input, OnInit} from "@angular/core";
+import {GuiComponent} from "./gui-component";
 import {SimplePanelComponent} from "./simple-panel.component";
 import {GuiContextService} from "./gui-context.service";
 import {GuiItemDescriptor} from "../gui-api/gui-item";
@@ -13,11 +13,14 @@ import {GuiItemDescriptor} from "../gui-api/gui-item";
     styleUrls: ['app/gui/gui-view.component.css'],
     providers: [GuiContextService],
 })
-export class GuiView implements AfterViewInit {
+export class GuiView implements AfterViewInit, OnInit {
     @ViewChildren(SimplePanelComponent) panels:QueryList<SimplePanelComponent>;
 
+    @Input('main')
     private mainComponentDescriptor:GuiItemDescriptor;
+    @Input('left')
     private leftComponentsDescriptors:Array<GuiItemDescriptor> = new Array();
+    @Input('right')
     private rightComponentsDescriptors:Array<GuiItemDescriptor> = new Array();
 
     private mainComponentRef:ComponentRef<GuiComponent>;
@@ -35,7 +38,14 @@ export class GuiView implements AfterViewInit {
     private sides = Side;
 
     constructor(private renderer:Renderer) {
+    }
+
+    ngOnInit() {
         this.processSizes();
+    }
+
+    ngAfterViewInit() {
+
     }
 
     private processSizes(){
@@ -80,23 +90,19 @@ export class GuiView implements AfterViewInit {
         });
     }
 
-    ngAfterViewInit() {
-
-    }
-
-    setMain(mainDescriptor:GuiItemDescriptor) {
-        this.mainComponentDescriptor = mainDescriptor;
-    }
-
-    addLeft(descriptor:GuiItemDescriptor) {
-        this.leftComponentsDescriptors.push(descriptor);
-        this.processSizes();
-    }
-
-    addRight(descriptor:GuiItemDescriptor) {
-        this.rightComponentsDescriptors.push(descriptor);
-        this.processSizes();
-    }
+    // setMain(mainDescriptor:GuiItemDescriptor) {
+    //     this.mainComponentDescriptor = mainDescriptor;
+    // }
+    //
+    // addLeft(descriptor:GuiItemDescriptor) {
+    //     this.leftComponentsDescriptors.push(descriptor);
+    //     this.processSizes();
+    // }
+    //
+    // addRight(descriptor:GuiItemDescriptor) {
+    //     this.rightComponentsDescriptors.push(descriptor);
+    //     this.processSizes();
+    // }
 }
 
 enum Side
