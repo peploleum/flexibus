@@ -8,19 +8,21 @@ import {Foo} from "./foo";
     moduleId: module.id,
     selector: 'foo-form',
     templateUrl: 'foo-form.component.html',
-    styleUrls:['foo-form.component.css'],
+    styleUrls: ['foo-form.component.css'],
     providers: [FooFormService]
 })
 export class FooForm extends GuiComponent implements OnInit, OnDestroy {
 
     guiContextHistory:Array<GuiContext> = new Array<GuiContext>();
 
-    subscription: Subscription;
+    subscription:Subscription;
 
     dictionnary = ['Foo Value', 'Bar value',
         'Foo bar', 'Bar foo'];
 
     model = new Foo(1, "John", "Doe", this.dictionnary[0]);
+
+    active = true;
 
     submitted = false;
 
@@ -32,7 +34,19 @@ export class FooForm extends GuiComponent implements OnInit, OnDestroy {
         });
     }
 
-    onSubmit() { this.submitted = true; }
+    onSubmit() {
+        this.submitted = true;
+        if (this.model.grid){
+            let guiContext = new GuiContext(null, this.model.grid);
+            console.log("FooForm sending " + JSON.stringify(guiContext));
+            this.gcs.broadcastContext(guiContext);
+        }
+        console.log("submitted");
+    }
+
+    onAcknowledge(){
+        this.submitted = false;
+    }
 
     ngOnInit() {
     }
@@ -42,7 +56,21 @@ export class FooForm extends GuiComponent implements OnInit, OnDestroy {
         this.subscription.unsubscribe();
     }
 
-    get diagnostic() { return JSON.stringify(this.model); }
+    newFoo() {
+        this.active = false;
+        setTimeout(() => {
+            this.active = true;
+            this.model = new Foo(2, "Jane", "Doe", this.dictionnary[1]);
+        }, 1000);
+
+    }
+    resetFoo(){
+        this.model = new Foo(1, "John", "Doe", this.dictionnary[0]);
+    }
+
+    get diagnostic() {
+        return JSON.stringify(this.model);
+    }
 
 
 }
