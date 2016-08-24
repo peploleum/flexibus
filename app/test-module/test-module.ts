@@ -8,6 +8,7 @@ import {AnotherTestGuiComponent} from "./another-test-gui-component.component";
 import {EasyComponent} from "./easiest-gui-component.component";
 import {ResultDisplayComponent} from "./result-display-component.component";
 import {GuiModule} from "../gui/gui-module";
+import {SearchComponent} from "./search-component.component";
 
 @NgModule({
     imports: [CommonModule, FormsModule, GuiModule],
