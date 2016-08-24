@@ -3,6 +3,7 @@ import {GuiComponent} from "../gui/gui-component";
 import {FooFormService} from "./foo-form.service";
 import {GuiContextService, GuiContext} from "../gui/gui-context.service";
 import {Subscription} from "rxjs/Rx";
+import {Foo} from "./foo";
 @Component({
     moduleId: module.id,
     selector: 'foo-form',
@@ -16,6 +17,13 @@ export class FooForm extends GuiComponent implements OnInit, OnDestroy {
 
     subscription: Subscription;
 
+    dictionnary = ['Foo Value', 'Bar value',
+        'Foo bar', 'Bar foo'];
+
+    model = new Foo(1, "John", "Doe", this.dictionnary[0]);
+
+    submitted = false;
+
     constructor(private ffs:FooFormService, private gcs:GuiContextService) {
         super();
         this.subscription = gcs.guiContext$.subscribe(guiContext => {
@@ -24,6 +32,8 @@ export class FooForm extends GuiComponent implements OnInit, OnDestroy {
         });
     }
 
+    onSubmit() { this.submitted = true; }
+
     ngOnInit() {
     }
 
@@ -31,6 +41,8 @@ export class FooForm extends GuiComponent implements OnInit, OnDestroy {
         console.log("destroying");
         this.subscription.unsubscribe();
     }
+
+    get diagnostic() { return JSON.stringify(this.model); }
 
 
 }

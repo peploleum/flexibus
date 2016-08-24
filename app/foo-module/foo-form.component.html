@@ -13,5 +13,28 @@
             <li><a href="#">Separated link</a></li>
         </ul>
     </div>
+    <form id="formControl">
+        <div class="form-group has-feedback">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" id="firstName"  required [(ngModel)]="model.firstName" name="firstName" #spy>{{model.firstName}}
+            <br>{{spy.className}}
+        </div>
+        <div class="form-group has-feedback">
+            <label for="lastName">Last name</label>
+            <input class="form-control" id="lastName" type="text" name="lastName" required [(ngModel)]="model.lastName" name="lastName">
+        </div>
+        <div class="form-group">
+            <label for="occupation">Occupation</label>
+            <select class="form-control" id="occupation" required [(ngModel)]="model.occupation" name="occupation">
+                <option *ngFor="let p of dictionnary" [value]="p">{{p}}</option>
+            </select>
+        </div>
+        <div class="form-group has-feedback">
+            <label>Grid</label> <input class="form-control" type="text" name="coord"/>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-danger" type="button">Cancel</button>
+    </form>
+    {{diagnostic}}
 </div>
 
