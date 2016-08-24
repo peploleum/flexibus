@@ -16,7 +16,12 @@
     <form id="formControl">
         <div class="form-group has-feedback">
             <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName"  required [(ngModel)]="model.firstName" name="firstName" #spy>{{model.firstName}}
+            <input type="text" class="form-control" id="firstName"  required [(ngModel)]="model.firstName" name="firstName" #spy #firstName="ngModel">
+            <div [hidden]="firstName.valid || firstName.pristine"
+                 class="alert alert-danger">
+                First name is required
+            </div>
+            {{model.firstName}}
             <br>{{spy.className}}
         </div>
         <div class="form-group has-feedback">

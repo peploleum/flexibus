@@ -18,12 +18,13 @@ export class GuiManagerService {
     guiManager:GuiManager = new GuiManager();
 
     constructor() {
-        let container = new GuiContainer(new GuiItem('Form', FooForm));
+        let container = new GuiContainer(new GuiItem('Carte', CartoComponent));
 
 
         // container.addLeftItem(new GuiItem('test3', CartoComponent));
         // container.addLeftItem(new GuiItem('test3', TestGuiComponent));
-        container.addLeftItem(new GuiItem('test3', AnotherTestGuiComponent));
+        container.addRightItem(new GuiItem('Form', FooForm));
+        container.addLeftItem(new GuiItem('other', AnotherTestGuiComponent));
         container.addLeftItem(new GuiItem('test3', ResultDisplayComponent));
         // container.addLeftItem(new GuiItem('test3', EasyComponent));
         // container.addLeftItem(new GuiItem('test3', EasyComponent));
