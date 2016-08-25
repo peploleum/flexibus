@@ -8,8 +8,8 @@
     <div class="tab-content gui-tab-content" style="display:flex; flex-direction: column; height: 100%; min-height:0;">
         <div class="tab-pane" *ngFor="let container of containers; let i = index" [class.active]="i == 0"
              style="height:100%; min-height:0;flex-direction:column" id="{{container.id}}">
-            <gui-view [main]="container.mainItem.descriptor" [left]="container.collectLefts()"
-                      [right]="container.collectRights()"></gui-view>
+            <gui-view [main]="container.mainItem" [left]="container.leftItems"
+                      [right]="container.rightItems"></gui-view>
         </div>
     </div>
 </div>
