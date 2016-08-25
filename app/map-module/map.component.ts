@@ -43,7 +43,7 @@ export class MapComponent extends GuiComponent implements AfterViewInit, OnChang
             this.height = this.element.nativeElement.offsetHeight;
 
             setTimeout(() => {
-                new ol.Map({
+                this.map = new ol.Map({
                     layers: [
                         new ol.layer.Tile({
                             source: new ol.source.OSM()
