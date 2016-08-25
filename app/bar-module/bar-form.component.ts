@@ -1,17 +1,17 @@
 import {Component, OnInit, OnDestroy} from "@angular/core";
 import {GuiComponent} from "../gui/gui-component";
-import {FooFormService} from "./foo-form.service";
+import {BarFormService} from "./bar-form.service";
 import {GuiContextService, GuiContext} from "../gui/gui-context.service";
 import {Subscription} from "rxjs/Rx";
-import {Foo} from "./foo";
+import {Bar} from "./bar";
 @Component({
     moduleId: module.id,
-    selector: 'foo-form',
-    templateUrl: 'foo-form.component.html',
-    styleUrls: ['foo-form.component.css'],
-    providers: [FooFormService]
+    selector: 'bar-form',
+    templateUrl: 'bar-form.component.html',
+    styleUrls: ['bar-form.component.css'],
+    providers: [BarFormService]
 })
-export class FooForm extends GuiComponent implements OnInit, OnDestroy {
+export class BarForm extends GuiComponent implements OnInit, OnDestroy {
 
     guiContextHistory:Array<GuiContext> = new Array<GuiContext>();
 
@@ -20,16 +20,16 @@ export class FooForm extends GuiComponent implements OnInit, OnDestroy {
     dictionnary = ['Foo Value', 'Bar value',
         'Foo bar', 'Bar foo'];
 
-    model = new Foo(1, "John", "Doe", this.dictionnary[0]);
+    model = new Bar(1, "John", "Doe", this.dictionnary[0]);
 
     active = true;
 
     submitted = false;
 
-    constructor(private ffs:FooFormService, private gcs:GuiContextService) {
+    constructor(private ffs:BarFormService, private gcs:GuiContextService) {
         super();
         this.subscription = gcs.guiContext$.subscribe(guiContext => {
-            console.log("FooForm received new guiContext " + guiContext.ids);
+            console.log("BarForm received new guiContext " + guiContext.ids);
             this.guiContextHistory.push(guiContext);
         });
     }
@@ -38,7 +38,7 @@ export class FooForm extends GuiComponent implements OnInit, OnDestroy {
         this.submitted = true;
         if (this.model.grid){
             let guiContext = new GuiContext(null, this.model.grid);
-            console.log("FooForm sending " + JSON.stringify(guiContext));
+            console.log("BarForm sending " + JSON.stringify(guiContext));
             this.gcs.broadcastContext(guiContext);
         }
         console.log("submitted");
@@ -60,12 +60,12 @@ export class FooForm extends GuiComponent implements OnInit, OnDestroy {
         this.active = false;
         setTimeout(() => {
             this.active = true;
-            this.model = new Foo(2, "Jane", "Doe", this.dictionnary[1]);
+            this.model = new Bar(2, "Jane", "Doe", this.dictionnary[1]);
         }, 1000);
 
     }
     resetFoo(){
-        this.model = new Foo(1, "John", "Doe", this.dictionnary[0]);
+        this.model = new Bar(1, "John", "Doe", this.dictionnary[0]);
     }
 
     get diagnostic() {
