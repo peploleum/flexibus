@@ -1,20 +1,22 @@
 <div id="full-left-container" [style.width]="getSize(left)" [style.display]="getDisplay(sides.Left)">
-    <div id="left-container">
-        <simple-panel class="left" *ngFor="let compDescriptor of leftComponentsDescriptors"
+    <div id="left-container" *ngIf="!leftCollapsed">
+        <simple-panel #leftPanels  *ngFor="let compDescriptor of leftComponentsDescriptors; let i = index"
                       [content]="compDescriptor.componentType" [type]="compDescriptor.type"
-                      [titre]="compDescriptor.name"></simple-panel>
+                      [titre]="compDescriptor.name" (resizeEmitter)="processResize($event, sides.Left)"
+                      [side]="sides.Left" [index]="i"></simple-panel>
     </div>
     <div id="left-resizer" style="width:5px;cursor: ew-resize" (mousedown)="startResize(sides.Left)"></div>
 </div>
 <div id="main-container" [style.width]="getSize(main)">
-    <simple-panel class="main" [content]="mainComponentDescriptor.componentType" [type]="mainComponentDescriptor.type"
+    <simple-panel #mainPanel [content]="mainComponentDescriptor.componentType" [type]="mainComponentDescriptor.type"
                   [titre]="mainComponentDescriptor.name"></simple-panel>
 </div>
 <div id="full-right-container" [style.width]="getSize(right)" [style.display]="getDisplay(sides.Right)">
     <div id="right-resizer" style="width:5px; cursor:ew-resize" (mousedown)="startResize(sides.Right)"></div>
-    <div id="right-container">
-        <simple-panel class="right" *ngFor="let compDescriptor of rightComponentsDescriptors"
+    <div id="right-container" *ngIf="!rightCollapsed">
+        <simple-panel #rightPanels *ngFor="let compDescriptor of rightComponentsDescriptors; let i = index"
                       [content]="compDescriptor.componentType" [type]="compDescriptor.type"
-                      [titre]="compDescriptor.name"></simple-panel>
+                      [titre]="compDescriptor.name" (resizeEmitter)="processResize($event, sides.Right)"
+                      [side]="sides.Right" [index]="i"></simple-panel>
     </div>
 </div>

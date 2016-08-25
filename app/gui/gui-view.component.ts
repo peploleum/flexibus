@@ -1,9 +1,18 @@
 /**
  * Created by tbonavia on 18/08/2016.
  */
-import {Component, AfterViewInit, Renderer, ComponentRef, ViewChildren, QueryList, Input, OnInit} from "@angular/core";
-import {GuiComponent} from "./gui-component";
-import {SimplePanelComponent} from "./simple-panel.component";
+import {
+    Component,
+    AfterViewInit,
+    Renderer,
+    ComponentRef,
+    ViewChildren,
+    QueryList,
+    Input,
+    OnInit,
+    ViewChild, ElementRef
+} from "@angular/core";
+import {SimplePanelComponent, SizeEvent, Size} from "./simple-panel.component";
 import {GuiContextService} from "./gui-context.service";
 import {GuiItem} from "../gui-api/gui-item";
 
@@ -23,9 +32,12 @@ export class GuiView implements AfterViewInit, OnInit {
     @Input('right')
     private rightComponentsDescriptors:Array<GuiItem> = new Array();
 
-    private mainComponentRef:ComponentRef<GuiComponent>;
-    private leftComponentsRefs:Array<ComponentRef<GuiComponent>> = new Array();
-    private rightComponentsRefs:Array<ComponentRef<GuiComponent>> = new Array();
+    @ViewChild('mainPanel')
+    private mainPanel:ComponentRef<SimplePanelComponent>;
+    @ViewChildren('leftPanels')
+    private leftPanels:QueryList<SimplePanelComponent>;
+    @ViewChildren('rightPanels')
+    private rightPanels:QueryList<SimplePanelComponent>;
 
     private left:number;
     private right:number;
@@ -33,11 +45,13 @@ export class GuiView implements AfterViewInit, OnInit {
 
     private stopMouseMoveListener:Function;
     private stopMouseUpListener:Function;
-    private resizeSide:Side;
+
+    private leftCollapsed:boolean = false;
+    private rightCollapsed:boolean = false;
 
     private sides = Side;
 
-    constructor(private renderer:Renderer) {
+    constructor(private renderer:Renderer, private element:ElementRef) {
     }
 
     ngOnInit() {
@@ -45,17 +59,54 @@ export class GuiView implements AfterViewInit, OnInit {
     }
 
     ngAfterViewInit() {
-
     }
 
+    private processResize(event:SizeEvent, side:Side) {
+        let panels = side == Side.Left ? this.leftPanels : this.rightPanels;
+
+        switch (event.size) {
+            case Size.Full:
+                // Display only current panel
+                panels.map((panel) => {
+                    panel.display(panel.id == event.panelAskingFullSizeId)
+                });
+                break;
+            case Size.Normal:
+                // Display all panels
+                panels.map((panel) => {
+                    panel.display(true)
+                });
+                break;
+            case Size.None:
+                // Collapse panel side
+                switch (side) {
+                    case Side.Left:
+                        this.leftCollapsed = true;
+                        break;
+                    case Side.Right:
+                        this.rightCollapsed = true;
+                        break;
+                    default:
+                        throw new Error('Droite ou gauche uniquement... Le centre est mort !');
+                }
+                this.processSizes();
+                break;
+            default:
+                break;
+        }
+    }
+
+
     private processSizes() {
-        this.left = this.leftComponentsDescriptors.length == 0 ? 0 : 20;
-        this.right = this.rightComponentsDescriptors.length == 0 ? 0 : 20;
+        this.left = this.leftCollapsed ? 1 : (this.leftComponentsDescriptors.length == 0 ? 0 : 20);
+        this.right = this.rightCollapsed ? 1 : (this.rightComponentsDescriptors.length == 0 ? 0 : 20);
         this.main = 100 - this.left - this.right;
+
+        this.sendResizeEvent(this.element.nativeElement.ownerDocument.defaultView || this.element.nativeElement.ownerDocument.parentWindow);
     }
 
     getDisplay(side:Side):string {
-        switch(side){
+        switch (side) {
             case Side.Left:
                 return this.left == 0 ? 'none' : 'flex';
             case Side.Right:
@@ -71,9 +122,8 @@ export class GuiView implements AfterViewInit, OnInit {
 
     startResize(resizeSide:Side) {
         // On ajoute les listeners sur document et on dit de quel côté on travaille
-        this.resizeSide = resizeSide;
         this.stopMouseMoveListener = this.renderer.listenGlobal('document', 'mousemove', (event) => {
-            switch (this.resizeSide) {
+            switch (resizeSide) {
                 case Side.Left:
                     this.left = ((event.pageX / event.view.window.document.documentElement.clientWidth) * 100);
                     break;
@@ -89,20 +139,25 @@ export class GuiView implements AfterViewInit, OnInit {
             // On supprime les listeners sur le document
             this.stopMouseMoveListener();
             this.stopMouseUpListener();
-            this.resizeSide = null;
 
-            // On émet un évènement de fin de redimensionnement pour que tous les composants ayant besoin d'une
-            // taille fixe (OpenLayers, D3...) puissent se redimensionner correctement simplement en écoutant l'evt
-            // de redimensionnement de la window.
-            this.renderer.invokeElementMethod(event.view.window, 'dispatchEvent', [new Event('resize', {
+            this.sendResizeEvent(event.view.window);
+        });
+    }
+
+    private sendResizeEvent(window) {
+        // On émet un évènement de fin de redimensionnement pour que tous les composants ayant besoin d'une
+        // taille fixe (OpenLayers, D3...) puissent se redimensionner correctement simplement en écoutant l'evt
+        // de redimensionnement de la window.
+        setTimeout(() => {
+            this.renderer.invokeElementMethod(window, 'dispatchEvent', [new Event('resize', {
                 bubbles: true,
                 cancelable: false
             })]);
-        });
+        })
     }
 }
 
-enum Side
+export enum Side
 {
     Left,
     Right
