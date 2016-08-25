@@ -1,0 +1,59 @@
+﻿<div>
+    <div [hidden]="submitted">
+        <h1>A Bar Form</h1>
+        <form id="formControl" (ngSubmit)="onSubmit()" #heroForm="ngForm">
+            <fieldset [disabled]="!active">
+                <div class="form-group has-feedback">
+                    <label for="firstName">First name</label>
+                    <input type="text" class="form-control" id="firstName" required [(ngModel)]="model.firstName"
+                           name="firstName" #spy #firstName="ngModel">
+                    <div [hidden]="firstName.valid || firstName.pristine"
+                         class="alert alert-danger">
+                        First name is required
+                    </div>
+                    {{model.firstName}}
+                    <br>{{spy.className}}
+                </div>
+                <div class="form-group has-feedback">
+                    <label for="lastName">Last name</label>
+                    <input class="form-control" id="lastName" type="text" required
+                           [(ngModel)]="model.lastName" name="lastName">
+                </div>
+                <div class="form-group">
+                    <label for="occupation">Occupation</label>
+                    <select class="form-control" id="occupation" required [(ngModel)]="model.occupation"
+                            name="occupation">
+                        <option *ngFor="let p of dictionnary" [value]="p">{{p}}</option>
+                    </select>
+                </div>
+                <div class="form-group has-feedback">
+                    <label for="grid">Grid</label>
+                    <input class="form-control" id="grid" type="text" required
+                           [(ngModel)]="model.grid" name="grid">
+                </div>
+                <button class="btn btn-primary" type="submit" [disabled]="!heroForm.form.valid">Submit</button>
+                <button class="btn btn-danger" type="button" (click)="resetFoo()">Cancel</button>
+                <button type="button" class="btn btn-default" (click)="newFoo()">New Foo</button>
+
+            </fieldset>
+        </form>
+    </div>
+    <div [hidden]="!submitted">
+        <h2>You submitted the following:</h2>
+        <div class="row">
+            <div class="col-xs-3">First name</div>
+            <div class="col-xs-9  pull-left">{{ model.firstName }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Last name</div>
+            <div class="col-xs-9 pull-left">{{ model.lastName }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Occupation</div>
+            <div class="col-xs-9 pull-left">{{ model.occupation }}</div>
+        </div>
+        <br>
+        <button class="btn btn-default" (click)="onAcknowledge()">Edit</button>
+    </div>
+</div>
+

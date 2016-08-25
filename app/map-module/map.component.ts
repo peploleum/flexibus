@@ -1,4 +1,4 @@
-import {Component, ElementRef, AfterViewInit} from "@angular/core";
+import {Component, ElementRef, AfterViewInit, OnChanges} from "@angular/core";
 import {GuiComponent} from "../gui/gui-component";
 import * as ol from "openlayers";
 import {GuiContextService, GuiContext} from "../gui/gui-context.service";
@@ -11,7 +11,7 @@ import {MapService} from "./map.service";
     styleUrls: ['map.component.css'],
     providers: [MapService]
 })
-export class MapComponent extends GuiComponent implements AfterViewInit {
+export class MapComponent extends GuiComponent implements AfterViewInit, OnChanges {
     private height:number;
 
     private map:ol.Map;
@@ -32,10 +32,15 @@ export class MapComponent extends GuiComponent implements AfterViewInit {
         this.height = this.element.nativeElement.offsetHeight;
     }
 
+    ngOnChanges() {
+
+    }
+
     ngAfterViewInit() {
         // Fonctionnement standard : on modifie le bindings dans la boucle. Il faut donc faire le setTimeout pour forcer
         // la relecture : @link https://github.com/angular/angular/issues/6005
         setTimeout(() => {
+            console.log(this.element.nativeElement.querySelector('#mapAnchor'));
             this.height = this.element.nativeElement.offsetHeight;
 
             this.map = new ol.Map({
@@ -44,7 +49,7 @@ export class MapComponent extends GuiComponent implements AfterViewInit {
                         source: new ol.source.OSM()
                     })
                 ],
-                // renderer: 'webgl',
+                // renderer: 'dom',
                 target: this.element.nativeElement.querySelector('#mapAnchor'),
                 view: new ol.View({
                     center: [0, 0],
