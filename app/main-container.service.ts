@@ -44,8 +44,8 @@ export class GuiManagerService {
         // container2.addRightItem(new GuiItem('test left item', TestGuiComponent));
 
 
-        this.guiManager.addGuiContainer(container);
         this.guiManager.addGuiContainer(container2);
+        this.guiManager.addGuiContainer(container);
     }
 
     getGuiContainers():Array<GuiContainer> {
