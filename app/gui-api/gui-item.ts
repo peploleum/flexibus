@@ -4,14 +4,6 @@
 import {IGuiComponent} from "../gui/gui-component";
 
 export class GuiItem {
-    descriptor:GuiItemDescriptor;
-
-    constructor(descriptor:GuiItemDescriptor) {
-        this.descriptor = descriptor;
-    }
-}
-
-export class GuiItemDescriptor {
     name:string;
     componentType:IGuiComponent;
     type:GuiItemType = GuiItemType.normal;
@@ -19,7 +11,7 @@ export class GuiItemDescriptor {
     constructor(name:string, componentType:IGuiComponent, type?:GuiItemType) {
         this.name = name;
         this.componentType = componentType;
-        if(type){
+        if (type) {
             this.type = type;
         }
     }

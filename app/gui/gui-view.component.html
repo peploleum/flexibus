@@ -1,4 +1,4 @@
-<div id="full-left-container" [style.width]="getSize(left)">
+<div id="full-left-container" [style.width]="getSize(left)" [style.display]="getDisplay(sides.Left)">
     <div id="left-container">
         <simple-panel class="left" *ngFor="let compDescriptor of leftComponentsDescriptors"
                       [content]="compDescriptor.componentType" [type]="compDescriptor.type"
@@ -10,7 +10,7 @@
     <simple-panel class="main" [content]="mainComponentDescriptor.componentType" [type]="mainComponentDescriptor.type"
                   [titre]="mainComponentDescriptor.name"></simple-panel>
 </div>
-<div id="full-right-container" [style.width]="getSize(right)">
+<div id="full-right-container" [style.width]="getSize(right)" [style.display]="getDisplay(sides.Right)">
     <div id="right-resizer" style="width:5px; cursor:ew-resize" (mousedown)="startResize(sides.Right)"></div>
     <div id="right-container">
         <simple-panel class="right" *ngFor="let compDescriptor of rightComponentsDescriptors"

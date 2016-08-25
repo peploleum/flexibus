@@ -28,17 +28,19 @@ export class CartoComponent extends GuiComponent implements AfterViewInit {
         setTimeout(() => {
             this.height = this.element.nativeElement.offsetHeight;
 
-            new ol.Map({
-                layers: [
-                    new ol.layer.Tile({
-                        source: new ol.source.OSM()
+            setTimeout(() => {
+                new ol.Map({
+                    layers: [
+                        new ol.layer.Tile({
+                            source: new ol.source.OSM()
+                        })
+                    ],
+                    target: this.element.nativeElement.querySelector('#mapAnchor'),
+                    view: new ol.View({
+                        center: [0, 0],
+                        zoom: 2
                     })
-                ],
-                target: this.element.nativeElement.querySelector('#mapAnchor'),
-                view: new ol.View({
-                    center: [0, 0],
-                    zoom: 2
-                })
+                });
             });
         });
     }

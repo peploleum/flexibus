@@ -5,7 +5,7 @@ import {Component, AfterViewInit, Renderer, ComponentRef, ViewChildren, QueryLis
 import {GuiComponent} from "./gui-component";
 import {SimplePanelComponent} from "./simple-panel.component";
 import {GuiContextService} from "./gui-context.service";
-import {GuiItemDescriptor} from "../gui-api/gui-item";
+import {GuiItem} from "../gui-api/gui-item";
 
 @Component({
     selector: 'gui-view',
@@ -17,11 +17,11 @@ export class GuiView implements AfterViewInit, OnInit {
     @ViewChildren(SimplePanelComponent) panels:QueryList<SimplePanelComponent>;
 
     @Input('main')
-    private mainComponentDescriptor:GuiItemDescriptor;
+    private mainComponentDescriptor:GuiItem;
     @Input('left')
-    private leftComponentsDescriptors:Array<GuiItemDescriptor> = new Array();
+    private leftComponentsDescriptors:Array<GuiItem> = new Array();
     @Input('right')
-    private rightComponentsDescriptors:Array<GuiItemDescriptor> = new Array();
+    private rightComponentsDescriptors:Array<GuiItem> = new Array();
 
     private mainComponentRef:ComponentRef<GuiComponent>;
     private leftComponentsRefs:Array<ComponentRef<GuiComponent>> = new Array();
@@ -48,10 +48,21 @@ export class GuiView implements AfterViewInit, OnInit {
 
     }
 
-    private processSizes(){
+    private processSizes() {
         this.left = this.leftComponentsDescriptors.length == 0 ? 0 : 20;
         this.right = this.rightComponentsDescriptors.length == 0 ? 0 : 20;
         this.main = 100 - this.left - this.right;
+    }
+
+    getDisplay(side:Side):string {
+        switch(side){
+            case Side.Left:
+                return this.left == 0 ? 'none' : 'flex';
+            case Side.Right:
+                return this.right == 0 ? 'none' : 'flex';
+            default:
+                throw new Error('Droite ou gauche uniquement... Le centre est mort !');
+        }
     }
 
     getSize(size:number):string {
@@ -89,20 +100,6 @@ export class GuiView implements AfterViewInit, OnInit {
             })]);
         });
     }
-
-    // setMain(mainDescriptor:GuiItemDescriptor) {
-    //     this.mainComponentDescriptor = mainDescriptor;
-    // }
-    //
-    // addLeft(descriptor:GuiItemDescriptor) {
-    //     this.leftComponentsDescriptors.push(descriptor);
-    //     this.processSizes();
-    // }
-    //
-    // addRight(descriptor:GuiItemDescriptor) {
-    //     this.rightComponentsDescriptors.push(descriptor);
-    //     this.processSizes();
-    // }
 }
 
 enum Side
