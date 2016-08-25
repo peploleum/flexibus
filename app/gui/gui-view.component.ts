@@ -48,10 +48,21 @@ export class GuiView implements AfterViewInit, OnInit {
 
     }
 
-    private processSizes(){
+    private processSizes() {
         this.left = this.leftComponentsDescriptors.length == 0 ? 0 : 20;
         this.right = this.rightComponentsDescriptors.length == 0 ? 0 : 20;
         this.main = 100 - this.left - this.right;
+    }
+
+    getDisplay(side:Side):string {
+        switch(side){
+            case Side.Left:
+                return this.left == 0 ? 'none' : 'flex';
+            case Side.Right:
+                return this.right == 0 ? 'none' : 'flex';
+            default:
+                throw new Error('Droite ou gauche uniquement... Le centre est mort !');
+        }
     }
 
     getSize(size:number):string {
@@ -89,20 +100,6 @@ export class GuiView implements AfterViewInit, OnInit {
             })]);
         });
     }
-
-    // setMain(mainDescriptor:GuiItemDescriptor) {
-    //     this.mainComponentDescriptor = mainDescriptor;
-    // }
-    //
-    // addLeft(descriptor:GuiItemDescriptor) {
-    //     this.leftComponentsDescriptors.push(descriptor);
-    //     this.processSizes();
-    // }
-    //
-    // addRight(descriptor:GuiItemDescriptor) {
-    //     this.rightComponentsDescriptors.push(descriptor);
-    //     this.processSizes();
-    // }
 }
 
 enum Side
