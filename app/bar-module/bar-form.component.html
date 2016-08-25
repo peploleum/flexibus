@@ -1,10 +1,11 @@
 ﻿<div>
+    <flexibus-form></flexibus-form>
     <div [hidden]="submitted">
         <h1>A Bar Form</h1>
         <form id="formControl" (ngSubmit)="onSubmit()" #heroForm="ngForm">
             <fieldset [disabled]="!active">
                 <div class="form-group has-feedback">
-                    <label flexibusAttribute="yellow" for="firstName">First name</label>
+                    <label flexibusAttributeHighlight="yellow" for="firstName">First name</label>
                     <input type="text" class="form-control" id="firstName" required [(ngModel)]="model.firstName"
                            name="firstName" #spy #firstName="ngModel">
                     <div [hidden]="firstName.valid || firstName.pristine"

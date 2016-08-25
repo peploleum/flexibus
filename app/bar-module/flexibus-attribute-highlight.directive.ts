@@ -1,7 +1,7 @@
 import {Directive, ElementRef, Input, HostListener} from '@angular/core';
 
-@Directive({selector: '[flexibusAttribute]'})
-export class FlexibusAttributeDirective {
+@Directive({selector: '[flexibusAttributeHighlight]'})
+export class FlexibusAttributeHighlightDirective {
     private _el:HTMLElement;
     private _defaultColor = 'red';
 
@@ -9,7 +9,7 @@ export class FlexibusAttributeDirective {
         this._el = el.nativeElement;
     }
 
-    @Input('flexibusAttribute') highlightColor: string;
+    @Input('flexibusAttributeHighlight') highlightColor: string;
 
     @HostListener('mouseenter') onMouseEnter() {
         this.highlight(this.highlightColor || this._defaultColor);
@@ -21,8 +21,5 @@ export class FlexibusAttributeDirective {
 
     private highlight(color:string) {
         this._el.style.backgroundColor = color;
-        // let htmlElement = new HTMLElement();
-        // htmlElement.innerHTML = '<p>salut</p>';
-        // this._el.insertAdjacentElement("0", htmlElement)
     }
 }

@@ -9,11 +9,12 @@ import {GuiModule} from "./gui/gui-module";
 import {TestModule} from "./test-module/test-module";
 import {MapModule} from "./map-module/map-module";
 import {BarModule} from "./bar-module/bar-module";
+import {CoreGuiModule} from "./core-gui/core-gui-module";
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, HttpModule, FooModule, TestModule, GuiModule, MapModule, BarModule],
+    imports: [BrowserModule, FormsModule, HttpModule, FooModule, TestModule, GuiModule, MapModule, BarModule, CoreGuiModule],
     declarations: [MainContainerComponent, AppComponent],
-    entryComponents: [FooModule.getComponents(), GuiModule.getComponents(), TestModule.getComponents(), MapModule.getComponents(), BarModule.getComponents()],
+    entryComponents: [FooModule.getComponents(), GuiModule.getComponents(), TestModule.getComponents(), MapModule.getComponents(), BarModule.getComponents(), CoreGuiModule.getComponents()],
     bootstrap: [AppComponent]
 })
 export class AppModule {
