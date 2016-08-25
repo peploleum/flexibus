@@ -40,25 +40,24 @@ export class MapComponent extends GuiComponent implements AfterViewInit, OnChang
         // Fonctionnement standard : on modifie le bindings dans la boucle. Il faut donc faire le setTimeout pour forcer
         // la relecture : @link https://github.com/angular/angular/issues/6005
         setTimeout(() => {
-            console.log(this.element.nativeElement.querySelector('#mapAnchor'));
             this.height = this.element.nativeElement.offsetHeight;
 
-            this.map = new ol.Map({
-                layers: [
-                    new ol.layer.Tile({
-                        source: new ol.source.OSM()
+            setTimeout(() => {
+                new ol.Map({
+                    layers: [
+                        new ol.layer.Tile({
+                            source: new ol.source.OSM()
+                        })
+                    ],
+                    target: this.element.nativeElement.querySelector('#mapAnchor'),
+                    view: new ol.View({
+                        center: [0, 0],
+                        zoom: 2
                     })
-                ],
-                // renderer: 'dom',
-                target: this.element.nativeElement.querySelector('#mapAnchor'),
-                view: new ol.View({
-                    center: [0, 0],
-                    zoom: 2
-                })
-
+                });
+                this.ms.initLocations();
+                this.map.getLayers().push(this.ms.businessLayer);
             });
-            this.ms.initLocations();
-            this.map.getLayers().push(this.ms.businessLayer);
         });
     }
 }
