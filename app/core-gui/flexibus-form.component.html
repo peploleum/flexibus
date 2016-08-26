@@ -1,4 +1,9 @@
 ﻿<div>
-    <flexibus-attribute-display *ngFor="let attributeValue of model.attributesValues" [model]="attributeValue"></flexibus-attribute-display>
-    {{diagnostic()}}
+    <form>
+        <fieldset [disabled]="!active">
+            <flexibus-attribute-display *ngFor="let attributeValue of model.attributesValues"
+                                        [model]="attributeValue"></flexibus-attribute-display>
+        </fieldset>
+        {{diagnostic()}}
+    </form>
 </div>
