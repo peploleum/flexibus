@@ -12,6 +12,7 @@ import {ResultDisplayComponent} from "./test-module/result-display-component.com
 import {MapComponent} from "./map-module/map.component";
 import {Foo} from "./foo-module/foo";
 import {BarForm} from "./bar-module/bar-form.component";
+import {AnotherTestGuiComponent} from "./test-module/another-test-gui-component.component";
 
 @Injectable()
 export class GuiManagerService {
@@ -24,6 +25,7 @@ export class GuiManagerService {
         container.addLeftItem(new GuiItem('Plan de classement ', FooForm, GuiItemType.error));
         // container.addLeftItem(new GuiItem(new GuiItemDescriptor('Plan de classement 2', EasyComponent, GuiItemType.warning)));
         container.addLeftItem(new GuiItem('J. Peglion', FooForm));
+        container.addLeftItem(new GuiItem('Toubidou', FooForm));
         // container.addLeftItem(new GuiItem('test3', EasyComponent));
         // container.addLeftItem(new GuiItem('test3', EasyComponent));
         // container.addLeftItem(new GuiItem('test3', EasyComponent));
@@ -40,8 +42,8 @@ export class GuiManagerService {
         // container.addRightItem(new GuiItem(new GuiItemDescriptor('Alléluia !', EasyComponent, GuiItemType.warning)));
         container.addRightItem(new GuiItem('Moteur de recherche', ResultDisplayComponent));
 
-        let container2 = new GuiContainer('2nd atelier', new GuiItem('Map 2 ', BarForm, GuiItemType.error));
-        // container2.addRightItem(new GuiItem('test left item', TestGuiComponent));
+        let container2 = new GuiContainer('Forms', new GuiItem('Form', BarForm, GuiItemType.error));
+        container2.addRightItem(new GuiItem('Search', ResultDisplayComponent));
 
 
         this.guiManager.addGuiContainer(container2);

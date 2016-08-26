@@ -1,5 +1,5 @@
 ﻿<div>
-    <label flexibusAttributeHighlight="yellow" for="attributeValue">{{model.attribute.label}}</label>
+    <label for="attributeValue">{{model.attribute.label}}</label>
     <input type="text" class="form-control" id="attributeValue" required [(ngModel)]="model.value"
            name="attributeValue" #spy #attributeValue="ngModel">
     <div [hidden]="attributeValue.valid || attributeValue.pristine"

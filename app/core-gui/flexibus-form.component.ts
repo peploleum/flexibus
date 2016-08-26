@@ -20,10 +20,13 @@ export class FlexibusForm implements OnInit, OnDestroy {
     constructor() {
         let flexibusAttributeOne = new FlexibusAttribute("attributeOneName", "attributeOneLabel", FlexibusType.STRING);
         let flexibusAttributeTwo = new FlexibusAttribute("attributeTwoName", "attributeTwoLabel", FlexibusType.STRING);
+        let flexibusAttributeThree = new FlexibusAttribute("attributeThreeName", "attributeThreeLabel", FlexibusType.DICTIONARY);
+        flexibusAttributeThree.values = ['value1', 'value2', 'value3'];
         let attributeValueOne = new FlexibusAttributeValue("testValueOne", flexibusAttributeOne);
         let attributeValueTwo = new FlexibusAttributeValue("testValueTwo", flexibusAttributeTwo);
-        
-        this.model = new FlexibusEntity(UUID.UUID(), new FlexibusClass("flexibusEntity", "Flexibus Entity Label", [flexibusAttributeOne, flexibusAttributeTwo], []),[attributeValueOne, attributeValueTwo], []);
+        let attributeValueThree = new FlexibusAttributeValue("value1", flexibusAttributeThree);
+
+        this.model = new FlexibusEntity(UUID.UUID(), new FlexibusClass("flexibusEntity", "Flexibus Entity Label", [flexibusAttributeOne, flexibusAttributeTwo, flexibusAttributeThree], []),[attributeValueOne, attributeValueTwo, attributeValueThree], []);
     }
 
     ngOnInit() {

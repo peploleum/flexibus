@@ -1,5 +1,5 @@
 export enum FlexibusType  {
-    "DICTIONARY",
-    "STRING",
-    "GEOMETRY"
+    DICTIONARY,
+    STRING,
+    GEOMETRY
 }
