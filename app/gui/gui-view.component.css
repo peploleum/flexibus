@@ -17,7 +17,7 @@
     flex-direction: row;
 }
 
-#left-container, #right-container {
+.left-container, .right-container {
     width: 100%;
 
     display: flex;

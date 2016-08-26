@@ -4,7 +4,7 @@
 import {Injectable} from "@angular/core";
 import {GuiManager} from "./gui/gui-manager";
 import {GuiContainer} from "./gui-api/gui-container";
-import {GuiItem, GuiItemType} from "./gui-api/gui-item";
+import {GuiItem} from "./gui-api/gui-item";
 import {CartoComponent} from "./test-module/carto.component";
 import {EasyComponent} from "./test-module/easiest-gui-component.component";
 import {FooForm} from "./foo-module/foo-form.component";
@@ -21,9 +21,9 @@ export class GuiManagerService {
         let container = new GuiContainer("1er atelier", new GuiItem('Map', MapComponent));
 
 
-        container.addLeftItem(new GuiItem('Plan de classement ', FooForm, GuiItemType.error));
-        // container.addLeftItem(new GuiItem(new GuiItemDescriptor('Plan de classement 2', EasyComponent, GuiItemType.warning)));
-        container.addLeftItem(new GuiItem('J. Peglion', FooForm));
+        container.addLeftItem(new GuiItem('Plan de classement ', FooForm));
+        container.addLeftItem(new GuiItem('Plan de classement 2', EasyComponent));
+        // container.addLeftItem(new GuiItem('J. Peglion', FooForm));
         // container.addLeftItem(new GuiItem('test3', EasyComponent));
         // container.addLeftItem(new GuiItem('test3', EasyComponent));
         // container.addLeftItem(new GuiItem('test3', EasyComponent));
@@ -36,16 +36,16 @@ export class GuiManagerService {
         // container.addLeftItem(new GuiItem('test3', EasyComponent));
         // container.addRightItem(new GuiItem('test2', EasyComponent));
         // container.addRightItem(new GuiItem('test2', EasyComponent));
-        container.addRightItem(new GuiItem('Alléluia !', EasyComponent, GuiItemType.warning));
-        // container.addRightItem(new GuiItem(new GuiItemDescriptor('Alléluia !', EasyComponent, GuiItemType.warning)));
+        container.addRightItem(new GuiItem('Alléluia !', EasyComponent));
+        // container.addRightItem(new GuiItem(new GuiItemDescriptor('Alléluia !', EasyComponent)));
         container.addRightItem(new GuiItem('Moteur de recherche', ResultDisplayComponent));
 
-        let container2 = new GuiContainer('2nd atelier', new GuiItem('Map 2 ', BarForm, GuiItemType.error));
+        let container2 = new GuiContainer('2nd atelier', new GuiItem('Map 2 ', BarForm));
         // container2.addRightItem(new GuiItem('test left item', TestGuiComponent));
 
 
-        this.guiManager.addGuiContainer(container2);
         this.guiManager.addGuiContainer(container);
+        // this.guiManager.addGuiContainer(container2);
     }
 
     getGuiContainers():Array<GuiContainer> {

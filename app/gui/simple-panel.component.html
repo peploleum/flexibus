@@ -1,14 +1,11 @@
-<div class="simple-panel"
-     style="margin:5px; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-     display:flex; flex-direction:column; flex-wrap: nowrap; flex-grow:1; min-height: 0">
-
-    <div class="header" style="padding: 10px;font-size: 16px; font-weight: 400; cursor: pointer; flex-shrink: 0; display:flex">
+<div class="simple-panel">
+    <div class="header">
         <div style="flex-grow: 1;" (click)="displayContent=!displayContent">{{titre}}</div>
         <div [style.direction]="side == sides.Left ? 'ltr' : 'rtl'">
             <i *ngIf="index == 0" title="Masquer le panneau latéral" class="fa" [ngClass]="side == sides.Right ? 'fa-toggle-right' : 'fa-toggle-left'"
                style="width:24px;text-align: center"
                (click)="maskPanelSide()"></i>
-            <i *ngIf="index == 0" title="Répartir la place entre les panneaux" class="fa fa-arrows-v"
+            <i *ngIf="index == 0" title="Répartir l'espace entre les panneaux" class="fa fa-arrows-v"
                style="width:24px;text-align: center "
                (click)="equilibrateSizes()"></i>
             <i title="Fermer tous les autres panneaux" class="fa fa-arrows-alt" style="width:24px;text-align: center"
@@ -17,8 +14,7 @@
     </div>
 
     <!-- TODO TBA : Ici il faut choisir si on utilise un ngIf ou un hidden -->
-    <div style="background-color: white; padding: 5px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; flex-grow:1; display:flex; flex-direction: column; overflow:auto"
-         *ngIf="displayContent">
+    <div class="content" *ngIf="displayContent">
         <div *contentLoader="panelContentType"></div>
     </div>
 </div>
