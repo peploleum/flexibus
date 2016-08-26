@@ -1,10 +1,8 @@
 <div class="simple-panel"
-     style="margin:5px; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); border-radius: 2px;
+     style="margin:5px; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
      display:flex; flex-direction:column; flex-wrap: nowrap; flex-grow:1; min-height: 0">
 
-    <div class="header"
-         style="padding: 10px; border-top-left-radius: 2px; border-top-right-radius: 2px; font-size: 20px; font-weight: 400; cursor: pointer; flex-shrink: 0; display:flex"
-         [ngClass]="getPanelClass()">
+    <div class="header" style="padding: 10px;font-size: 16px; font-weight: 400; cursor: pointer; flex-shrink: 0; display:flex">
         <div style="flex-grow: 1;" (click)="displayContent=!displayContent">{{titre}}</div>
         <div [style.direction]="side == sides.Left ? 'ltr' : 'rtl'">
             <i *ngIf="index == 0" title="Masquer le panneau latéral" class="fa" [ngClass]="side == sides.Right ? 'fa-toggle-right' : 'fa-toggle-left'"

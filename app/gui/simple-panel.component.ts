@@ -7,7 +7,6 @@ import {
 } from "@angular/core";
 import {IGuiComponent, GuiComponent} from "./gui-component";
 import {ContentLoader} from "./content-loader.directive";
-import {GuiItemType} from "../gui-api/gui-item";
 import {UUID} from "angular2-uuid";
 import {Side} from "./gui-view.component";
 
@@ -21,8 +20,6 @@ import {Side} from "./gui-view.component";
 export class SimplePanelComponent implements AfterViewInit {
     @Input()
     titre:string;
-    @Input()
-    type:GuiItemType;
     @Input('content')
     panelContentType:IGuiComponent;
     @Input()
@@ -68,19 +65,6 @@ export class SimplePanelComponent implements AfterViewInit {
 
     get id():UUID {
         return this._id;
-    }
-
-    private getPanelClass():string {
-        switch (this.type) {
-            case GuiItemType.error:
-                return 'error';
-            case GuiItemType.normal:
-                return 'normal';
-            case GuiItemType.warning:
-                return 'warning';
-            default:
-                throw new Error('Le type ' + this.type + 'n\'est pas pris en charge par le SimplePanel.');
-        }
     }
 
     get panelContent() {
