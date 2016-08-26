@@ -9,7 +9,7 @@ import {FlexibusAttributeGeometry} from "./flexibus-attribute-geometry.component
 @NgModule({
     imports: [CommonModule, FormsModule],
     declarations: [FlexibusAttributeInput, FlexibusForm, FlexibusAttributeDisplay, FlexibusAttributeDictionary, FlexibusAttributeGeometry],
-    exports: [FlexibusAttributeInput, FlexibusForm, FlexibusAttributeDisplay, FlexibusAttributeDictionary, FlexibusAttributeGeometry]
+    exports: [FlexibusAttributeInput, FlexibusForm, FlexibusAttributeDisplay, FlexibusAttributeDictionary, FlexibusAttributeGeometry],
 })
 export class CoreGuiModule {
     static getComponents() {
