@@ -1,5 +1,5 @@
 <div id="full-left-container" [style.width]="leftStyleWidth" [style.display]="getDisplay(sides.Left)">
-    <div class="left-container" *ngIf="leftCollapsed">
+    <div class="left-container" *ngIf="leftCollapsed" (click)="leftCollapsed = false; processSizes()">
         <div *ngFor="let compDescriptor of leftComponentsDescriptors"  title="{{compDescriptor.name}}"
              style="margin:5px; background-color: cornflowerblue; color: white;writing-mode: vertical-lr;text-orientation: sideways;padding: 3px;font-size: 16px; font-weight: 400; cursor: pointer;box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
             {{compDescriptor.name}}
@@ -26,8 +26,7 @@
                       [titre]="compDescriptor.name" (resizeEmitter)="processResize($event, sides.Right)"
                       [side]="sides.Right" [index]="i"></simple-panel>
     </div>
-    <div class="right-container" *ngIf="rightCollapsed">
-
+    <div class="right-container" *ngIf="rightCollapsed" (click)="rightCollapsed = false; processSizes()">
         <div *ngFor="let compDescriptor of rightComponentsDescriptors" title="{{compDescriptor.name}}"
              style="margin:5px; background-color: cornflowerblue; color: white;writing-mode: vertical-rl;text-orientation: sideways;padding: 3px;font-size: 16px; font-weight: 400; cursor: pointer;box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
             {{compDescriptor.name}}
