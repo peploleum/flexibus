@@ -1,22 +1,36 @@
-<div id="full-left-container" [style.width]="getSize(left)" [style.display]="getDisplay(sides.Left)">
-    <div id="left-container" *ngIf="!leftCollapsed">
-        <simple-panel #leftPanels  *ngFor="let compDescriptor of leftComponentsDescriptors; let i = index"
-                      [content]="compDescriptor.componentType" [type]="compDescriptor.type"
+<div id="full-left-container" [style.width]="leftStyleWidth" [style.display]="getDisplay(sides.Left)">
+    <div class="left-container" *ngIf="leftCollapsed">
+        <div *ngFor="let compDescriptor of leftComponentsDescriptors"  title="{{compDescriptor.name}}"
+             style="margin:5px; background-color: cornflowerblue; color: white;writing-mode: vertical-lr;text-orientation: sideways;padding: 3px;font-size: 16px; font-weight: 400; cursor: pointer;box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+            {{compDescriptor.name}}
+        </div>
+    </div>
+    <div class="left-container" *ngIf="!leftCollapsed">
+        <simple-panel #leftPanels *ngFor="let compDescriptor of leftComponentsDescriptors; let i = index"
+                      [content]="compDescriptor.componentType"
                       [titre]="compDescriptor.name" (resizeEmitter)="processResize($event, sides.Left)"
                       [side]="sides.Left" [index]="i"></simple-panel>
     </div>
-    <div id="left-resizer" style="width:5px;cursor: ew-resize" (mousedown)="startResize(sides.Left)"></div>
+    <div id="left-resizer" *ngIf="!leftCollapsed" style="width:5px;cursor: ew-resize" (mousedown)="startResize(sides.Left)"></div>
 </div>
-<div id="main-container" [style.width]="getSize(main)">
-    <simple-panel #mainPanel [content]="mainComponentDescriptor.componentType" [type]="mainComponentDescriptor.type"
-                  [titre]="mainComponentDescriptor.name"></simple-panel>
+<div id="main-container" [ngStyle]="{'width': mainStyleWidth}">
+    <simple-panel #mainPanel [content]="mainComponentDescriptor.componentType"
+                  [titre]="mainComponentDescriptor.name" (resizeEmitter)="processResize($event, null)"></simple-panel>
 </div>
-<div id="full-right-container" [style.width]="getSize(right)" [style.display]="getDisplay(sides.Right)">
-    <div id="right-resizer" style="width:5px; cursor:ew-resize" (mousedown)="startResize(sides.Right)"></div>
-    <div id="right-container" *ngIf="!rightCollapsed">
+<div id="full-right-container" [style.width]="rightStyleWidth" [style.display]="getDisplay(sides.Right)">
+    <div id="right-resizer" *ngIf="!rightCollapsed" style="width:5px; cursor:ew-resize"
+         (mousedown)="startResize(sides.Right)"></div>
+    <div class="right-container" *ngIf="!rightCollapsed">
         <simple-panel #rightPanels *ngFor="let compDescriptor of rightComponentsDescriptors; let i = index"
-                      [content]="compDescriptor.componentType" [type]="compDescriptor.type"
+                      [content]="compDescriptor.componentType"
                       [titre]="compDescriptor.name" (resizeEmitter)="processResize($event, sides.Right)"
                       [side]="sides.Right" [index]="i"></simple-panel>
+    </div>
+    <div class="right-container" *ngIf="rightCollapsed">
+
+        <div *ngFor="let compDescriptor of rightComponentsDescriptors" title="{{compDescriptor.name}}"
+             style="margin:5px; background-color: cornflowerblue; color: white;writing-mode: vertical-rl;text-orientation: sideways;padding: 3px;font-size: 16px; font-weight: 400; cursor: pointer;box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+            {{compDescriptor.name}}
+        </div>
     </div>
 </div>
