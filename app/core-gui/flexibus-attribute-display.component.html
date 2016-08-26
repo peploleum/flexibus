@@ -1,0 +1,7 @@
+﻿<div *ngIf="model && model.attribute" [ngSwitch]="model.attribute.type">
+    <template [ngSwitchCase]="flexibusType.STRING">
+        <flexibus-attribute-input [model]="model"></flexibus-attribute-input>
+    </template>
+    <flexibus-attribute-input *ngSwitchCase="flexibusType.DICTIONARY" [model]="model"></flexibus-attribute-input>
+    <template ngSwitchDefault>No component available</template>
+</div>

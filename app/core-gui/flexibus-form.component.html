@@ -1,5 +1,4 @@
 ﻿<div>
-    <flexibus-attribute-input *ngFor="let attributeValue of model.attributesValues" [model]="attributeValue"></flexibus-attribute-input>
+    <flexibus-attribute-display *ngFor="let attributeValue of model.attributesValues" [model]="attributeValue"></flexibus-attribute-display>
     {{diagnostic()}}
 </div>
-(
