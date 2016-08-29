@@ -1,5 +1,6 @@
 import {Component, OnInit, OnDestroy, Input} from "@angular/core";
-import * as flexiM from "../core/flexibus-model";//flexibus entity model
+import * as flexiM from "../core/flexibus-model";
+import {FormGroup, FormControl, Validators} from "@angular/forms";
 @Component({
     moduleId: module.id,
     selector: 'flexibus-attribute-dictionary',
@@ -10,12 +11,16 @@ import * as flexiM from "../core/flexibus-model";//flexibus entity model
 export class FlexibusAttributeDictionary implements OnInit, OnDestroy {
 
     @Input() model:flexiM.FlexibusAttributeValue;
+    @Input() flexibusForm:FormGroup;
+
+    inputControl:FormControl;
 
     constructor() {
-        // this.model = new flexiM.FlexibusAttributeValue("test", new flexiM.FlexibusAttribute("attributeName", "attributeLabel", flexiM.FlexibusType.STRING));
+        this.inputControl = new FormControl('dict', Validators.required);
     }
 
     ngOnInit() {
+        this.flexibusForm.addControl('dict', this.inputControl);
     }
 
     ngOnDestroy() {

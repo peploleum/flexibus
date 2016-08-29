@@ -1,8 +1,9 @@
 ﻿<div *ngIf="model && model.attribute" [ngSwitch]="model.attribute.type" class="form-group">
-    <flexibus-attribute-input *ngSwitchCase="flexibusType.STRING" [model]="model"></flexibus-attribute-input>
+    <flexibus-attribute-input *ngSwitchCase="flexibusType.STRING" [model]="model"
+                              [flexibusForm]="flexibusForm"></flexibus-attribute-input>
     <flexibus-attribute-dictionary *ngSwitchCase="flexibusType.DICTIONARY"
-                                   [model]="model"></flexibus-attribute-dictionary>
+                                   [model]="model" [flexibusForm]="flexibusForm"></flexibus-attribute-dictionary>
     <flexibus-attribute-geometry *ngSwitchCase="flexibusType.GEOMETRY"
-                                 [model]="model"></flexibus-attribute-geometry>
+                                 [model]="model" [flexibusForm]="flexibusForm"></flexibus-attribute-geometry>
     <div *ngSwitchDefault>No component available</div>
 </div>

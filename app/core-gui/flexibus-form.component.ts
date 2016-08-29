@@ -5,6 +5,7 @@ import {FlexibusAttribute} from "../core/flexibus-attribute";
 import {FlexibusType} from "../core/flexibus-type";
 import {FlexibusAttributeValue} from "../core/flexibus-attribute-value";
 import {FlexibusClass} from "../core/flexibus-class";
+import {FormGroup, FormBuilder, FormControl, Validators} from "@angular/forms";
 
 @Component({
     moduleId: module.id,
@@ -17,9 +18,12 @@ export class FlexibusForm implements OnInit, OnDestroy {
 
     @Input() model:FlexibusEntity;
     active:boolean;
+    flexibusForm:FormGroup;
+    firstName = new FormControl("", Validators.required);
+    valueObserver:string;
 
-    constructor() {
-
+    constructor(fb:FormBuilder) {
+        //http://blog.angular-university.io/introduction-to-angular-2-forms-template-driven-vs-model-driven/
         let flexibusAttributeOne = new FlexibusAttribute("attributeOneName", "attributeOneLabel", FlexibusType.STRING);
         let flexibusAttributeTwo = new FlexibusAttribute("attributeTwoName", "attributeTwoLabel", FlexibusType.STRING);
         let flexibusAttributeThree = new FlexibusAttribute("attributeThreeName", "attributeThreeLabel", FlexibusType.DICTIONARY);
@@ -29,13 +33,17 @@ export class FlexibusForm implements OnInit, OnDestroy {
         let attributeValueTwo = new FlexibusAttributeValue("testValueTwo", flexibusAttributeTwo);
         let attributeValueThree = new FlexibusAttributeValue("value1", flexibusAttributeThree);
         let attributeValueFour = new FlexibusAttributeValue("POINT(2 49)", flexibusAttributeFour);
+        this.model = new FlexibusEntity(UUID.UUID(), new FlexibusClass("flexibusEntity", "Flexibus Entity Label", [flexibusAttributeOne, flexibusAttributeTwo, flexibusAttributeThree, flexibusAttributeFour], []), [attributeValueOne, attributeValueTwo, attributeValueThree, attributeValueFour], []);
 
-        this.model = new FlexibusEntity(UUID.UUID(), new FlexibusClass("flexibusEntity", "Flexibus Entity Label", [flexibusAttributeOne, flexibusAttributeTwo, flexibusAttributeThree, flexibusAttributeFour], []),[attributeValueOne, attributeValueTwo, attributeValueThree, attributeValueFour], []);
         // this.model = new FlexibusEntity(UUID.UUID(), new FlexibusClass("flexibusEntity", "Flexibus Entity Label", [flexibusAttributeThree], []), [attributeValueThree], []);
         this.active = true;
+        this.flexibusForm = new FormGroup({});
     }
 
     ngOnInit() {
+        this.flexibusForm.valueChanges.subscribe((value) => {
+            this.valueObserver = value;
+        });
     }
 
     ngOnDestroy() {
@@ -43,6 +51,10 @@ export class FlexibusForm implements OnInit, OnDestroy {
 
     diagnostic() {
         return JSON.stringify(this.model);
+    }
+
+    onSubmit() {
+        console.log("submitting");
     }
 
 
