@@ -10,5 +10,4 @@
 
 .ng-dirty.ng-valid[required] {
     background-color: #dbf3ff;
-    /*color: #ffc520;*/
 }

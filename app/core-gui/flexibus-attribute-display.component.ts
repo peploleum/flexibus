@@ -1,7 +1,7 @@
 import {Component, OnInit, OnDestroy, Input} from "@angular/core";
 import {FlexibusAttributeValue} from "../core/flexibus-attribute-value";
-import {FlexibusAttribute} from "../core/flexibus-attribute";
 import {FlexibusType} from "../core/flexibus-type";
+import {FormGroup} from "@angular/forms";
 @Component({
     moduleId: module.id,
     selector: 'flexibus-attribute-display',
@@ -12,11 +12,10 @@ import {FlexibusType} from "../core/flexibus-type";
 export class FlexibusAttributeDisplay implements OnInit, OnDestroy {
 
     @Input() model:FlexibusAttributeValue;
-
+    @Input() flexibusForm:FormGroup;
     flexibusType = FlexibusType;
-    
+
     constructor() {
-        this.model = new FlexibusAttributeValue("test", new FlexibusAttribute("attributeName", "attributeLabel", FlexibusType.STRING));
     }
 
     ngOnInit() {

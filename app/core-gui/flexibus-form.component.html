@@ -1,4 +1,11 @@
 ﻿<div>
-    <flexibus-attribute-display *ngFor="let attributeValue of model.attributesValues" [model]="attributeValue"></flexibus-attribute-display>
-    {{diagnostic()}}
+    <form [formGroup]="flexibusForm" (ngSubmit)="onSubmit()">
+        <fieldset [disabled]="!active">
+            <flexibus-attribute-display *ngFor="let attributeValue of model.attributesValues"
+                                        [model]="attributeValue"
+                                        [flexibusForm]="flexibusForm"></flexibus-attribute-display>
+            <button class="btn btn-primary" type="submit" [disabled]="!flexibusForm.valid">Submit</button>
+        </fieldset>
+    </form>
+    <p>{{valueObserver | json}}</p>
 </div>

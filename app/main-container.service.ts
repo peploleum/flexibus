@@ -12,6 +12,8 @@ import {ResultDisplayComponent} from "./test-module/result-display-component.com
 import {MapComponent} from "./map-module/map.component";
 import {Foo} from "./foo-module/foo";
 import {BarForm} from "./bar-module/bar-form.component";
+import {FlexibusForm} from "./core-gui/flexibus-form.component";
+import {TestGuiComponent} from "./test-module/test-gui-component.component";
 
 @Injectable()
 export class GuiManagerService {
@@ -40,12 +42,12 @@ export class GuiManagerService {
         // container.addRightItem(new GuiItem(new GuiItemDescriptor('Alléluia !', EasyComponent)));
         container.addRightItem(new GuiItem('Moteur de recherche', ResultDisplayComponent));
 
-        let container2 = new GuiContainer('2nd atelier', new GuiItem('Map 2 ', BarForm));
-        // container2.addRightItem(new GuiItem('test left item', TestGuiComponent));
+        let container2 = new GuiContainer('2nd atelier', new GuiItem('Form ', FlexibusForm));
+        container2.addRightItem(new GuiItem('test left item', TestGuiComponent));
 
 
+        this.guiManager.addGuiContainer(container2);
         this.guiManager.addGuiContainer(container);
-        // this.guiManager.addGuiContainer(container2);
     }
 
     getGuiContainers():Array<GuiContainer> {
