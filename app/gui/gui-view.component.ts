@@ -111,15 +111,25 @@ export class GuiView implements AfterViewInit, OnInit {
 
 
     private processSizes(leftWidth?:number, rightWidth?:number) {
-        this.leftWidth = this.leftComponentsDescriptors.length == 0 ? 0 : (leftWidth ? leftWidth : (this.leftWidth ? this.leftWidth : 20));
-        this.rightWidth = this.rightComponentsDescriptors.length == 0 ? 0 : (rightWidth ? rightWidth : (this.rightWidth ? this.rightWidth : 20));
+        let leftEnabled = this.leftComponentsDescriptors.length != 0;
+        let rightEnabled = this.rightComponentsDescriptors.length != 0;
+
+        // If no component registered => 0
+        // Else if parameter not null => parameter (for ex. during a resize event : new panel size)
+        // Else => current size
+        this.leftWidth = leftEnabled ? (leftWidth ? leftWidth : (this.leftWidth ? this.leftWidth : 20)) : 0;
+        this.rightWidth = rightEnabled ? (rightWidth ? rightWidth : (this.rightWidth ? this.rightWidth : 20)) : 0;
+
+
         this.mainWidth = 100 - this.leftWidth - this.rightWidth;
 
-        this.leftStyleWidth = this.leftCollapsed ? '30px' : this.leftWidth + '%';
-        this.rightStyleWidth = this.rightCollapsed ? '30px' : this.rightWidth + '%';
-        this.mainStyleWidth = (this.rightCollapsed && this.leftCollapsed) ? 'calc(100% - 60px)' :
-            (this.rightCollapsed ? 'calc(100% - 30px - ' + this.leftStyleWidth + ')' :
-                (this.leftCollapsed ? 'calc(100% - 30px - ' + this.rightStyleWidth + ')' : this.mainWidth + '%'));
+        this.leftStyleWidth = this.leftWidth == 0 ? '0%' : (this.leftCollapsed ? '30px' : this.leftWidth + '%');
+        this.rightStyleWidth = this.rightWidth == 0 ? '0%' : (this.rightCollapsed ? '30px' : this.rightWidth + '%');
+
+        let toRemoveFromLeft = this.leftCollapsed ? (this.leftWidth == 0 ? '0%' : '30px') : this.leftWidth + '%';
+        let toRemoveFromRight = this.rightCollapsed ? (this.rightWidth == 0 ? '0%' : '30px') : this.rightWidth + '%';
+
+        this.mainStyleWidth = 'calc(100% - ' + toRemoveFromLeft + ' - ' + toRemoveFromRight + ')';
 
         this.sendResizeEvent(this.element.nativeElement.ownerDocument.defaultView || this.element.nativeElement.ownerDocument.parentWindow);
     }
@@ -171,7 +181,7 @@ export class GuiView implements AfterViewInit, OnInit {
                 bubbles: true,
                 cancelable: false
             })]);
-        })
+        });
     }
 }
 
