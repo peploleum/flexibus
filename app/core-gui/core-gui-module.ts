@@ -1,5 +1,5 @@
 import {NgModule} from "@angular/core";
-import {ReactiveFormsModule, FormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {FlexibusAttributeInput} from "./flexibus-attribute-input.component";
 import {FlexibusForm} from "./flexibus-form.component";
@@ -8,7 +8,7 @@ import {FlexibusAttributeDictionary} from "./flexibus-attribute-dictionary.compo
 import {FlexibusAttributeGeometry} from "./flexibus-attribute-geometry.component";
 import {FlexibusAttributeDateControl} from "./flexibus-attribute-date.component";
 @NgModule({
-    imports: [CommonModule, ReactiveFormsModule, FormsModule],
+    imports: [CommonModule, ReactiveFormsModule],
     declarations: [FlexibusAttributeInput, FlexibusForm, FlexibusAttributeDisplay, FlexibusAttributeDictionary, FlexibusAttributeGeometry, FlexibusAttributeDateControl],
     exports: [FlexibusAttributeInput, FlexibusForm, FlexibusAttributeDisplay, FlexibusAttributeDictionary, FlexibusAttributeGeometry, FlexibusAttributeDateControl],
 })

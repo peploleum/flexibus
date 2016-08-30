@@ -20,7 +20,7 @@ export class FlexibusAttributeGeometry implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.inputControl.valueChanges.debounceTime(200);
+        this.inputControl.setValue(this.model.value);
         this.flexibusForm.addControl(this.model.attribute.name, this.inputControl);
     }
 

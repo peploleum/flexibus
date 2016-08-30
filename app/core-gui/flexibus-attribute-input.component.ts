@@ -15,10 +15,11 @@ export class FlexibusAttributeInput implements OnInit, OnDestroy {
     attributeControl:FormControl;
 
     constructor() {
-        this.attributeControl = new FormControl(this.model ? this.model.value : 'test', Validators.required);
+        this.attributeControl = new FormControl('', Validators.required);
     }
 
     ngOnInit() {
+        this.attributeControl.setValue(this.model.value);
         this.flexibusForm.addControl(this.model.attribute.name, this.attributeControl);
     }
 

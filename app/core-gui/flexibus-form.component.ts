@@ -5,7 +5,7 @@ import {FlexibusAttribute} from "../core/flexibus-attribute";
 import {FlexibusType} from "../core/flexibus-type";
 import {FlexibusAttributeValue} from "../core/flexibus-attribute-value";
 import {FlexibusClass} from "../core/flexibus-class";
-import {FormGroup, FormBuilder, FormControl, Validators} from "@angular/forms";
+import {FormGroup} from "@angular/forms";
 
 @Component({
     moduleId: module.id,
@@ -19,10 +19,9 @@ export class FlexibusForm implements OnInit, OnDestroy {
     @Input() model:FlexibusEntity;
     active:boolean;
     flexibusForm:FormGroup;
-    firstName = new FormControl("", Validators.required);
     valueObserver:string;
 
-    constructor(fb:FormBuilder) {
+    constructor() {
         //http://blog.angular-university.io/introduction-to-angular-2-forms-template-driven-vs-model-driven/
         let flexibusAttributeOne = new FlexibusAttribute("attributeOneName", "attributeOneLabel", FlexibusType.STRING);
         let flexibusAttributeTwo = new FlexibusAttribute("attributeTwoName", "attributeTwoLabel", FlexibusType.STRING);

@@ -15,10 +15,11 @@ export class FlexibusAttributeDateControl implements OnInit, OnDestroy {
     attributeControl:FormControl;
 
     constructor() {
-        this.attributeControl = new FormControl(this.model ? this.model.value : 'date', DateTimeGroupValidator.isCorrectDtg);
+        this.attributeControl = new FormControl(this.model ? this.model.value : '', DateTimeGroupValidator.isCorrectDtg);
     }
 
     ngOnInit() {
+        this.attributeControl.setValue(this.model.value);
         this.flexibusForm.addControl(this.model.attribute.name, this.attributeControl);
     }
 
@@ -32,7 +33,7 @@ interface ValidationResult {
 }
 export class DateTimeGroupValidator {
 
-    static dtgRegex:RegExp = new RegExp('^(\\d{2})(\\d{2})(\\d{2})\\s*([a-ik-zA-IK-Z]\\*?)\\s*([a-zA-Z]{3})?\\s*(\\d{4}|\\d{2})?$');
+    static dtgRegex = /^(\d{2})(\d{2})(\d{2})\s*([a-ik-zA-IK-Z]\*?)\s*([a-zA-Z]{3})?\s*(\d{4}|\d{2})?$/;
 
     static isCorrectDtg(control:FormControl):ValidationResult {
         let matches = DateTimeGroupValidator.dtgRegex.test(control.value);

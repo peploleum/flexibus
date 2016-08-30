@@ -16,11 +16,12 @@ export class FlexibusAttributeDictionary implements OnInit, OnDestroy {
     inputControl:FormControl;
 
     constructor() {
-        this.inputControl = new FormControl('dict', Validators.required);
+        this.inputControl = new FormControl('', Validators.required);
     }
 
     ngOnInit() {
-        this.flexibusForm.addControl('dict', this.inputControl);
+        this.inputControl.setValue(this.model.value);
+        this.flexibusForm.addControl(this.model.attribute.name, this.inputControl);
     }
 
     ngOnDestroy() {
