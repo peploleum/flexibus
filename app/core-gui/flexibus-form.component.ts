@@ -38,7 +38,7 @@ export class FlexibusForm implements OnInit, OnDestroy {
             for (let val of value.attributesValues){
                 let innerFormControl = this.flexibusForm.get(val.attribute.name);
                 innerFormControl.patchValue(val.value, {
-                    emitEvent: false,
+                    emitEvent: true,
                     emitModelToViewChange: true
                 });
             }

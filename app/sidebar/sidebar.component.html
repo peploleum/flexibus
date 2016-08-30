@@ -1,0 +1,77 @@
+<div class="sidebar-container" id="sidebar">
+    <div class="sidebar-content">
+        <form class="sidebar-search" role="search">
+            <i class="fa fa-search"></i>
+            <input type="text" placeholder="Search..." class="form-control">
+        </form>
+        <div *ngFor="let sideBarItem of sideBarModel.sidebarItems">
+            <a href="">
+                <i [ngClass]="!sideBarItem.collapsed ? ['fa', 'fa-angle-down'] : []"></i>
+                <i class="fa fa-database" style="font-size: 14px; padding-right: 8px;"></i>
+                <span>{{sideBarItem.label}}</span>
+            </a>
+            <div id="subItemMenu">
+                <ul>
+                    <li *ngFor="let subItem of sideBarItem.subItems">
+                        <a href="" title={{subItem.name}}>
+                            <i class="fa fa-folder-open"></i>
+                            <span>{{subItem.label}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel sub-menu">
+            <a data-toggle="collapse" href="g#queryMenu">
+                <i class="fa fa-angle-down"></i>
+                <i class="fa fa-database" style="font-size: 14px; padding-right: 8px;"></i>
+                <span>Data</span>
+            </a>
+            <div id="queryMenu" class="collapse">
+                <ul class="sub-menu-list">
+                    <li>
+                        <a href="" title="Click me">
+                            <i class="fa fa-folder-open"></i>
+                            <span>Click me</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" title="Or me">
+                            <i class="fa fa-tasks"></i>
+                            <span>Or me</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" title="Or even me">
+                            <i class="fa fa-search-plus"></i>
+                            <span>Or even me</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel sub-menu">
+            <a data-toggle="collapse" href="g#analyticsMenu">
+                <i class="fa fa-angle-down"></i>
+                <i class="fa fa-desktop"></i>
+                <span>Analytics</span>
+            </a>
+            <div id="analyticsMenu" class="collapse">
+                <ul class="sub-menu-list">
+                    <li>
+                        <a href="" title="Sub menu item">
+                            <i class="fa fa-sitemap"></i>
+                            <span> Sub menu item ! </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" title="Sub menu item 2">
+                            <i class="fa fa-globe"></i>
+                            <span> item 2 </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

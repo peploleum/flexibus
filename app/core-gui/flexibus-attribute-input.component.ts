@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy, Input} from "@angular/core";
+import {Component, OnInit, OnDestroy, Input, DoCheck, OnChanges} from "@angular/core";
 import * as flexiM from "../core/flexibus-model";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 @Component({
@@ -8,7 +8,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
     styleUrls: ['flexibus-attribute-input.component.css'],
     providers: []
 })
-export class FlexibusAttributeInput implements OnInit, OnDestroy {
+export class FlexibusAttributeInput implements OnInit, OnDestroy, OnChanges {
 
     @Input() model:flexiM.FlexibusAttributeValue;
     @Input() flexibusForm:FormGroup;
@@ -24,6 +24,11 @@ export class FlexibusAttributeInput implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
+    }
+
+
+    ngOnChanges() {
+        console.log("vive le jambon " + ((this.model) ? this.model.attribute.name : ''));
     }
 
 

@@ -12,3 +12,8 @@
 .gui-tab-content > .active {
     display: flex !important;
 }
+
+#rootContainer {
+    flex-direction: row;
+    display: flex;
+}

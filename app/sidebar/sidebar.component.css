@@ -1,0 +1,210 @@
+.sidebar-container {
+    height: 100%;
+    width: 185px;
+    background-color: #6495ed;
+    transition: all 0.5s linear 0s;
+    display: flex;
+    flex-direction: column;
+}
+
+/*.sidebar-content {*/
+    /*overflow: auto;*/
+    /*flex-grow: 1;*/
+/*}*/
+
+/*.noAnimation .sidebar-menu {*/
+    /*transition: none;*/
+/*}*/
+
+/*.noAnimation .collapsing, .noAnimation .collapse, .noAnimation .fade {*/
+    /*transition: none;*/
+/*}*/
+
+/*.sidebar-menu:hover {*/
+    /*background-color: #0E4C9B;*/
+/*}*/
+
+/*.sidebar-buttons {*/
+    /*background-color: white;*/
+    /*border-top: 1px solid #7A7A7A;*/
+    /*border-bottom: 1px solid #7A7A7A;*/
+    /*margin: 0px;*/
+    /*padding: 0px;*/
+/*}*/
+
+/*.sidebar-closed .sidebar-buttons {*/
+    /*border: 0px;*/
+/*}*/
+
+/*.sidebar-buttons > li {*/
+    /*display: inline-block;*/
+    /*vertical-align: middle;*/
+    /*cursor: pointer;*/
+    /*height: 38px;*/
+    /*width: 50px;*/
+    /*border-right: 1px solid rgb(221, 221, 221);*/
+    /*margin-left: -4px;*/
+/*}*/
+
+/*.sidebar-closed .sidebar-buttons > li {*/
+    /*border: 0px;*/
+    /*width: 49px !important;*/
+/*}*/
+
+/*.sidebar-buttons > li:hover {*/
+    /*background-color: #B9F6FF;*/
+    /*color: black;*/
+/*}*/
+
+/*.sidebar-buttons > li:first-child {*/
+    /*width: 39px;*/
+    /*font-size: 18px;*/
+    /*padding: 5px 14px;*/
+/*}*/
+
+/*.sidebar-closed .sidebar-buttons > li:first-child {*/
+    /*padding-left: 21px;*/
+/*}*/
+
+/*.sidebar-buttons > li > div {*/
+    /*height: 38px;*/
+    /*padding: 9px 0px 0px 11px;*/
+/*}*/
+
+/*.sidebar-buttons > li:last-child {*/
+    /*border-right: 0px;*/
+/*}*/
+
+/*.sidebar-buttons .badge {*/
+    /*position: absolute;*/
+    /*font-size: 11px;*/
+    /*top: 2px;*/
+    /*left: 5px;*/
+    /*padding: 3px 5px;*/
+    /*background-color: #C62929;*/
+    /*z-index: 100;*/
+/*}*/
+
+/*.sidebar-search {*/
+    /*padding: 4px 4px 4px 15px;*/
+    /*margin-top: 10px;*/
+/*}*/
+
+/*.sidebar-search:hover {*/
+    /*background-color: rgba(255, 255, 255, 0.27);*/
+/*}*/
+
+/*.sidebar-search > .form-control {*/
+    /*font-size: 12px;*/
+    /*width: 136px;*/
+    /*display: inline-block;*/
+    /*border-radius: 0px;*/
+    /*background-color: transparent;*/
+    /*border: 0px none;*/
+    /*box-shadow: none;*/
+    /*color: #F5F5F5;*/
+    /*margin-left: -6px;*/
+/*}*/
+
+/*.sidebar-search > i {*/
+    /*color: #F5F5F5;*/
+/*}*/
+
+/*.sidebar-search ::-moz-placeholder {*/
+    /*color: #F5F5F5;*/
+/*}*/
+
+/*.sidebar-filler {*/
+    /*min-height: 1px;*/
+/*}*/
+
+/*#sidebar ul li {*/
+    /*position: relative;*/
+/*}*/
+
+/*!*We need those silly panels inside the menus for the sidebar because Bootstrap need*/
+/*them for running properly its accordion mechanics...*!*/
+/*#sidebar .panel {*/
+    /*margin-bottom: inherit;*/
+    /*background-color: transparent;*/
+    /*border: inherit;*/
+    /*border-radius: inherit;*/
+    /*box-shadow: inherit;*/
+/*}*/
+
+/*#sidebar .sidebar-menu a {*/
+    /*text-decoration: none;*/
+    /*outline: none;*/
+/*}*/
+
+/*#sidebar .sub-menu {*/
+    /*margin: 5px;*/
+    /*line-height: 15px;*/
+/*}*/
+
+/*.sidebar-closed .sub-menu {*/
+    /*border-bottom: 1px solid white !important;*/
+/*}*/
+
+/*#sidebar .sub-menu a {*/
+    /*color: #F5F5F5;*/
+    /*text-decoration: none;*/
+    /*display: block;*/
+    /*padding: 10px 0px 10px 10px;*/
+    /*font-size: 12px;*/
+/*}*/
+
+/*#sidebar .sub-menu a:hover {*/
+    /*background-color: #FFF;*/
+    /*color: rgba(0, 25, 131, 0.52);*/
+/*}*/
+
+/*#sidebar .sub-menu a span {*/
+    /*display: inline-block;*/
+/*}*/
+
+/*.sidebar-closed .sub-menu > a {*/
+    /*padding: 2px 12px !important;*/
+/*}*/
+
+/*#sidebar .sub-menu a i {*/
+    /*font-size: 15px;*/
+    /*padding-right: 6px;*/
+/*}*/
+
+/*#sidebar .sub-menu-list {*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+/*}*/
+
+/*#sidebar .sub-menu-list li {*/
+    /*padding-left: 32px;*/
+    /*margin-bottom: 0;*/
+    /*margin-left: 0;*/
+    /*margin-right: 0;*/
+/*}*/
+
+/*#sidebar .sub-menu-list li:last-child {*/
+    /*padding-bottom: 10px;*/
+    /*border-radius: 0 0 4px 4px;*/
+/*}*/
+
+/*#sidebar .sub-menu-list a {*/
+    /*font-size: 12px;*/
+    /*padding: 6px 0;*/
+    /*line-height: 35px;*/
+    /*height: 35px;*/
+/*}*/
+
+/*#sidebar .sub-menu-list a:hover {*/
+    /*background: transparent;*/
+    /*color: #43D7FF;*/
+/*}*/
+
+/*.sidebar-closed .sidebar-menu a i {*/
+    /*padding-right: 0px;*/
+/*}*/
+
+/*.sidebar-closed .sub-menu-list li {*/
+    /*padding-left: 10px !important;*/
+/*}*/

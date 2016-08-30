@@ -24,7 +24,7 @@ export class GuiModule {
     }
 
     static getComponents() {
-        // return [ExampleGuiComponent, GuiView, TestGuiComponent, SimplePanelComponent,MapComponent, AnotherTestGuiComponent, EasyComponent, ResultDisplayComponent, GuiContextHistory];
+        // return [ExampleGuiComponent, GuiView, TestGuiComponent, SimplePanelComponent,SideBarComponent, AnotherTestGuiComponent, EasyComponent, ResultDisplayComponent, GuiContextHistory];
         return [ GuiView, SimplePanelComponent ];
     }
 }
