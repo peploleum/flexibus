@@ -1,11 +1,10 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {FormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 import {FooFormPolymer} from "./foo-form-polymer.component";
-import {PaperInputValueAccessor} from "./paper-input-directive";
 
 @NgModule({
-    imports: [CommonModule, FormsModule],
+    imports: [CommonModule, ReactiveFormsModule],
     declarations: [FooFormPolymer],
     exports: [FooFormPolymer],
 })

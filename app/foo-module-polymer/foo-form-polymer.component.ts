@@ -4,13 +4,12 @@ import {FooFormPolymerService} from "./foo-form-polymer.service";
 import {
     REACTIVE_FORM_DIRECTIVES, FormControl, FormGroup, Validators
 } from "@angular/forms";
-import {PaperInputValueAccessor} from "./paper-input-directive";
 
 @Component({
     moduleId: module.id,
     selector: 'foo-form-polymer',
     templateUrl: 'foo-form-polymer.component.html',
-    directives: [REACTIVE_FORM_DIRECTIVES, PaperInputValueAccessor],
+    directives: [REACTIVE_FORM_DIRECTIVES],
     styleUrls: ['foo-form-polymer.component.css'],
     providers: [FooFormPolymerService]
 })
