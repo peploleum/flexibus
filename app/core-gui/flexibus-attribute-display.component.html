@@ -5,5 +5,7 @@
                                    [model]="model" [flexibusForm]="flexibusForm"></flexibus-attribute-dictionary>
     <flexibus-attribute-geometry *ngSwitchCase="flexibusType.GEOMETRY"
                                  [model]="model" [flexibusForm]="flexibusForm"></flexibus-attribute-geometry>
+    <flexibus-attribute-date *ngSwitchCase="flexibusType.DATE"
+                                 [model]="model" [flexibusForm]="flexibusForm"></flexibus-attribute-date>
     <div *ngSwitchDefault>No component available</div>
 </div>

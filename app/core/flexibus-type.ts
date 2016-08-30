@@ -1,5 +1,6 @@
 export enum FlexibusType  {
     DICTIONARY,
     STRING,
-    GEOMETRY
+    GEOMETRY,
+    DATE
 }

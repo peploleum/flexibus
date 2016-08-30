@@ -28,14 +28,15 @@ export class FlexibusForm implements OnInit, OnDestroy {
         let flexibusAttributeTwo = new FlexibusAttribute("attributeTwoName", "attributeTwoLabel", FlexibusType.STRING);
         let flexibusAttributeThree = new FlexibusAttribute("attributeThreeName", "attributeThreeLabel", FlexibusType.DICTIONARY);
         let flexibusAttributeFour = new FlexibusAttribute("attributeGeom", "attributeGeomLabel", FlexibusType.GEOMETRY);
+        let flexibusAttributeFive = new FlexibusAttribute("attributeDate", "attributeDateLabel", FlexibusType.DATE);
         flexibusAttributeThree.values = ['value1', 'value2', 'value3'];
         let attributeValueOne = new FlexibusAttributeValue("testValueOne", flexibusAttributeOne);
         let attributeValueTwo = new FlexibusAttributeValue("testValueTwo", flexibusAttributeTwo);
         let attributeValueThree = new FlexibusAttributeValue("value1", flexibusAttributeThree);
         let attributeValueFour = new FlexibusAttributeValue("POINT(2 49)", flexibusAttributeFour);
-        this.model = new FlexibusEntity(UUID.UUID(), new FlexibusClass("flexibusEntity", "Flexibus Entity Label", [flexibusAttributeOne, flexibusAttributeTwo, flexibusAttributeThree, flexibusAttributeFour], []), [attributeValueOne, attributeValueTwo, attributeValueThree, attributeValueFour], []);
+        let attributeValueFive = new FlexibusAttributeValue("", flexibusAttributeFive);
+        this.model = new FlexibusEntity(UUID.UUID(), new FlexibusClass("flexibusEntity", "Flexibus Entity Label", [flexibusAttributeOne, flexibusAttributeTwo, flexibusAttributeThree, flexibusAttributeFour, flexibusAttributeFive], []), [attributeValueOne, attributeValueTwo, attributeValueThree, attributeValueFour, attributeValueFive], []);
 
-        // this.model = new FlexibusEntity(UUID.UUID(), new FlexibusClass("flexibusEntity", "Flexibus Entity Label", [flexibusAttributeThree], []), [attributeValueThree], []);
         this.active = true;
         this.flexibusForm = new FormGroup({});
     }
