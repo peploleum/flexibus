@@ -1,10 +1,11 @@
 ﻿<div>
     <form [formGroup]="flexibusForm" (ngSubmit)="onSubmit()">
-        <fieldset [disabled]="!active">
+        <fieldset [disabled]="!active" *ngIf="model">
             <flexibus-attribute-display *ngFor="let attributeValue of model.attributesValues"
                                         [model]="attributeValue"
                                         [flexibusForm]="flexibusForm"></flexibus-attribute-display>
             <button class="btn btn-primary" type="submit" [disabled]="!flexibusForm.valid">Submit</button>
+            <button class="btn btn-default" type="button" (click)="getEntity()">Simulate get</button>
         </fieldset>
     </form>
     <p>{{valueObserver | json}}</p>
