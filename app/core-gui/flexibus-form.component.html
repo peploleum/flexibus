@@ -4,7 +4,7 @@
             <flexibus-attribute-display *ngFor="let attributeValue of model.attributesValues"
                                         [model]="attributeValue"
                                         [flexibusForm]="flexibusForm"></flexibus-attribute-display>
-            <button class="btn btn-primary" type="submit" [disabled]="!flexibusForm.valid">Submit</button>
+            <button class="btn btn-danger" type="submit" [disabled]="!flexibusForm.valid">Submit</button>
             <button class="btn btn-default" type="button" (click)="getEntity()">Simulate get</button>
         </fieldset>
     </form>

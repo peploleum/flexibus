@@ -14,6 +14,7 @@ import {Foo} from "./foo-module/foo";
 import {BarForm} from "./bar-module/bar-form.component";
 import {FlexibusForm} from "./core-gui/flexibus-form.component";
 import {TestGuiComponent} from "./test-module/test-gui-component.component";
+import {FooFormPolymer} from "./foo-module-polymer/foo-form-polymer.component";
 
 @Injectable()
 export class GuiManagerService {
@@ -44,10 +45,12 @@ export class GuiManagerService {
 
         let container2 = new GuiContainer('2nd atelier', new GuiItem('Form ', FlexibusForm));
         container2.addRightItem(new GuiItem('test left item', TestGuiComponent));
+        let container3 = new GuiContainer('Polymer', new GuiItem('Form ', FooFormPolymer));
 
-
+        //FooFormPolymer
         this.guiManager.addGuiContainer(container2);
         this.guiManager.addGuiContainer(container);
+        this.guiManager.addGuiContainer(container3);
     }
 
     getGuiContainers():Array<GuiContainer> {
