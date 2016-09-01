@@ -15,6 +15,7 @@ import {BarForm} from "./bar-module/bar-form.component";
 import {FlexibusForm} from "./core-gui/flexibus-form.component";
 import {TestGuiComponent} from "./test-module/test-gui-component.component";
 import {FooFormPolymer} from "./foo-module-polymer/foo-form-polymer.component";
+import {DiaporamaComponent} from "./test-module/diaporama/diaporama.component";
 
 @Injectable()
 export class GuiManagerService {
@@ -40,6 +41,7 @@ export class GuiManagerService {
         // container.addRightItem(new GuiItem('test2', EasyComponent));
         // container.addRightItem(new GuiItem('test2', EasyComponent));
         container.addRightItem(new GuiItem('Alléluia !', EasyComponent));
+        container.addRightItem(new GuiItem('Diaporama', DiaporamaComponent));
         // container.addRightItem(new GuiItem(new GuiItemDescriptor('Alléluia !', EasyComponent)));
         container.addRightItem(new GuiItem('Moteur de recherche', ResultDisplayComponent));
 
