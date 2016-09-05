@@ -82,7 +82,7 @@
     text-decoration: none;
     display: block;
     padding: 10px 0px 10px 10px;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 #sidebar .sub-menu a:hover {
@@ -95,7 +95,7 @@
 }
 
 #sidebar .sub-menu a i {
-    font-size: 15px;
+    font-size: 20px;
     padding-right: 6px;
 }
 
@@ -131,7 +131,7 @@
 /*MINIMZED*/
 .sidebar-minimized-container {
     height: 100%;
-    width: 40px;
+    width: 50px;
     background-color: #6495ed;
     transition: all 0.5s linear 0s;
     display: flex;
@@ -150,7 +150,7 @@
 }
 
 .sub-menu-list-minimized li {
-    padding-left: 7px;
+    padding-left: 14px;
     padding-bottom: 5px;
     padding-top: 5px;
     margin-bottom: 0;
@@ -165,7 +165,7 @@
 
 .sub-menu-list-minimized a {
     color : #F5F5F5;
-    font-size: 25px;
+    font-size: 20px;
     padding: 6px 0;
     line-height: 35px;
     height: 35px;
