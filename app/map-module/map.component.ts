@@ -1,4 +1,4 @@
-import {Component, ElementRef, AfterViewInit, OnChanges} from "@angular/core";
+import {Component, ElementRef, AfterViewInit, OnChanges, OnDestroy} from "@angular/core";
 import {GuiComponent} from "../gui/gui-component";
 import * as ol from "openlayers";
 import {GuiContextService, GuiContext} from "../gui/gui-context.service";
@@ -11,7 +11,7 @@ import {MapService} from "./map.service";
     styleUrls: ['map.component.css'],
     providers: [MapService]
 })
-export class MapComponent extends GuiComponent implements AfterViewInit, OnChanges {
+export class MapComponent extends GuiComponent implements AfterViewInit, OnChanges, OnDestroy {
     private height:number;
 
     private map:ol.Map;
@@ -24,7 +24,6 @@ export class MapComponent extends GuiComponent implements AfterViewInit, OnChang
     }
 
     onGuiContext(guiContext:GuiContext) {
-        console.log("map received: " + guiContext.freeContent);
         this.ms.addLocation(guiContext.freeContent);
     }
 
@@ -34,6 +33,9 @@ export class MapComponent extends GuiComponent implements AfterViewInit, OnChang
 
     ngOnChanges() {
 
+    }
+
+    ngOnDestroy(){
     }
 
     ngAfterViewInit() {

@@ -55,7 +55,7 @@ export class TestGuiComponent extends GuiComponent implements OnInit, OnDestroy 
 
     goToRight(clickedRight:string) {
         console.log("go to right requested " + clickedRight);
-        let guiContext = new GuiContext([clickedRight]);
+        let guiContext = new GuiContext([clickedRight], null, null);
         this.gcs.broadcastContext(guiContext);
     }
 

@@ -37,7 +37,7 @@ export class BarForm extends GuiComponent implements OnInit, OnDestroy {
     onSubmit() {
         this.submitted = true;
         if (this.model.grid){
-            let guiContext = new GuiContext(null, this.model.grid);
+            let guiContext = new GuiContext(null, this.model.grid, null);
             console.log("BarForm sending " + JSON.stringify(guiContext));
             this.gcs.broadcastContext(guiContext);
         }

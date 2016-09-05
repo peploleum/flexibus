@@ -1,14 +1,13 @@
 import {GuiItem} from "./gui-item";
 import {UUID} from "angular2-uuid";
-/**
- * Created by tbonavia on 17/08/2016.
- */
 
 export class GuiContainer {
     title:string;
     mainItem:GuiItem;
     leftItems:Array<GuiItem> = new Array();
     rightItems:Array<GuiItem> = new Array();
+    loaded:boolean = false;
+    active:boolean = false;
 
     id: UUID = UUID.UUID();
 

@@ -69,7 +69,7 @@ export class AnotherTestGuiComponent extends GuiComponent implements OnInit, OnD
     }
 
     goToId(id:string){
-        let guiContext = new GuiContext([id]);
+        let guiContext = new GuiContext([id], null, null);
         this.gcs.broadcastContext(guiContext);
     }
 

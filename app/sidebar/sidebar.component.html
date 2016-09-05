@@ -1,42 +1,49 @@
-<div *ngIf="!minimized" class="sidebar-container" id="sidebar">
-    <div class="sidebar-content">
-        <button class="btn btn-default" (click)="onMinimize()">Minimize</button>
-        <form class="sidebar-search" role="search">
-            <i class="fa fa-search"></i>
-            <input type="text" placeholder="Search..." class="form-control">
-        </form>
-        <div *ngFor="let sideBarItem of sideBarModel.sidebarItems" class="sub-menu">
-            <a href="#" (click)="onSideBarItemClicked(sideBarItem)">
-                <i [ngClass]="!sideBarItem.collapsed ? ['fa', 'fa-angle-down'] : ['fa', 'fa-angle-up']"></i>
-                <i [ngClass]="sideBarItem.iconClass" style="font-size: 14px; padding-right: 8px;"></i>
-                <span>{{sideBarItem.label}}</span>
-            </a>
-            <div id="subItemMenu" *ngIf="!sideBarItem.collapsed">
-                <ul class="sub-menu-list">
-                    <li *ngFor="let subItem of sideBarItem.subItems">
-                        <a href="#" title={{subItem.name}} (click)="onSideBarSubItemClicked(subItem)">
-                            <i [ngClass]="subItem.iconClass"></i>
-                            <span>{{subItem.label}}</span>
-                        </a>
-                    </li>
-                </ul>
+<div>{{toubidou}}</div>
+<div class="shadowed-panel">
+    <div *ngIf="!minimized" class="sidebar-container" id="sidebar">
+        <div class="sidebar-content">
+            <form class="sidebar-search" role="search">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="Search..." class="form-control">
+            </form>
+            <div *ngFor="let sideBarItem of sideBarModel.sidebarItems" class="sub-menu">
+                <a href="#" (click)="onSideBarItemClicked(sideBarItem)">
+                    <i [ngClass]="!sideBarItem.collapsed ? ['fa', 'fa-angle-up'] : ['fa', 'fa-angle-down']"></i>
+                    <i [ngClass]="sideBarItem.iconClass" style="font-size: 14px; padding-right: 8px;"></i>
+                    <span>{{sideBarItem.label}}</span>
+                </a>
+                <div id="subItemMenu" *ngIf="!sideBarItem.collapsed">
+                    <ul class="sub-menu-list">
+                        <li *ngFor="let subItem of sideBarItem.subItems">
+                            <a href="#" title={{subItem.name}} (click)="onSideBarSubItemClicked(subItem)">
+                                <i [ngClass]="subItem.iconClass"></i>
+                                <span>{{subItem.label}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+            <a href="#" (click)="onMinimize()">
+                <i class="fa fa-angle-double-left" style="font-size: 35px; padding-left: 8px;"></i>
+            </a>
         </div>
     </div>
-</div>
-<div *ngIf="minimized" class="sidebar-minimized-container" id="sidebar-minimized">
-    <div class="sidebar-content">
-        <div *ngFor="let sideBarItem of sideBarModel.sidebarItems" class="sub-menu-minimized">
-            <div *ngIf="!sideBarItem.collapsed">
-                <ul class="sub-menu-list-minimized">
-                    <li *ngFor="let subItem of sideBarItem.subItems">
-                        <a href="#" title={{subItem.name}} (click)="onSideBarSubItemClicked(subItem)">
-                            <i [ngClass]="subItem.iconClass"></i>
-                        </a>
-                    </li>
-                </ul>
+    <div *ngIf="minimized" class="sidebar-minimized-container" id="sidebar-minimized">
+        <div class="sidebar-content">
+            <div *ngFor="let sideBarItem of sideBarModel.sidebarItems" class="sub-menu-minimized">
+                <div *ngIf="!sideBarItem.collapsed">
+                    <ul class="sub-menu-list-minimized">
+                        <li *ngFor="let subItem of sideBarItem.subItems">
+                            <a href="#" title={{subItem.name}} (click)="onSideBarSubItemClicked(subItem)">
+                                <i [ngClass]="subItem.iconClass"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+            <a href="#" (click)="onMaximize()">
+                <i class="fa fa-angle-double-right" style="font-size: 35px; padding-left: 8px;"></i>
+            </a>
         </div>
-        <button class="btn btn-default" (click)="onMinimize()">Max</button>
     </div>
 </div>

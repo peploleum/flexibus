@@ -17,10 +17,12 @@ export class GuiContextService {
 export class GuiContext {
     private _ids:Array<String>;
     private _freeContent:string;
+    private target:string;
 
-    constructor(ids?:Array<String>, freeContent?:string) {
+    constructor(ids:Array<String>, freeContent:string, target:string) {
         this._ids = ids;
         this._freeContent = freeContent;
+        this.target = target;
     }
 
     get ids():Array<String> {
