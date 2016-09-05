@@ -1,13 +1,13 @@
-import {FlexibusClass} from "./flexibus-class";
 import {FlexibusRelationValue} from "./flexibus-relation-value";
 import {FlexibusAttributeValue} from "./flexibus-attribute-value";
+import {FlexibusEntityDescriptor} from "./flexibus-entity-descriptor";
 export class FlexibusEntity{
     private _flexibusId:string;
-    private _flexibusClass:FlexibusClass;
+    private _flexibusClass:FlexibusEntityDescriptor;
     private _attributesValues:Array<FlexibusAttributeValue>;
     private _relationsValues:Array<FlexibusRelationValue>;
 
-    constructor(flexibusId:string, flexibusClass:FlexibusClass, attributesValues:Array<FlexibusAttributeValue>, relationsValues:Array<FlexibusRelationValue>) {
+    constructor(flexibusId:string, flexibusClass:FlexibusEntityDescriptor, attributesValues:Array<FlexibusAttributeValue>, relationsValues:Array<FlexibusRelationValue>) {
         this._flexibusId = flexibusId;
         this._flexibusClass = flexibusClass;
         this._attributesValues = attributesValues;
@@ -22,11 +22,11 @@ export class FlexibusEntity{
         this._flexibusId = value;
     }
 
-    get flexibusClass():FlexibusClass {
+    get flexibusClass():FlexibusEntityDescriptor {
         return this._flexibusClass;
     }
 
-    set flexibusClass(value:FlexibusClass) {
+    set flexibusClass(value:FlexibusEntityDescriptor) {
         this._flexibusClass = value;
     }
 

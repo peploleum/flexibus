@@ -22,7 +22,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnChanges {
         let subItem1 = new SideBarSubItem('Map', 'Map', 'fa fa-globe', false, 'MAP');
         let subItem2 = new SideBarSubItem('Search', 'Search', 'fa fa-search-plus', false, 'SEARCH');
         let subItem3 = new SideBarSubItem('Forms', 'Forms', 'fa fa-tasks', false, 'FORM');
-        let subItem4 = new SideBarSubItem('subItem4', 'subItem4', 'fa fa-folder-open', false, '');
+        let subItem4 = new SideBarSubItem('Explorer', 'Explorer', 'fa fa-folder-open', false, 'EXPLORER');
         let subItem5 = new SideBarSubItem('subItem5', 'subItem5', 'fa fa-sitemap', false, '');
         let item1 = new SideBarItem('item1', 'item1', false, 'fa fa-database', [subItem1, subItem2, subItem3]);
         let item2 = new SideBarItem('item2', 'item2', false, 'fa fa-desktop', [subItem4, subItem5]);

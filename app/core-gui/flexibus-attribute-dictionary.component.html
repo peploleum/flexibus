@@ -1,6 +1,6 @@
 ﻿<div [formGroup]="flexibusForm">
     <label for="values">{{model.attribute.label}}</label>
     <select class="form-control" id="values" name="values" [formControl]="inputControl">
-        <option *ngFor="let p of model.attribute.values" [value]="p">{{p}}</option>
+        <option *ngFor="let p of model.attribute.dictionary" [value]="p">{{p}}</option>
     </select>
 </div>

@@ -1,20 +1,20 @@
-import {FlexibusRelation} from "./flexibus-relation";
+import {FlexibusEntityDescriptor} from "./flexibus-entity-descriptor";
 export class FlexibusRelationValue{
-    private _relation:FlexibusRelation;
+    private _relation:FlexibusEntityDescriptor;
     private _fromId:string;
     private _toId:string;
 
-    constructor(relation:FlexibusRelation, fromId:string, toId:string) {
+    constructor(relation:FlexibusEntityDescriptor, fromId:string, toId:string) {
         this._relation = relation;
         this._fromId = fromId;
         this._toId = toId;
     }
 
-    get relation():FlexibusRelation {
+    get relation():FlexibusEntityDescriptor {
         return this._relation;
     }
 
-    set relation(value:FlexibusRelation) {
+    set relation(value:FlexibusEntityDescriptor) {
         this._relation = value;
     }
 
