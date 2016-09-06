@@ -13,7 +13,7 @@ import {PhotoService} from "./service/photo.service";
 export class DiaporamaComponent{
     allPhotos:Photo[];
 
-    currentIdx:Number=0;
+    currentIdx:number;
     currentLeftPhoto:Photo;
     currentCenterPhoto:Photo;
     currentRightPhoto:Photo;

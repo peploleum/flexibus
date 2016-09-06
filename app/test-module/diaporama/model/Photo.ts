@@ -3,6 +3,7 @@
  */
 
 export class Photo{
-    index:Number;
     url:String;
+    name:String;
+    description:String;
 }
