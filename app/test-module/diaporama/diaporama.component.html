@@ -7,6 +7,6 @@
         <button class="right-button" (click)="onRightClick()">></button>
     </div>
     <div *ngIf="allPhotos">
-        <label class="counter-lbl">12/{{allPhotos.length}}</label>
+        <label class="counter-lbl">{{currentIdx + 1}}/{{allPhotos.length}}</label>
     </div>
 </div>
