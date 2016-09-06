@@ -1,4 +1,3 @@
-import {FlexibusAttribute} from "./flexibus-attribute";
 import {FlexibusAttributeDescriptor} from "./flexibus-attribute-descriptor";
 import {FlexibusRelationDescriptor} from "./flexibus-relation-descriptor";
 export class FlexibusEntityDescriptor{
@@ -6,6 +5,7 @@ export class FlexibusEntityDescriptor{
     private _label:string;
     private _attributes:Array<FlexibusAttributeDescriptor>;
     private _relations:Array<FlexibusRelationDescriptor>;
+    private _subDescriptors:Array<FlexibusEntityDescriptor>;
 
     constructor(name:string, label:string, attributes:Array<FlexibusAttributeDescriptor>, relations:Array<FlexibusRelationDescriptor>) {
         this._name = name;
@@ -28,5 +28,13 @@ export class FlexibusEntityDescriptor{
 
     get relations():Array<FlexibusRelationDescriptor> {
         return this._relations;
+    }
+
+    get subDescriptors():Array<FlexibusEntityDescriptor> {
+        return this._subDescriptors;
+    }
+
+    set subDescriptors(value:Array<FlexibusEntityDescriptor>) {
+        this._subDescriptors = value;
     }
 }

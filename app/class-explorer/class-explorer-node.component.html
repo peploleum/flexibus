@@ -1,0 +1,6 @@
+<div *ngFor="let subDescriptor of flexibusNode.subDescriptors">
+    <flexibus-entity-descriptor-display [flexibusEntity]="subDescriptor" (entityEmitter)="onEntityClicked($event)"></flexibus-entity-descriptor-display>
+    <div style="padding-left: 20px">
+        <class-explorer-node [flexibusNode]="subDescriptor"></class-explorer-node>
+    </div>
+</div>
