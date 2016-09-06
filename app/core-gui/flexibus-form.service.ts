@@ -24,7 +24,7 @@ export class FlexibusFormService {
         let flexibusAttributeThree = new FlexibusAttributeDescriptor("attributeThreeName", "attributeThreeLabel", FlexibusType.DICTIONARY);
         let flexibusAttributeFour = new FlexibusAttributeDescriptor("attributeGeom", "attributeGeomLabel", FlexibusType.GEOMETRY);
         let flexibusAttributeFive = new FlexibusAttributeDescriptor("attributeDate", "attributeDateLabel", FlexibusType.DATE);
-        flexibusAttributeThree.dictionary = [ {'value1code':'value1'}, {'value2code':'value2'}, {'value3code':'value3'}];
+        flexibusAttributeThree.dictionary = [ {'0':'value1'}, {'1':'value2'}, {'2':'value3'}];
         let attributeValueOne = new FlexibusAttributeValue("", flexibusAttributeOne);
         let attributeValueTwo = new FlexibusAttributeValue("", flexibusAttributeTwo);
         let attributeValueThree = new FlexibusAttributeValue("", flexibusAttributeThree);
