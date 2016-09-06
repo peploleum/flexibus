@@ -13,6 +13,7 @@ import {PhotoService} from "./service/photo.service";
 export class DiaporamaComponent{
     allPhotos:Photo[];
 
+    currentIdx:Number=0;
     currentLeftPhoto:Photo;
     currentCenterPhoto:Photo;
     currentRightPhoto:Photo;
@@ -20,10 +21,46 @@ export class DiaporamaComponent{
     constructor(private photoService:PhotoService){}
 
     ngOnInit():void{
-        this.photoService.getPhotos().then(photos => this.allPhotos = photos);
+        this.photoService.getPhotos().then(photos =>
+        {
+            this.allPhotos = photos;
+            if(this.allPhotos.length > 0)
+            {
+                this.currentIdx = 0;
+                this.currentCenterPhoto = this.allPhotos[0];
+                if(this.allPhotos.length > 1)
+                {
+                    this.currentRightPhoto = this.allPhotos[1];
+                }
+            }
+        });
     }
 
-    onLeftClick(){}
-    onRightClick(){}
+    onLeftClick(){
+        if(this.currentIdx > 0) {
+            this.currentIdx = this.currentIdx - 1;
+            this.currentCenterPhoto = this.allPhotos[this.currentIdx];
+            this.currentRightPhoto = this.allPhotos[this.currentIdx + 1];
+            if(this.currentIdx > 0){
+                this.currentLeftPhoto = this.allPhotos[this.currentIdx - 1];
+            }
+            else {
+                this.currentLeftPhoto = null;
+            }
+        }
+    }
+    onRightClick(){
+        if((this.allPhotos.length - 1) > this.currentIdx) {
+            this.currentIdx = this.currentIdx + 1;
+            this.currentCenterPhoto = this.allPhotos[this.currentIdx];
+            this.currentLeftPhoto = this.allPhotos[this.currentIdx - 1];
+            if((this.allPhotos.length - 1) > this.currentIdx){
+                this.currentRightPhoto = this.allPhotos[this.currentIdx + 1];
+            }
+            else{
+                this.currentRightPhoto = null;
+            }
+        }
+    }
 }
 
