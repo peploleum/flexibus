@@ -1,4 +1,7 @@
 <div>{{errorMessage}}</div>
+<input
+        [formControl]="searchBox"
+        placeholder="Filter ..."/>
 <div *ngIf="flexibusRoot">
-    <class-explorer-node [flexibusNode]="flexibusRoot"></class-explorer-node>
+    <class-explorer-node [flexibusNode]="flexibusRoot" [filterObservable]="filterObservable"></class-explorer-node>
 </div>

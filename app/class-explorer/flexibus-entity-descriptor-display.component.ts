@@ -14,7 +14,8 @@ export class FlexibusEntityDescriptorDisplayComponent implements OnInit, AfterVi
     private flexibusEntity:FlexibusEntityDescriptor;
     @Output()
     private entityEmitter: EventEmitter<FlexibusEntityDescriptor> = new EventEmitter<FlexibusEntityDescriptor>();
-
+    @Input()
+    private filterValue:string;
 
     constructor() {
     }
@@ -37,5 +38,6 @@ export class FlexibusEntityDescriptorDisplayComponent implements OnInit, AfterVi
     }
 
     ngAfterViewInit() {
+        // this.filterValue.changes.
     }
 }
