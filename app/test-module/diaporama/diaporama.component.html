@@ -1,0 +1,31 @@
+<div>
+    <div>
+        <div class="button">
+            <button (click)="onLeftClick()"><</button>
+        </div>
+        <div *ngIf="currentLeftPhoto" class="img">
+            <a target="_blank" [href]="currentLeftPhoto.url">
+                <img [src]="currentLeftPhoto.url" [alt]="currentLeftPhoto.name">
+            </a>
+            <div class="desc">{{currentLeftPhoto.description}}</div>
+        </div>
+        <div *ngIf="currentCenterPhoto" class="img center">
+            <a target="_blank" [href]="currentCenterPhoto.url">
+                <img [src]="currentCenterPhoto.url" [alt]="currentCenterPhoto.name">
+            </a>
+            <div class="desc">{{currentCenterPhoto.description}}</div>
+        </div>
+        <div *ngIf="currentRightPhoto" class="img">
+            <a target="_blank" [href]="currentRightPhoto.url">
+                <img [src]="currentRightPhoto.url" [alt]="currentRightPhoto.name">
+            </a>
+            <div class="desc">{{currentRightPhoto.description}}</div>
+        </div>
+        <div class="button">
+            <button (click)="onRightClick()">></button>
+        </div>
+    </div>
+    <div *ngIf="allPhotos" class="counter-lbl">
+        <label>{{currentIdx + 1}}/{{allPhotos.length}}</label>
+    </div>
+</div>
