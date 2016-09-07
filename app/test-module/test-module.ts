@@ -14,13 +14,13 @@ import {InMemoryWebApiModule} from "angular2-in-memory-web-api";
 import {InMemoryDataService} from "./diaporama/service/in-memory-data.service";
 
 @NgModule({
-    imports: [CommonModule, FormsModule, GuiModule, InMemoryWebApiModule.forRoot(InMemoryDataService)],
-    declarations: [ExampleGuiComponent, TestGuiComponent, CartoComponent, AnotherTestGuiComponent, EasyComponent, ResultDisplayComponent,DiaporamaComponent],
-    exports: [ExampleGuiComponent, TestGuiComponent, CartoComponent, AnotherTestGuiComponent, EasyComponent, ResultDisplayComponent,DiaporamaComponent],
+    imports: [CommonModule, FormsModule, GuiModule],
+    declarations: [ExampleGuiComponent, TestGuiComponent, CartoComponent, AnotherTestGuiComponent, EasyComponent, ResultDisplayComponent],
+    exports: [ExampleGuiComponent, TestGuiComponent, CartoComponent, AnotherTestGuiComponent, EasyComponent, ResultDisplayComponent],
     providers: [PhotoService]
 })
 export class TestModule {
     static getComponents() {
-        return [ExampleGuiComponent, TestGuiComponent, CartoComponent, AnotherTestGuiComponent, EasyComponent, ResultDisplayComponent,DiaporamaComponent];
+        return [ExampleGuiComponent, TestGuiComponent, CartoComponent, AnotherTestGuiComponent, EasyComponent, ResultDisplayComponent];
     }
 }

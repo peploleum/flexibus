@@ -24,8 +24,13 @@ export class FlexibusEntityDescriptorDisplayComponent implements OnInit, AfterVi
         return this.flexibusEntity.subDescriptors.length == 0 || this.flexibusEntity.subDescriptors == null || this.flexibusEntity.subDescriptors == undefined;
     }
 
-    ngOnChanges() {
-
+    ngOnChanges(changes) {
+        if (changes.filterValue && changes.filterValue != undefined){
+            let regExpMatchArray = this.flexibusEntity.label.match(this.filterValue);
+            if (regExpMatchArray != null && regExpMatchArray.length != 0){
+                console.log(this.flexibusEntity.label + ' matches');
+            }
+        }
     }
 
     onEntityClicked() {

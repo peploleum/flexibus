@@ -25,7 +25,7 @@ export class MainContainerComponent implements OnInit, AfterViewInit {
     onTabClicked(i:number) {
         this.containers[this.lastActive].active = false;
         if (this.gms.guiManager.countLoadedContainers() >= this.MAX_ALLOWED_LOADED_CONTAINERS){
-            //unload first one, unloaded policy should be smarter than this
+            //unload first one, unloading policy should be smarter than this
            this.gms.guiManager.loadedContainers()[0].loaded = false;
         }
         this.containers[i].loaded = true;
