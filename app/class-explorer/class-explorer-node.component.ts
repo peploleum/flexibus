@@ -2,7 +2,7 @@ import {Component, AfterViewInit, OnChanges, OnInit, Input, OnDestroy} from "@an
 import {GuiContextService, GuiContext} from "../gui/gui-context.service";
 import {FlexibusEntityDescriptor} from "../core/flexibus-entity-descriptor";
 import {Observable} from "rxjs/Rx";
-import {UUID} from "angular2-uuid";
+import {StringUtils} from "../util/string-utils";
 
 @Component({
     moduleId: module.id,
@@ -16,7 +16,6 @@ export class ClassExplorerNodeComponent implements OnInit, AfterViewInit, OnChan
     private flexibusNode:FlexibusEntityDescriptor;
     @Input()
     private filterObservable:Observable<string>;
-    private uuid:string = UUID.UUID();
     filterValue:string;
 
     constructor(private gcs:GuiContextService) {
@@ -31,19 +30,20 @@ export class ClassExplorerNodeComponent implements OnInit, AfterViewInit, OnChan
 
     ngOnInit() {
         this.filterObservable.subscribe((event) => {
-            this.filterValue = event;
-        })
+            this.filterValue = StringUtils.sanitizeString(event);
+        });
     }
 
     hasMatch(descriptor:FlexibusEntityDescriptor) {
-        return (this.filterValue == null) || (descriptor.label.indexOf(this.filterValue) != -1) || (descriptor.name.toUpperCase().indexOf(this.filterValue.toUpperCase()) != -1)
+        return true;
+        // return (this.filterValue == null) || (descriptor.label.indexOf(this.filterValue) != -1) || (descriptor.name.toUpperCase().indexOf(this.filterValue.toUpperCase()) != -1)
     }
 
     onEntityClicked(entity:FlexibusEntityDescriptor) {
         console.log('node received clicked ' + entity.label);
     }
 
-    ngOnChanges() {
+    ngOnChanges(chan) {
 
     }
 

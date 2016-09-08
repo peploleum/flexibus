@@ -16,6 +16,10 @@ export class ClassExplorerService {
         return this.http.get(this._classExplorerServiceUrl).map((r:Response) => r.json() as FlexibusEntityDescriptor).catch(this.handleError);
     }
 
+    getRoot2():Observable<FlexibusEntityDescriptor> {
+        return this.http.get(this._classExplorerServiceUrl).map((r:Response) => r.json() as FlexibusEntityDescriptor).catch(this.handleError);
+    }
+
     private handleError (error: any) {
         let errMsg = (error.message) ? error.message :
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';

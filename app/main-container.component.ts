@@ -19,7 +19,7 @@ export class MainContainerComponent implements OnInit, AfterViewInit {
         });
     }
 
-    MAX_ALLOWED_LOADED_CONTAINERS:number = 2;
+    MAX_ALLOWED_LOADED_CONTAINERS:number = 3;
     lastActive:number = 0;
 
     onTabClicked(i:number) {
@@ -50,5 +50,6 @@ export class MainContainerComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.containers = this.gms.getGuiContainers();
+        this.gms.addContainer('EXPLORER');
     }
 }

@@ -31,7 +31,7 @@ export class GuiManagerService {
                 let container = new GuiContainer("Map", new GuiItem('Map', MapComponent));
                 container.addLeftItem(new GuiItem('Form', FooForm));
                 container.addLeftItem(new GuiItem('Test componenet', EasyComponent));
-                container.addRightItem(new GuiItem('Alléluia !', EasyComponent));
+                container.addRightItem(new GuiItem('Explorer', ClassExplorerComponent));
                 this.guiManager.addGuiContainer(container);
                 this.containerEmmitter.emit(container);
                 break;

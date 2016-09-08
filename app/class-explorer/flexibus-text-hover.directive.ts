@@ -14,6 +14,8 @@ export class FlexibusTextHoverDirective {
     }
 
     @HostListener('mouseleave') onMouseLeave() {
+        //'null' does not work in IE 11
+        //another default color would work, but it should be possible to remove the background color property from the elementstyle
         this.changeStyle(null);
     }
 

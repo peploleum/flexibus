@@ -4,6 +4,7 @@ import {ClassExplorerService} from "./class-explorer.service";
 import {FlexibusEntityDescriptor} from "../core/flexibus-entity-descriptor";
 import {FormControl} from "@angular/forms";
 import {Observable} from "rxjs/Rx";
+import {StringUtils} from "../util/string-utils";
 
 @Component({
     moduleId: module.id,
@@ -17,7 +18,6 @@ export class ClassExplorerComponent implements OnInit, AfterViewInit, OnChanges 
     private errorMessage:string;
     private flexibusRoot:FlexibusEntityDescriptor;
     private searchBox:FormControl = new FormControl();
-    private filterValue:string;
 
     private filterObservable:Observable<string>;
 
@@ -27,19 +27,18 @@ export class ClassExplorerComponent implements OnInit, AfterViewInit, OnChanges 
         });
         this.filterObservable = this.searchBox
             .valueChanges
-            .debounceTime(200);
-        this.filterObservable.subscribe((event) => {
-            console.log("typed " + event);
-            this.filterValue = event;
-        });
+            .debounceTime(5).map((value) => {
+                return StringUtils.sanitizeString(value)
+            });
+
     }
 
     onGuiContext(guiContext:GuiContext) {
 
     }
 
-    ngOnChanges() {
-
+    ngOnChanges(changes) {
+        console.log(changes);
     }
 
     ngOnInit() {
@@ -47,6 +46,21 @@ export class ClassExplorerComponent implements OnInit, AfterViewInit, OnChanges 
             this.flexibusRoot = newRoot.subDescriptors.filter((value) => value.name.indexOf('Racine') != -1)[0];
             console.log(JSON.stringify(this.flexibusRoot));
         }, error => this.errorMessage = <any>error);
+
+        this.filterObservable.subscribe((event) => {
+            if (event.length %2 == 0) {
+                this.ces.getRoot2().subscribe(newRoot => {
+                    this.flexibusRoot = newRoot.subDescriptors.filter((value) => value.name.indexOf('Racine') != -1)[0].subDescriptors.filter((value) => value.name.indexOf('Instance') != -1)[0];
+                    console.log(JSON.stringify(this.flexibusRoot));
+                }, error => this.errorMessage = <any>error);
+            } else {
+                this.ces.getRoot().subscribe(newRoot => {
+                    this.flexibusRoot = newRoot.subDescriptors.filter((value) => value.name.indexOf('Racine') != -1)[0];
+                    console.log(JSON.stringify(this.flexibusRoot));
+                }, error => this.errorMessage = <any>error);
+            }
+            // this.smartCut();
+        });
 
     }
 
