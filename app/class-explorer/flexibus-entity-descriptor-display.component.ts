@@ -1,7 +1,7 @@
-import {Component, AfterViewInit, OnInit, Input, Output, EventEmitter} from "@angular/core";
+import {Component, AfterViewInit, OnInit, Input, Output, EventEmitter, OnDestroy} from "@angular/core";
 import {FlexibusEntityDescriptor} from "../core/flexibus-entity-descriptor";
 import {StringUtils} from "../util/string-utils";
-import {Observable} from "rxjs/Rx";
+import {Observable, Subscription} from "rxjs/Rx";
 
 @Component({
     moduleId: module.id,
@@ -10,7 +10,7 @@ import {Observable} from "rxjs/Rx";
     styleUrls: ['flexibus-entity-descriptor-display.component.css'],
 
 })
-export class FlexibusEntityDescriptorDisplayComponent implements OnInit, AfterViewInit {
+export class FlexibusEntityDescriptorDisplayComponent implements OnInit, AfterViewInit, OnDestroy {
 
     @Input()
     private flexibusEntity:FlexibusEntityDescriptor;
@@ -22,6 +22,8 @@ export class FlexibusEntityDescriptorDisplayComponent implements OnInit, AfterVi
     private _resultingCuts:Array<SubCut>;
     private hasMatch = true;
     private sanitizedLabel:string;
+
+    private subscription:Subscription;
 
     constructor() {
     }
@@ -81,20 +83,32 @@ export class FlexibusEntityDescriptorDisplayComponent implements OnInit, AfterVi
             value: this.flexibusEntity.label,
             match: false
         }];
-        this.filterObservable.subscribe((event) => {
-            this.filterValue = event;
-            this.hasMatch = this.computeHasMatch();
-            // this.smartCut();
-        });
+        this.hasMatch = this.flexibusEntity.customMetadata ? this.flexibusEntity.customMetadata['visible'] : true;
+        // this.subscription = this.filterObservable.subscribe((event) => {
+        //     this.filterValue = event;
+        //     this.hasMatch = this.computeHasMatch();
+        //     // this.smartCut();
+        // });
     }
+
     ngOnChanges(changes) {
         console.log(changes);
     }
+
     computeHasMatch() {
         return (this.filterValue == null) || (this.sanitizedLabel.indexOf(this.filterValue) != -1) || (this.flexibusEntity.name.toUpperCase().indexOf(this.filterValue.toUpperCase()) != -1)
     }
 
     ngAfterViewInit() {
+    }
+
+    ngOnDestroy() {
+        console.log('destroying EntityDescriptorDisplay');
+        this.subscription.unsubscribe();
+    }
+
+    isDisplayed(){
+        return  this.flexibusEntity.customMetadata ? this.flexibusEntity.customMetadata['visible'] : true;
     }
 
 }

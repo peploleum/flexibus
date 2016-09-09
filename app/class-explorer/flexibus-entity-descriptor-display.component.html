@@ -1,4 +1,4 @@
-<div *ngIf="hasMatch" (click)="onEntityClicked($event)">
+<div *ngIf="isDisplayed()" (click)="onEntityClicked($event)">
     <i [ngClass]="isLeaf() ? ['fa', 'fa-leaf'] : ['fa', 'fa-apple']"></i>
     <span flexibusTextHover="null" *ngFor="let cut of _resultingCuts" [class.smartcut-highlight]="cut.match">{{cut.value}}</span>
 </div>

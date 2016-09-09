@@ -9,15 +9,12 @@ import {FlexibusUtils} from "../core/flexibus-utils";
 
 @Component({
     moduleId: module.id,
-    selector: 'class-explorer',
-    templateUrl: 'class-explorer.component.html',
-    styleUrls: ['class-explorer.component.css'],
-    providers: [ClassExplorerService]
+    selector: 'class-explorer-search',
+    templateUrl: 'class-explorer-search.component.html',
+    styleUrls: ['class-explorer-search.component.css']
 })
-export class ClassExplorerComponent implements OnInit, AfterViewInit, OnChanges {
+export class ClassExplorerSearchComponent implements OnInit, AfterViewInit, OnChanges {
 
-    private errorMessage:string;
-    private flexibusRoot:FlexibusEntityDescriptor;
     private searchBox:FormControl = new FormControl();
 
     private filterObservable:Observable<string>;
@@ -43,14 +40,8 @@ export class ClassExplorerComponent implements OnInit, AfterViewInit, OnChanges 
     }
 
     ngOnInit() {
-        this.ces.getRoot().subscribe(newRoot => {
-            this.flexibusRoot = newRoot.subDescriptors.filter((value) => value.name.indexOf('Racine') != -1)[0];
-            console.log(JSON.stringify(this.flexibusRoot));
-        }, error => this.errorMessage = <any>error);
 
         this.filterObservable.subscribe((event) => {
-            FlexibusUtils.filter(this.flexibusRoot, StringUtils.sanitizeString(event));
-            console.log(JSON.stringify(this.flexibusRoot));
         });
     }
 

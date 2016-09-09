@@ -1,11 +1,12 @@
 import {FlexibusAttributeDescriptor} from "./flexibus-attribute-descriptor";
 import {FlexibusRelationDescriptor} from "./flexibus-relation-descriptor";
-export class FlexibusEntityDescriptor{
+export class FlexibusEntityDescriptor {
     private _name:string;
     private _label:string;
     private _attributes:Array<FlexibusAttributeDescriptor>;
     private _relations:Array<FlexibusRelationDescriptor>;
     private _subDescriptors:Array<FlexibusEntityDescriptor>;
+    private _customMetadata:CustomMetadata;
 
     constructor(name:string, label:string, attributes:Array<FlexibusAttributeDescriptor>, relations:Array<FlexibusRelationDescriptor>) {
         this._name = name;
@@ -37,4 +38,16 @@ export class FlexibusEntityDescriptor{
     set subDescriptors(value:Array<FlexibusEntityDescriptor>) {
         this._subDescriptors = value;
     }
+
+    get customMetadata():CustomMetadata {
+        return this._customMetadata;
+    }
+
+    set customMetadata(value:CustomMetadata) {
+        this._customMetadata = value;
+    }
+}
+
+export interface CustomMetadata {
+    [key:string]:boolean;
 }

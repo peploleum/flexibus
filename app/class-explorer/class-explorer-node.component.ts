@@ -44,7 +44,7 @@ export class ClassExplorerNodeComponent implements OnInit, AfterViewInit, OnChan
     }
 
     ngOnChanges(chan) {
-
+        console.log(chan);
     }
 
     ngOnDestroy() {
