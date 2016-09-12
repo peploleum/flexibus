@@ -44,12 +44,13 @@ export class ClassExplorerComponent implements OnInit, AfterViewInit, OnChanges 
 
     ngOnInit() {
         this.ces.getRoot().subscribe(newRoot => {
-            this.flexibusRoot = newRoot.subDescriptors.filter((value) => value.name.indexOf('Racine') != -1)[0];
-            console.log(JSON.stringify(this.flexibusRoot));
+            console.log("new root");
+            console.log(JSON.stringify(newRoot));
+            this.flexibusRoot = newRoot;
         }, error => this.errorMessage = <any>error);
 
         this.filterObservable.subscribe((event) => {
-            FlexibusUtils.filter(this.flexibusRoot, StringUtils.sanitizeString(event));
+            FlexibusUtils.filter(this.flexibusRoot, event);
             console.log(JSON.stringify(this.flexibusRoot));
         });
     }
