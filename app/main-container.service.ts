@@ -10,6 +10,7 @@ import {FlexibusForm} from "./core-gui/flexibus-form.component";
 import {TestGuiComponent} from "./test-module/test-gui-component.component";
 import {FooFormPolymer} from "./foo-module-polymer/foo-form-polymer.component";
 import {ClassExplorerComponent} from "./class-explorer/class-explorer.component";
+import {SearchComponent} from "./search/search.component";
 
 @Injectable()
 export class GuiManagerService {
@@ -55,6 +56,7 @@ export class GuiManagerService {
             case 'EXPLORER' :
             {
                 let container = new GuiContainer("Explorer", new GuiItem('Explorer', ClassExplorerComponent));
+                container.addLeftItem(new GuiItem('Results', SearchComponent));
                 this.guiManager.addGuiContainer(container);
                 this.containerEmmitter.emit(container);
                 break;
