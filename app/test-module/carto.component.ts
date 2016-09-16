@@ -1,7 +1,3 @@
-/**
- * Created by tbonavia on 19/08/2016.
- */
-
 import {Component, OnInit, ElementRef, AfterViewInit} from "@angular/core";
 import {GuiComponent} from "../gui/gui-component";
 import * as ol from "openlayers";

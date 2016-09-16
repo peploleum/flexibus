@@ -1,6 +1,3 @@
-/**
- * Created by tbonavia on 17/08/2016.
- */
 import {IGuiComponent} from "../gui/gui-component";
 
 export class GuiItem {

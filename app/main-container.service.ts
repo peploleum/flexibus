@@ -1,6 +1,3 @@
-/**
- * Created by tbonavia on 18/08/2016.
- */
 import {Injectable, EventEmitter} from "@angular/core";
 import {GuiManager} from "./gui/gui-manager";
 import {GuiContainer} from "./gui-api/gui-container";
