@@ -1,1 +1,4 @@
-<div id="mapAnchor" [style.height]="height" (window:resize)="onResize($event)"></div>
+<div>
+    <h1>Search results</h1>
+    <single-search-result *ngFor="let result of searchResults" [result]="result"></single-search-result>
+</div>

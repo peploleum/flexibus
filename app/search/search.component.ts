@@ -1,7 +1,8 @@
-import {Component, ElementRef, AfterViewInit, OnChanges, OnDestroy} from "@angular/core";
+import {Component, ElementRef, AfterViewInit, OnChanges, OnDestroy, OnInit} from "@angular/core";
 import {GuiComponent} from "../gui/gui-component";
-import {GuiContextService, GuiContext} from "../gui/gui-context.service";
+import {GuiContext} from "../gui/gui-context.service";
 import {SearchService} from "./search.service";
+import {SearchResult} from "./search-result";
 
 @Component({
     moduleId: module.id,
@@ -10,14 +11,21 @@ import {SearchService} from "./search.service";
     styleUrls: ['search.component.css'],
     providers: [SearchService]
 })
-export class SearchComponent extends GuiComponent implements AfterViewInit, OnChanges, OnDestroy {
+export class SearchComponent extends GuiComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
 
+    private searchResults: SearchResult[] = [];
 
-    constructor(private element:ElementRef, private gcs:GuiContextService, private ss:SearchService) {
+    constructor(private element: ElementRef, private ss: SearchService) {
         super();
     }
 
-    onGuiContext(guiContext:GuiContext) {
+    ngOnInit() {
+        this.ss.getResults().then((results) => {
+            this.searchResults = results
+        });
+    }
+
+    onGuiContext(guiContext: GuiContext) {
     }
 
     onResize(event) {
@@ -27,7 +35,7 @@ export class SearchComponent extends GuiComponent implements AfterViewInit, OnCh
 
     }
 
-    ngOnDestroy(){
+    ngOnDestroy() {
     }
 
     ngAfterViewInit() {
