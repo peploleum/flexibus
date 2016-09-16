@@ -1,4 +1,4 @@
-import {Observable} from "rxjs/Rx";
+import {Observable} from "rxjs/observable";
 import {Input, Output, EventEmitter, Component, OnChanges} from "@angular/core";
 import {FormControl} from "@angular/forms";
 

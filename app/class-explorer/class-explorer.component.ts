@@ -3,7 +3,7 @@ import {GuiContextService, GuiContext} from "../gui/gui-context.service";
 import {ClassExplorerService} from "./class-explorer.service";
 import {FlexibusEntityDescriptor} from "../core/flexibus-entity-descriptor";
 import {FormControl} from "@angular/forms";
-import {Observable} from "rxjs/Rx";
+import {Observable} from "rxjs/observable";
 import {StringUtils} from "../util/string-utils";
 import {FlexibusUtils} from "../core/flexibus-utils";
 
@@ -39,7 +39,7 @@ export class ClassExplorerComponent implements OnInit, AfterViewInit, OnChanges 
     }
 
     ngOnChanges(changes) {
-        console.log(changes);
+        // console.log(changes);
     }
 
     ngOnInit() {

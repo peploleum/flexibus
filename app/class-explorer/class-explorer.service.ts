@@ -1,7 +1,8 @@
 import {Injectable} from "@angular/core";
 import {Http, Response} from "@angular/http";
 import {FlexibusEntityDescriptor} from "../core/flexibus-entity-descriptor";
-import {Observable} from "rxjs/Rx";
+import '../core/rxjs-operators';
+import {Observable} from "rxjs/observable";
 
 @Injectable()
 export class ClassExplorerService {

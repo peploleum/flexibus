@@ -13,17 +13,17 @@ import {Observable, Subscription} from "rxjs/Rx";
 export class FlexibusEntityDescriptorDisplayComponent implements OnInit, AfterViewInit, OnDestroy {
 
     @Input()
-    private flexibusEntity:FlexibusEntityDescriptor;
+    private flexibusEntity: FlexibusEntityDescriptor;
     @Output()
-    private entityEmitter:EventEmitter<FlexibusEntityDescriptor> = new EventEmitter<FlexibusEntityDescriptor>();
-    private filterValue:string;
+    private entityEmitter: EventEmitter<FlexibusEntityDescriptor> = new EventEmitter<FlexibusEntityDescriptor>();
+    private filterValue: string;
     @Input()
-    private filterObservable:Observable<string>;
-    private _resultingCuts:Array<SubCut>;
+    private filterObservable: Observable<string>;
+    private _resultingCuts: Array<SubCut>;
     private hasMatch = true;
-    private sanitizedLabel:string;
+    private sanitizedLabel: string;
 
-    private subscription:Subscription;
+    private subscription: Subscription;
 
     constructor() {
     }
@@ -37,7 +37,7 @@ export class FlexibusEntityDescriptorDisplayComponent implements OnInit, AfterVi
      */
     private smartCut() {
         let remainingStringToCut = this.flexibusEntity.label;
-        let resultingCuts:Array<SubCut> = [];
+        let resultingCuts: Array<SubCut> = [];
         let resultingSplit = this.sanitizedLabel.split(this.filterValue);
         let remainingSanitizedToParse = this.sanitizedLabel;
         let indexInOriginalSanitizedLabel;
@@ -92,7 +92,6 @@ export class FlexibusEntityDescriptorDisplayComponent implements OnInit, AfterVi
     }
 
     ngOnChanges(changes) {
-        console.log(changes);
     }
 
     computeHasMatch() {
@@ -104,18 +103,20 @@ export class FlexibusEntityDescriptorDisplayComponent implements OnInit, AfterVi
 
     ngOnDestroy() {
         console.log('destroying EntityDescriptorDisplay');
-        this.subscription.unsubscribe();
+        if (this.subscription != null) {
+            this.subscription.unsubscribe();
+        }
     }
 
-    isDisplayed(){
-        return  this.flexibusEntity.customMetadata ? this.flexibusEntity.customMetadata['visible'] : true;
+    isDisplayed() {
+        return this.flexibusEntity.customMetadata ? this.flexibusEntity.customMetadata['visible'] : true;
     }
 
 }
 
 export interface SubCut {
-    value:string;
-    match:boolean;
-    index?:number;
-    length?:number
+    value: string;
+    match: boolean;
+    index?: number;
+    length?: number
 }

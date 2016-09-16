@@ -1,7 +1,7 @@
 ﻿import {Injectable} from "@angular/core";
 import {Http, Response} from "@angular/http";
 import 'rxjs/add/operator/toPromise';
-import {Observable} from "rxjs/Rx";
+import {Observable} from "rxjs/observable";
 @Injectable()
 export class AnotherTestGuiComponentService {
 
