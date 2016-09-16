@@ -1,10 +1,9 @@
-import {FORM_DIRECTIVES, Control} from "@angular/common";
 import {Observable} from "rxjs/Rx";
 import {Input, Output, EventEmitter, Component, OnChanges} from "@angular/core";
+import {FormControl} from "@angular/forms";
 
 @Component({
     selector: 'custom-search',
-    directives: [FORM_DIRECTIVES],
     templateUrl: 'app/test-module/search-component.component.html'
 })
 export class SearchComponent implements OnChanges {
@@ -12,7 +11,7 @@ export class SearchComponent implements OnChanges {
     @Input() results:Observable<any>;
     @Output() searchEvent:EventEmitter<any> = new EventEmitter();
 
-    private searchBox:Control = new Control();
+    private searchBox:FormControl = new FormControl();
 
     constructor() {
         this.searchBox

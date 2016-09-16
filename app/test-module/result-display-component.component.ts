@@ -6,7 +6,6 @@ import {SearchComponentService} from "./search-component.service";
 @Component({
     selector: 'another-test',
     templateUrl: 'app/test-module/result-display-component.component.html',
-    directives: [SearchComponent],
     providers: [SearchComponentService]
 })
 export class ResultDisplayComponent extends GuiComponent implements OnInit, DoCheck, AfterViewChecked, AfterViewInit {

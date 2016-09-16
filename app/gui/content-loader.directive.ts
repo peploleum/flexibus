@@ -1,7 +1,3 @@
-/**
- * Created by tbonavia on 23/08/2016.
- */
-
 import {Directive, Input, ComponentFactoryResolver, ViewContainerRef, ComponentRef} from "@angular/core";
 import {GuiComponent, IGuiComponent} from "./gui-component";
 @Directive({

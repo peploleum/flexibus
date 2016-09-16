@@ -1,6 +1,3 @@
-/**
- * Created by tbonavia on 18/08/2016.
- */
 import {
     Component,
     AfterViewInit,
@@ -21,8 +18,8 @@ import {NgStyle} from "@angular/common";
     selector: 'gui-view',
     templateUrl: 'app/gui/gui-view.component.html',
     styleUrls: ['app/gui/gui-view.component.css'],
-    providers: [GuiContextService],
-    directives: [NgStyle]
+    providers: [GuiContextService]
+    // directives: [NgStyle]
 })
 export class GuiView implements AfterViewInit, OnInit {
     @ViewChildren(SimplePanelComponent) panels:QueryList<SimplePanelComponent>;

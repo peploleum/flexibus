@@ -1,6 +1,3 @@
-/**
- * Created by tbonavia on 18/08/2016.
- */
 import {NgModule, ModuleWithProviders} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {GuiComponent} from "./gui-component";
@@ -9,11 +6,13 @@ import {GuiView} from "./gui-view.component";
 import {FormsModule} from "@angular/forms";
 import {GuiContextHistory} from "../test-module/gui-context-history.component";
 import {SimplePanelComponent} from "./simple-panel.component";
+import {ContentLoader} from "./content-loader.directive";
 
 @NgModule({
     imports: [CommonModule, FormsModule],
-    declarations: [GuiComponent, GuiView, SimplePanelComponent, GuiContextHistory],
-    exports: [GuiComponent, GuiView, SimplePanelComponent, GuiContextHistory]
+    declarations: [GuiComponent, GuiView, SimplePanelComponent, GuiContextHistory, ContentLoader],
+    exports: [GuiComponent, GuiView, SimplePanelComponent, GuiContextHistory],
+
 })
 export class GuiModule {
     static forRoot():ModuleWithProviders {

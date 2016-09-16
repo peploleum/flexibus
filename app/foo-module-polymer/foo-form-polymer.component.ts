@@ -2,19 +2,19 @@ import {Component, OnInit, ViewChild, ElementRef, Renderer} from "@angular/core"
 import {GuiComponent} from "../gui/gui-component";
 import {FooFormPolymerService} from "./foo-form-polymer.service";
 import {
-    REACTIVE_FORM_DIRECTIVES, FormControl, FormGroup, Validators
+    FormControl, FormGroup, Validators
 } from "@angular/forms";
 
 @Component({
     moduleId: module.id,
     selector: 'foo-form-polymer',
     templateUrl: 'foo-form-polymer.component.html',
-    directives: [REACTIVE_FORM_DIRECTIVES],
+    // directives: [REACTIVE_FORM_DIRECTIVES],
     styleUrls: ['foo-form-polymer.component.css'],
     providers: [FooFormPolymerService]
 })
 export class FooFormPolymer extends GuiComponent implements OnInit {//}, OnDestroy {
-    private myForm:FormGroup = new FormGroup({
+    private myForm: FormGroup = new FormGroup({
         firstName: new FormControl('', Validators.required),
         lastName: new FormControl('', Validators.minLength(10)),
         occupation: new FormControl(),
@@ -23,7 +23,7 @@ export class FooFormPolymer extends GuiComponent implements OnInit {//}, OnDestr
 
     private occupations = ['Sleep', 'Eat', 'Run', 'Fight'];
 
-    private myValue:string;
+    private myValue: string;
 
     ngOnInit() {
         this.myForm.valueChanges.subscribe(value => {
@@ -32,7 +32,7 @@ export class FooFormPolymer extends GuiComponent implements OnInit {//}, OnDestr
         });
 
         this.myForm.patchValue({
-            firstName:'Hey',
+            firstName: 'Hey',
             occupation: 'Eat'
         });
     }

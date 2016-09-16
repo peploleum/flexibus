@@ -1,6 +1,3 @@
-/**
- * Created by tbonavia on 17/08/2016.
- */
 import {
     Component, Input, ComponentFactoryResolver, AfterViewInit, ViewChild, HostBinding, EventEmitter,
     Output
@@ -14,8 +11,8 @@ import {Side} from "./gui-view.component";
     moduleId: module.id,
     selector: 'simple-panel',
     templateUrl: 'simple-panel.component.html',
-    styleUrls: ['simple-panel.component.css'],
-    directives: [ContentLoader]
+    styleUrls: ['simple-panel.component.css']
+    // directives: [ContentLoader]
 })
 export class SimplePanelComponent implements AfterViewInit {
     @Input()

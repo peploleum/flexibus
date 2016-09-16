@@ -1,6 +1,6 @@
 ﻿<h1>Custom Search</h1>
 <input
-        [ngFormControl]="searchBox"
+        [formControl]="searchBox"
         placeholder="Search Spotify artist" />
 
 <div *ngFor="let result of results | async">
