@@ -2,6 +2,7 @@ import {Component, ElementRef, AfterViewInit, OnChanges, OnDestroy, Input} from 
 import {GuiComponent} from "../gui/gui-component";
 import {GuiContextService, GuiContext} from "../gui/gui-context.service";
 import {SearchResult} from "./search-result";
+import {FlexibusAction} from "../core/flexibus-action";
 
 @Component({
     moduleId: module.id,
@@ -12,7 +13,13 @@ import {SearchResult} from "./search-result";
 export class SingleSearchResultComponent extends GuiComponent implements AfterViewInit, OnChanges, OnDestroy {
 
     @Input()
-    result: SearchResult
+    result: SearchResult;
+
+    action:FlexibusAction = {
+        icon : 'fa fa-eye',
+        title : 'see',
+        tooltip : 'see tooltip'
+    };
 
     constructor(private element: ElementRef, private gcs: GuiContextService) {
         super();

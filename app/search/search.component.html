@@ -1,4 +1,8 @@
 <div>
     <h1>Search results</h1>
-    <single-search-result *ngFor="let result of searchResults" [result]="result"></single-search-result>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let result of searchResults" hoverable>
+            <single-search-result [result]="result"></single-search-result>
+        </li>
+    </ul>
 </div>
