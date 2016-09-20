@@ -8,10 +8,12 @@ import {FlexibusAttributeDictionary} from "./flexibus-attribute-dictionary.compo
 import {FlexibusAttributeGeometry} from "./flexibus-attribute-geometry.component";
 import {FlexibusAttributeDateControl} from "./flexibus-attribute-date.component";
 import {FlexibusButtonComponent} from "./flexibus-button.component";
+import {FlexibusButtonHoverDirective} from "./flexibus-button-hover.directive";
+import {HoverableDirective} from "./hoverable.directive";
 @NgModule({
     imports: [CommonModule, ReactiveFormsModule],
-    declarations: [FlexibusAttributeInput, FlexibusForm, FlexibusAttributeDisplay, FlexibusAttributeDictionary, FlexibusAttributeGeometry, FlexibusAttributeDateControl, FlexibusButtonComponent],
-    exports: [FlexibusAttributeInput, FlexibusForm, FlexibusAttributeDisplay, FlexibusAttributeDictionary, FlexibusAttributeGeometry, FlexibusAttributeDateControl, FlexibusButtonComponent],
+    declarations: [FlexibusAttributeInput, FlexibusForm, FlexibusAttributeDisplay, FlexibusAttributeDictionary, FlexibusAttributeGeometry, FlexibusAttributeDateControl, FlexibusButtonComponent, FlexibusButtonHoverDirective, HoverableDirective],
+    exports: [FlexibusAttributeInput, FlexibusForm, FlexibusAttributeDisplay, FlexibusAttributeDictionary, FlexibusAttributeGeometry, FlexibusAttributeDateControl, FlexibusButtonComponent, FlexibusButtonHoverDirective, HoverableDirective],
 })
 export class CoreGuiModule {
     static getComponents() {

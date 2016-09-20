@@ -1,7 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
 import {FlexibusEntity} from "../core/flexibus-entity";
-import {FlexibusAttribute} from "../core/flexibus-attribute";
 import {FlexibusType} from "../core/flexibus-type";
 import {FlexibusAttributeValue} from "../core/flexibus-attribute-value";
 import {UUID} from "angular2-uuid";

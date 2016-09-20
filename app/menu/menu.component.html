@@ -1,0 +1,9 @@
+<div>
+    <h5>Menu</h5>
+    <ul>
+        <li *ngFor="let result of menuItems" hoverable>
+            <i [ngClass]="result.icon"></i>
+            <span>{{result.title}}</span>
+        </li>
+    </ul>
+</div>
