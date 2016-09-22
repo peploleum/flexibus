@@ -3,18 +3,19 @@ import {GuiComponent} from "../gui/gui-component";
 import * as ol from "openlayers";
 
 @Component({
+    moduleId:module.id,
     selector: 'carto',
     template: '<div id="mapAnchor" [style.height]="height" (window:resize)="onResize($event)"></div>',
-    styleUrls: ['app/test-module/carto.component.css']
+    styleUrls: ['carto.component.css']
 })
 export class CartoComponent extends GuiComponent implements AfterViewInit {
-    private height:number;
+    height:number;
 
     constructor(private element:ElementRef) {
         super();
     }
 
-    onResize(event) {
+    onResize(event:any) {
         this.height = this.element.nativeElement.offsetHeight;
     }
 

@@ -14,7 +14,7 @@ export class FlexibusForm implements OnInit, OnDestroy {
 
     @Input() model:FlexibusEntity;
     active:boolean;
-    private flexibusForm:FormGroup;
+    flexibusForm:FormGroup;
     valueObserver:string;
 
     constructor(private fes:FlexibusFormService) {

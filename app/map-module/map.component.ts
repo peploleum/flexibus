@@ -12,7 +12,7 @@ import {MapService} from "./map.service";
     providers: [MapService]
 })
 export class MapComponent extends GuiComponent implements AfterViewInit, OnChanges, OnDestroy {
-    private height:number;
+    height:number;
 
     private map:ol.Map;
 
@@ -27,11 +27,11 @@ export class MapComponent extends GuiComponent implements AfterViewInit, OnChang
         this.ms.addLocation(guiContext.freeContent);
     }
 
-    onResize(event) {
+    onResize(event:any) {
         this.height = this.element.nativeElement.offsetHeight;
     }
 
-    ngOnChanges() {
+    ngOnChanges(changes:any) {
 
     }
 

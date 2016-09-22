@@ -1,9 +1,11 @@
-<div>
+<div id="flexibus-menu" class="dropdown open">
     <h5>Menu</h5>
-    <ul>
-        <li *ngFor="let result of menuItems" hoverable>
-            <i [ngClass]="result.icon"></i>
-            <span>{{result.title}}</span>
+    <ul class="dropdown-menu">
+        <li *ngFor="let result of menuItems">
+            <a>
+                <i [ngClass]="result.icon"></i>
+                <span>{{result.title}}</span>
+            </a>
         </li>
     </ul>
 </div>

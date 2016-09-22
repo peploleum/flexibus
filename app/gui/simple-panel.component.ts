@@ -20,20 +20,20 @@ export class SimplePanelComponent implements AfterViewInit {
     @Input('content')
     panelContentType:IGuiComponent;
     @Input()
-    private side:Side;
+    side:Side;
     @Input()
-    private index:number;
+    index:number;
 
-    private sides = Side;
+    sides = Side;
 
     @Output()
     resizeEmitter:EventEmitter<SizeEvent> = new EventEmitter<SizeEvent>();
 
     @HostBinding('class.active')
     displayContent = true;
-    private _panelContent:GuiComponent;
+    _panelContent:GuiComponent;
 
-    private _id:UUID = UUID.UUID();
+    _id:UUID = UUID.UUID();
 
     @ViewChild(ContentLoader) loader:ContentLoader;
 
@@ -44,15 +44,15 @@ export class SimplePanelComponent implements AfterViewInit {
         this._panelContent = this.loader.component.instance;
     }
 
-    private equilibrateSizes():void {
+    equilibrateSizes():void {
         this.resizeEmitter.emit(new SizeEvent(this.id, Size.Normal));
     }
 
-    private maximizeSize():void {
+    maximizeSize():void {
         this.resizeEmitter.emit(new SizeEvent(this.id, Size.Full));
     }
 
-    private maskPanelSide():void {
+    maskPanelSide():void {
         this.resizeEmitter.emit(new SizeEvent(this.id, Size.None));
     }
 

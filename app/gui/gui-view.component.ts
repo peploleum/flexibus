@@ -7,17 +7,18 @@ import {
     QueryList,
     Input,
     OnInit,
-    ViewChild, ElementRef
+    ViewChild,
+    ElementRef
 } from "@angular/core";
 import {SimplePanelComponent, SizeEvent, Size} from "./simple-panel.component";
 import {GuiContextService} from "./gui-context.service";
 import {GuiItem} from "../gui-api/gui-item";
-import {NgStyle} from "@angular/common";
 
 @Component({
+    moduleId:module.id,
     selector: 'gui-view',
-    templateUrl: 'app/gui/gui-view.component.html',
-    styleUrls: ['app/gui/gui-view.component.css'],
+    templateUrl: 'gui-view.component.html',
+    styleUrls: ['gui-view.component.css'],
     providers: [GuiContextService]
     // directives: [NgStyle]
 })
@@ -25,33 +26,33 @@ export class GuiView implements AfterViewInit, OnInit {
     @ViewChildren(SimplePanelComponent) panels:QueryList<SimplePanelComponent>;
 
     @Input('main')
-    private mainComponentDescriptor:GuiItem;
+    mainComponentDescriptor:GuiItem;
     @Input('left')
-    private leftComponentsDescriptors:Array<GuiItem> = new Array();
+    leftComponentsDescriptors:Array<GuiItem> = new Array();
     @Input('right')
-    private rightComponentsDescriptors:Array<GuiItem> = new Array();
+    rightComponentsDescriptors:Array<GuiItem> = new Array();
 
     @ViewChild('mainPanel')
-    private mainPanel:ComponentRef<SimplePanelComponent>;
+    mainPanel:ComponentRef<SimplePanelComponent>;
     @ViewChildren('leftPanels')
-    private leftPanels:QueryList<SimplePanelComponent>;
+    leftPanels:QueryList<SimplePanelComponent>;
     @ViewChildren('rightPanels')
-    private rightPanels:QueryList<SimplePanelComponent>;
+    rightPanels:QueryList<SimplePanelComponent>;
 
-    private leftWidth:number;
-    private rightWidth:number;
-    private mainWidth:number;
-    private leftStyleWidth:string;
-    private rightStyleWidth:string;
-    private mainStyleWidth:string;
+    leftWidth:number;
+    rightWidth:number;
+    mainWidth:number;
+    leftStyleWidth:string;
+    rightStyleWidth:string;
+    mainStyleWidth:string;
 
-    private stopMouseMoveListener:Function;
-    private stopMouseUpListener:Function;
+    stopMouseMoveListener:Function;
+    stopMouseUpListener:Function;
 
-    private leftCollapsed:boolean = false;
-    private rightCollapsed:boolean = false;
+    leftCollapsed:boolean = false;
+    rightCollapsed:boolean = false;
 
-    private sides = Side;
+    sides = Side;
 
     constructor(private renderer:Renderer, private element:ElementRef) {
     }
@@ -63,7 +64,7 @@ export class GuiView implements AfterViewInit, OnInit {
     ngAfterViewInit() {
     }
 
-    private processResize(event:SizeEvent, side:Side) {
+    processResize(event:SizeEvent, side:Side) {
         let panels = side == Side.Left ? this.leftPanels : this.rightPanels;
 
         switch (event.size) {
@@ -144,7 +145,7 @@ export class GuiView implements AfterViewInit, OnInit {
 
     startResize(resizeSide:Side) {
         // On ajoute les listeners sur document et on dit de quel côté on travaille
-        this.stopMouseMoveListener = this.renderer.listenGlobal('document', 'mousemove', (event) => {
+        this.stopMouseMoveListener = this.renderer.listenGlobal('document', 'mousemove', (event:any) => {
             let leftWidth:number;
             let rightWidth:number;
             switch (resizeSide) {
@@ -160,7 +161,7 @@ export class GuiView implements AfterViewInit, OnInit {
 
             this.processSizes(leftWidth, rightWidth)
         });
-        this.stopMouseUpListener = this.renderer.listenGlobal('document', 'mouseup', (event) => {
+        this.stopMouseUpListener = this.renderer.listenGlobal('document', 'mouseup', (event:any) => {
             // On supprime les listeners sur le document
             this.stopMouseMoveListener();
             this.stopMouseUpListener();
@@ -169,7 +170,7 @@ export class GuiView implements AfterViewInit, OnInit {
         });
     }
 
-    private sendResizeEvent(window) {
+    private sendResizeEvent(window:any) {
         // On émet un évènement de fin de redimensionnement pour que tous les composants ayant besoin d'une
         // taille fixe (OpenLayers, D3...) puissent se redimensionner correctement simplement en écoutant l'evt
         // de redimensionnement de la window.

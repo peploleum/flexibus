@@ -14,7 +14,7 @@ export class FlexibusAttributeGeometry implements OnInit, OnDestroy {
     @Input() model:flexiM.FlexibusAttributeValue;
     @Input() flexibusForm:FormGroup;
 
-    private inputControl:FormControl = new FormControl('', [GeometryValidator.isCorrectGeometry]);
+    inputControl:FormControl = new FormControl('', [GeometryValidator.isCorrectGeometry]);
 
     constructor() {
     }

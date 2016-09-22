@@ -16,14 +16,14 @@ import {FlexibusUtils} from "../core/flexibus-utils";
 })
 export class ClassExplorerComponent implements OnInit, AfterViewInit, OnChanges {
 
-    private errorMessage:string;
-    private flexibusRoot:FlexibusEntityDescriptor;
-    private searchBox:FormControl = new FormControl();
+    errorMessage:string;
+    flexibusRoot:FlexibusEntityDescriptor;
+    searchBox:FormControl = new FormControl();
 
-    private filterObservable:Observable<string>;
+    filterObservable:Observable<string>;
 
     constructor(private gcs:GuiContextService, private ces:ClassExplorerService) {
-        this.gcs.guiContext$.subscribe(guiContext => {
+        this.gcs.guiContext$.subscribe((guiContext:any) => {
             this.onGuiContext(guiContext)
         });
         this.filterObservable = this.searchBox
@@ -38,7 +38,7 @@ export class ClassExplorerComponent implements OnInit, AfterViewInit, OnChanges 
 
     }
 
-    ngOnChanges(changes) {
+    ngOnChanges(changes:any) {
         // console.log(changes);
     }
 

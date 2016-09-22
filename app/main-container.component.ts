@@ -3,17 +3,18 @@ import {GuiContainer} from "./gui-api/gui-container";
 import {GuiManagerService} from "./main-container.service";
 
 @Component({
+    moduleId:module.id,
     selector: 'main-container',
-    templateUrl: 'app/main-container.component.html',
-    styleUrls: ['app/main-container.component.css'],
+    templateUrl: 'main-container.component.html',
+    styleUrls: ['main-container.component.css'],
     providers: [GuiManagerService]
 })
 //  try AOT instead of JIT compilation http://angularjs.blogspot.fr/2016/08/angular-2-rc5-ngmodules-lazy-loading.html
 export class MainContainerComponent implements OnInit, AfterViewInit {
-    private containers:Array<GuiContainer>;
+    containers:Array<GuiContainer>;
 
     constructor(private gms:GuiManagerService) {
-        this.gms.containerEmmitter.subscribe(event => {
+        this.gms.containerEmmitter.subscribe((event:any) => {
             this.containers = this.gms.getGuiContainers();
             this.onTabClicked(this.containers.length - 1);
         });

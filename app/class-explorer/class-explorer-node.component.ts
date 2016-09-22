@@ -1,4 +1,4 @@
-import {Component, AfterViewInit, OnChanges, OnInit, Input, OnDestroy} from "@angular/core";
+import {Component, AfterViewInit, OnInit, Input, OnDestroy} from "@angular/core";
 import {GuiContextService, GuiContext} from "../gui/gui-context.service";
 import {FlexibusEntityDescriptor} from "../core/flexibus-entity-descriptor";
 import {Observable} from "rxjs/observable";
@@ -11,13 +11,13 @@ import {Subscription} from "rxjs";
     templateUrl: 'class-explorer-node.component.html',
     styleUrls: ['class-explorer-node.component.css']
 })
-export class ClassExplorerNodeComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
+export class ClassExplorerNodeComponent implements OnInit, AfterViewInit, OnDestroy {
 
     @Input()
-    private flexibusNode:FlexibusEntityDescriptor;
+    flexibusNode:FlexibusEntityDescriptor;
     @Input()
-    private filterObservable:Observable<string>;
-    private _subscription:Subscription;
+    filterObservable:Observable<string>;
+    _subscription:Subscription;
 
     filterValue:string;
 
@@ -44,10 +44,6 @@ export class ClassExplorerNodeComponent implements OnInit, AfterViewInit, OnChan
 
     onEntityClicked(entity:FlexibusEntityDescriptor) {
         console.log('node received clicked ' + entity.label);
-    }
-
-    ngOnChanges(chan) {
-        // console.log(chan);
     }
 
     ngOnDestroy() {

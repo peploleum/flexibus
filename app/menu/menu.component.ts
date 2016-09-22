@@ -6,14 +6,14 @@ import {MenuItem} from "./menu-item";
 
 @Component({
     moduleId: module.id,
-    selector: 'menu',
+    selector: 'flexibus-menu',
     templateUrl: 'menu.component.html',
     styleUrls: ['menu.component.css'],
     providers: [MenuService]
 })
 export class MenuComponent extends GuiComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
 
-    private menuItems: MenuItem[] = [];
+    menuItems: MenuItem[] = [];
 
     constructor(private element: ElementRef, private ms: MenuService) {
         super();
@@ -28,10 +28,10 @@ export class MenuComponent extends GuiComponent implements OnInit, AfterViewInit
     onGuiContext(guiContext: GuiContext) {
     }
 
-    onResize(event) {
+    onResize(event:any) {
     }
 
-    ngOnChanges() {
+    ngOnChanges(changes:any) {
 
     }
 

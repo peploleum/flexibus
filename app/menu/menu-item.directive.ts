@@ -1,7 +1,7 @@
 import {Directive, ElementRef, Renderer, HostListener, ComponentFactoryResolver, ViewContainerRef} from "@angular/core";
 import {MenuComponent} from "./menu.component";
 
-@Directive({selector: '[menu-item]'})
+@Directive({selector: '[menu-pop]'})
 export class MenuItemDirective {
 
 

@@ -8,11 +8,11 @@ import {MenuComponent} from "./menu.component";
 @NgModule({
     imports: [CommonModule, FormsModule, CoreGuiModule],
     declarations: [MenuItemDirective, MenuComponent],
-    exports: [MenuItemDirective],
+    exports: [MenuItemDirective, MenuComponent],
     entryComponents: [MenuComponent]
 })
 export class MenuModule {
-    static getComponents() {
+    static getComponents():any[] {
         return [];
     }
 }

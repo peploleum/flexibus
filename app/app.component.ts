@@ -4,9 +4,10 @@
 } from '@angular/core';
 
 @Component({
+    moduleId: module.id,
     selector: 'my-app',
-    templateUrl: 'app/app.component.html',
-    styleUrls: ['app/app.component.css']
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.css']
 })
 // 1 - inject component anywhere in page
 // 2 - inter component communication

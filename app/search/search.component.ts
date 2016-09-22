@@ -13,7 +13,7 @@ import {SearchResult} from "./search-result";
 })
 export class SearchComponent extends GuiComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
 
-    private searchResults: SearchResult[] = [];
+    searchResults: SearchResult[] = [];
 
     constructor(private element: ElementRef, private ss: SearchService) {
         super();
@@ -28,10 +28,10 @@ export class SearchComponent extends GuiComponent implements OnInit, AfterViewIn
     onGuiContext(guiContext: GuiContext) {
     }
 
-    onResize(event) {
+    onResize(event:any) {
     }
 
-    ngOnChanges() {
+    ngOnChanges(changes:any) {
 
     }
 

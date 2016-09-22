@@ -46,7 +46,7 @@ export class TestGuiComponent extends GuiComponent implements OnInit, OnDestroy 
     }
 
     private onUserContextDto() {
-        let receivedUserContextDto = result => {
+        let receivedUserContextDto = (result:any) => {
             console.log("received dto" + result);
             this.userContext = result;
         };

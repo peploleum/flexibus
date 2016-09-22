@@ -11,7 +11,7 @@ export class SearchComponentService {
     constructor(private http:Http) {
     }
 
-    search(event):Observable<any> {
+    search(event:any):Observable<any> {
         let finalUrl = this._searchUrl +event + this._searchSuffix;
         console.log("searching @ " + finalUrl);
         return this.http.get(finalUrl).map((response) => {

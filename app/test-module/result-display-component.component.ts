@@ -1,21 +1,21 @@
 import {Component, OnInit, DoCheck, AfterViewChecked, AfterViewInit} from "@angular/core";
 import {GuiComponent} from "../gui/gui-component";
 import {Observable, Observer} from "rxjs/Rx";
-import {SearchComponent} from "./search-component.component";
 import {SearchComponentService} from "./search-component.service";
 @Component({
+    moduleId: module.id,
     selector: 'another-test',
-    templateUrl: 'app/test-module/result-display-component.component.html',
+    templateUrl: 'result-display-component.component.html',
     providers: [SearchComponentService]
 })
 export class ResultDisplayComponent extends GuiComponent implements OnInit, DoCheck, AfterViewChecked, AfterViewInit {
 
-    private data:Observable<any>;
-    private dataObserver:Observer<any>;
+    data:Observable<any>;
+    dataObserver:Observer<any>;
 
     constructor(private scs:SearchComponentService) {
         super();
-        this.data = new Observable(observer => this.dataObserver = observer);
+        this.data = new Observable((observer:any) => this.dataObserver = observer);
     }
 
     ngOnInit() {
@@ -24,9 +24,9 @@ export class ResultDisplayComponent extends GuiComponent implements OnInit, DoCh
     ngAfterViewInit() {
     }
 
-    onSearch(event) {
+    onSearch(event:any) {
         console.log(event);
-        this.scs.search(event).subscribe(resultingArtist => {
+        this.scs.search(event).subscribe((resultingArtist:any) => {
             this.dataObserver.next(resultingArtist);
         }, error => console.log('Could not load artists'));
     }

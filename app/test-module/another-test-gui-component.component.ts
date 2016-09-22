@@ -17,7 +17,7 @@ export class AnotherTestGuiComponent extends GuiComponent implements OnInit, OnD
     resultList:Observable<SearchResultDto[]>;
     pouet:string;
     guiContextHistory:Array<GuiContext> = new Array<GuiContext>();
-    private searchTerms = new Subject<string>();
+    searchTerms = new Subject<string>();
 
     // listening to GuiContext broadcasting from other components
     subscription: Subscription;

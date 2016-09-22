@@ -13,17 +13,17 @@ import {Observable, Subscription} from "rxjs/Rx";
 export class FlexibusEntityDescriptorDisplayComponent implements OnInit, AfterViewInit, OnDestroy {
 
     @Input()
-    private flexibusEntity: FlexibusEntityDescriptor;
+    flexibusEntity: FlexibusEntityDescriptor;
     @Output()
-    private entityEmitter: EventEmitter<FlexibusEntityDescriptor> = new EventEmitter<FlexibusEntityDescriptor>();
-    private filterValue: string;
+    entityEmitter: EventEmitter<FlexibusEntityDescriptor> = new EventEmitter<FlexibusEntityDescriptor>();
+    filterValue: string;
     @Input()
-    private filterObservable: Observable<string>;
-    private _resultingCuts: Array<SubCut>;
-    private hasMatch = true;
-    private sanitizedLabel: string;
+    filterObservable: Observable<string>;
+    _resultingCuts: Array<SubCut>;
+    hasMatch = true;
+    sanitizedLabel: string;
 
-    private subscription: Subscription;
+    subscription: Subscription;
 
     constructor() {
     }
@@ -40,7 +40,7 @@ export class FlexibusEntityDescriptorDisplayComponent implements OnInit, AfterVi
         let resultingCuts: Array<SubCut> = [];
         let resultingSplit = this.sanitizedLabel.split(this.filterValue);
         let remainingSanitizedToParse = this.sanitizedLabel;
-        let indexInOriginalSanitizedLabel;
+        let indexInOriginalSanitizedLabel:any;
         for (let n = 0; n < resultingSplit.length; n++) {
             let part = resultingSplit[n];
             let i = remainingSanitizedToParse.indexOf(part);
@@ -91,7 +91,7 @@ export class FlexibusEntityDescriptorDisplayComponent implements OnInit, AfterVi
         // });
     }
 
-    ngOnChanges(changes) {
+    ngOnChanges(changes:any) {
     }
 
     computeHasMatch() {

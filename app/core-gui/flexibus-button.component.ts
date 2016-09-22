@@ -21,7 +21,7 @@ export class FlexibusButtonComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
     }
 
-    onClick(event) {
+    onClick(event:any) {
         console.log('clicked ' + event + ' ' + this.action.title);
     }
 

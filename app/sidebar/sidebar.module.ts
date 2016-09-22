@@ -9,7 +9,7 @@ import {SideBarComponent} from "./sidebar.component";
     exports: [SideBarComponent]
 })
 export class SideBarModule {
-    static getComponents() {
+    static getComponents():any[] {
         return [];
     }
 }

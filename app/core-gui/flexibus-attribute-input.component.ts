@@ -27,8 +27,8 @@ export class FlexibusAttributeInput implements OnInit, OnDestroy, OnChanges {
     }
 
 
-    ngOnChanges() {
-        console.log("vive le jambon " + ((this.model) ? this.model.attribute.name : ''));
+    ngOnChanges(changes:any) {
+        console.log("attribute changed " + ((this.model) ? this.model.attribute.name : ''));
     }
 
 

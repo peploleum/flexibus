@@ -18,7 +18,7 @@ export class TestGuiComponentService {
 
     getUserContext():Promise<UserContextDto>{
         function extracted() {
-            let newVar = response => response.json() as UserContextDto;
+            let newVar = (response:any) => response.json() as UserContextDto;
             return newVar;
         }
         return this.http.get(this._userContextUrl).toPromise().then(extracted()).catch(this.handleError);

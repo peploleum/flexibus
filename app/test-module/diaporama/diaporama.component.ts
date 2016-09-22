@@ -6,9 +6,10 @@ import {Photo} from "./model/Photo";
 import {PhotoService} from "./service/photo.service";
 
 @Component({
+    moduleId:module.id,
     selector: 'diaporama',
-    templateUrl: 'app/test-module/diaporama/diaporama.component.html',
-    styleUrls: ['app/test-module/diaporama/diaporama.component.css']
+    templateUrl: 'diaporama.component.html',
+    styleUrls: ['diaporama.component.css']
 })
 export class DiaporamaComponent{
     allPhotos:Photo[];

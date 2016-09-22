@@ -10,9 +10,9 @@ import {GuiManagerService} from "../main-container.service";
     providers: [GuiContextService]
 })
 export class SideBarComponent implements OnInit, AfterViewInit, OnChanges {
-    private minimized:boolean = true;
+    minimized:boolean = true;
 
-    private sideBarModel:SideBarModel;
+    sideBarModel:SideBarModel;
 
     constructor(private gcs:GuiContextService, private gms:GuiManagerService) {
         this.gcs.guiContext$.subscribe(guiContext => {
@@ -32,7 +32,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnChanges {
     onGuiContext(guiContext:GuiContext) {
     }
 
-    ngOnChanges() {
+    ngOnChanges(changes:any) {
     }
 
     ngOnInit() {

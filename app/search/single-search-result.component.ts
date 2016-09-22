@@ -28,10 +28,10 @@ export class SingleSearchResultComponent extends GuiComponent implements AfterVi
     onGuiContext(guiContext: GuiContext) {
     }
 
-    onResize(event) {
+    onResize(event:any) {
     }
 
-    ngOnChanges() {
+    ngOnChanges(changes:any) {
 
     }
 
