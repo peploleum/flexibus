@@ -1,6 +1,7 @@
 .settings/
 target/
 dist/
+aot/
 .classpath
 .project
 .idea
