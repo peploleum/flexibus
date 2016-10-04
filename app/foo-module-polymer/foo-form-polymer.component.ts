@@ -4,7 +4,7 @@ import {FooFormPolymerService} from "./foo-form-polymer.service";
 import {FormControl, FormGroup, Validators, FormBuilder} from "@angular/forms";
 
 @Component({
-    moduleId: module.id,
+    //moduleId: module.id,
     selector: 'foo-form-polymer',
     templateUrl: 'foo-form-polymer.component.html',
     styleUrls: ['foo-form-polymer.component.css'],

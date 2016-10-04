@@ -4,7 +4,7 @@ import {StringUtils} from "../util/string-utils";
 import {Observable, Subscription} from "rxjs/Rx";
 
 @Component({
-    moduleId: module.id,
+    //moduleId: module.id,
     selector: 'flexibus-entity-descriptor-display',
     templateUrl: 'flexibus-entity-descriptor-display.component.html',
     styleUrls: ['flexibus-entity-descriptor-display.component.css'],

@@ -38,7 +38,7 @@
                 defaultExtension: 'js'
             },
             'angular2-uuid': {main: 'index.js', defaultExtension: 'js'},
-            'openlayers': {main: 'ol-debug.js', defaultExtension: 'js'},
+            'openlayers': {main: 'ol.js', defaultExtension: 'js'},
             'd3': {main: 'd3.js'}
         }
     });

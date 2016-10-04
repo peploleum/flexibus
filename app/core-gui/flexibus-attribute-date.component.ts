@@ -2,7 +2,7 @@ import {Component, OnInit, OnDestroy, Input} from "@angular/core";
 import * as flexiM from "../core/flexibus-model";
 import {FormControl, FormGroup} from "@angular/forms";
 @Component({
-    moduleId: module.id,
+    //moduleId: module.id,
     selector: 'flexibus-attribute-date',
     templateUrl: 'flexibus-attribute-date.component.html',
     styleUrls: ['flexibus-attribute-date.component.css'],

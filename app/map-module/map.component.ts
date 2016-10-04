@@ -5,7 +5,7 @@ import {GuiContextService, GuiContext} from "../gui/gui-context.service";
 import {MapService} from "./map.service";
 
 @Component({
-    moduleId: module.id,
+    //moduleId: module.id,
     selector: 'inner-map',
     templateUrl: 'map.component.html',
     styleUrls: ['map.component.css'],

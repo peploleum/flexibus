@@ -6,7 +6,7 @@ import {StringUtils} from "../util/string-utils";
 import {Subscription} from "rxjs";
 
 @Component({
-    moduleId: module.id,
+    //moduleId: module.id,
     selector: 'class-explorer-node',
     templateUrl: 'class-explorer-node.component.html',
     styleUrls: ['class-explorer-node.component.css']

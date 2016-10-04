@@ -2,7 +2,7 @@ import {Component, OnInit, DoCheck, AfterViewChecked, AfterViewInit, Input, OnDe
 import {GuiComponent} from "../gui/gui-component";
 import {GuiContext} from "../gui/gui-context.service";
 @Component({
-    moduleId: module.id,
+    //moduleId: module.id,
     selector: 'gui-context-history',
     templateUrl: 'gui-context-history.component.html'
 })

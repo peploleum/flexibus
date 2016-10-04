@@ -5,7 +5,7 @@ import {GuiContextService, GuiContext} from "../gui/gui-context.service";
 import {Subscription} from "rxjs/Rx";
 import {Bar} from "./bar";
 @Component({
-    moduleId: module.id,
+    //moduleId: module.id,
     selector: 'bar-form',
     templateUrl: 'bar-form.component.html',
     styleUrls: ['bar-form.component.css'],

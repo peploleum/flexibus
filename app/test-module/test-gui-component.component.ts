@@ -5,7 +5,7 @@ import * as d3 from "d3";
 import {GuiContextService, GuiContext} from "../gui/gui-context.service";
 import {Subscription} from "rxjs/Rx";
 @Component({
-    moduleId: module.id,
+    //moduleId: module.id,
     selector: 'test',
     templateUrl: './test-gui-component.component.html',
     providers: [TestGuiComponentService]

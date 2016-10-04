@@ -1,7 +1,7 @@
 import {Component, OnInit, OnDestroy, Input, EventEmitter, Output} from "@angular/core";
 import {FlexibusAction} from "../core/flexibus-action";
 @Component({
-    moduleId: module.id,
+    //moduleId: module.id,
     selector: 'flexibus-button',
     templateUrl: 'flexibus-button.component.html',
     styleUrls: ['flexibus-button.component.css'],

@@ -3,7 +3,7 @@ import {GuiContextService, GuiContext} from "../gui/gui-context.service";
 import {GuiManagerService} from "../main-container.service";
 
 @Component({
-    moduleId: module.id,
+    //moduleId: module.id,
     selector: 'flexibus-sidebar',
     templateUrl: 'sidebar.component.html',
     styleUrls: ['sidebar.component.css'],

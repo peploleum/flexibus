@@ -8,7 +8,7 @@ import {StringUtils} from "../util/string-utils";
 import {FlexibusUtils} from "../core/flexibus-utils";
 
 @Component({
-    moduleId: module.id,
+    //moduleId: module.id,
     selector: 'class-explorer',
     templateUrl: 'class-explorer.component.html',
     styleUrls: ['class-explorer.component.css'],
