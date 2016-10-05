@@ -3,7 +3,7 @@ import {GuiContainer} from "./gui-api/gui-container";
 import {GuiManagerService} from "./main-container.service";
 
 @Component({
-    ////moduleId:module.id,
+    moduleId:module.id,
     selector: 'main-container',
     templateUrl: 'main-container.component.html',
     styleUrls: ['main-container.component.css'],

@@ -5,7 +5,7 @@ import {Subject, Observable, Subscription} from "rxjs/Rx";
 import {UserContextDto} from "./test-gui-component.service";
 import {GuiContextService, GuiContext} from "../gui/gui-context.service";
 @Component({
-    //moduleId: module.id, //https://angular.io/docs/ts/latest/cookbook/component-relative-paths.html
+    moduleId: module.id, //https://angular.io/docs/ts/latest/cookbook/component-relative-paths.html
     selector: 'another-test',
     templateUrl: 'another-test-gui-component.component.html',
     providers: [AnotherTestGuiComponentService]

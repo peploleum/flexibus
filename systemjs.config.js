@@ -5,7 +5,8 @@
     System.config({
         paths: {
             // paths serve as alias
-            'npm:': 'node_modules/'
+            'npm:': 'node_modules/',
+            'ven:': 'vendor/'
         },
         // map tells the System loader where to look for things
         map: {
@@ -24,7 +25,7 @@
             // other libraries
             'rxjs': 'npm:rxjs',
 
-            'openlayers': 'npm:openlayers/dist',
+            'openlayers': 'ven:openlayers',
             'd3': 'npm:d3',
             'angular2-uuid': 'npm:angular2-uuid'
         },
@@ -38,7 +39,7 @@
                 defaultExtension: 'js'
             },
             'angular2-uuid': {main: 'index.js', defaultExtension: 'js'},
-            'openlayers': {main: 'ol.js', defaultExtension: 'js'},
+            'openlayers': {main: 'ol-debug.js', defaultExtension: 'js'},
             'd3': {main: 'd3.js'}
         }
     });

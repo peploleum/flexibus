@@ -6,7 +6,7 @@ import {Photo} from "./model/Photo";
 import {PhotoService} from "./service/photo.service";
 
 @Component({
-    //moduleId:module.id,
+    moduleId:module.id,
     selector: 'diaporama',
     templateUrl: 'diaporama.component.html',
     styleUrls: ['diaporama.component.css']

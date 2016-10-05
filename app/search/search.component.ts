@@ -5,7 +5,7 @@ import {SearchService} from "./search.service";
 import {SearchResult} from "./search-result";
 
 @Component({
-    //moduleId: module.id,
+    moduleId: module.id,
     selector: 'business-search',
     templateUrl: 'search.component.html',
     styleUrls: ['search.component.css'],

@@ -33,8 +33,7 @@
     "jquery": "1.12.4",
     "d3": "3.0.0",
     "angular2-uuid": "^1.1.0",
-    "bootswatch": "^3.3.7",
-    "openlayers": "3.14.2"
+    "bootswatch": "^3.3.7"
   },
   "devDependencies": {
     "@angular/compiler-cli": "latest",

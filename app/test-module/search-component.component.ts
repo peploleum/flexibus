@@ -3,7 +3,7 @@ import {Input, Output, EventEmitter, Component, OnChanges} from "@angular/core";
 import {FormControl} from "@angular/forms";
 
 @Component({
-    //moduleId:module.id,
+    moduleId:module.id,
     selector: 'custom-search',
     templateUrl: 'search-component.component.html'
 })

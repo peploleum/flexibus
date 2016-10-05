@@ -8,7 +8,7 @@ import {UUID} from "angular2-uuid";
 import {Side} from "./gui-view.component";
 
 @Component({
-    //moduleId: module.id,
+    moduleId: module.id,
     selector: 'simple-panel',
     templateUrl: 'simple-panel.component.html',
     styleUrls: ['simple-panel.component.css']

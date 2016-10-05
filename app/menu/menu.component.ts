@@ -5,7 +5,7 @@ import {MenuService} from "./menu.service";
 import {MenuItem} from "./menu-item";
 
 @Component({
-    //moduleId: module.id,
+    moduleId: module.id,
     selector: 'flexibus-menu',
     templateUrl: 'menu.component.html',
     styleUrls: ['menu.component.css'],

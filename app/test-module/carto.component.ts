@@ -3,7 +3,7 @@ import {GuiComponent} from "../gui/gui-component";
 import * as ol from "openlayers";
 
 @Component({
-    //moduleId:module.id,
+    moduleId:module.id,
     selector: 'carto',
     template: '<div id="mapAnchor" [style.height]="height" (window:resize)="onResize($event)"></div>',
     styleUrls: ['carto.component.css']

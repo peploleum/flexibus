@@ -3,7 +3,7 @@ import {FlexibusAttributeValue} from "../core/flexibus-attribute-value";
 import {FlexibusType} from "../core/flexibus-type";
 import {FormGroup} from "@angular/forms";
 @Component({
-    //moduleId: module.id,
+    moduleId: module.id,
     selector: 'flexibus-attribute-display',
     templateUrl: 'flexibus-attribute-display.component.html',
     styleUrls: ['flexibus-attribute-display.component.css'],

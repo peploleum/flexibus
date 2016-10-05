@@ -5,7 +5,7 @@ import {GuiContextService, GuiContext} from "../gui/gui-context.service";
 import {Subscription} from "rxjs/Rx";
 import {Foo} from "./foo";
 @Component({
-    //moduleId: module.id,
+    moduleId: module.id,
     selector: 'foo-form',
     templateUrl: 'foo-form.component.html',
     styleUrls: ['foo-form.component.css'],

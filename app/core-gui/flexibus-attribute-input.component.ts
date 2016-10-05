@@ -2,7 +2,7 @@ import {Component, OnInit, OnDestroy, Input, DoCheck, OnChanges} from "@angular/
 import * as flexiM from "../core/flexibus-model";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 @Component({
-    //moduleId: module.id,
+    moduleId: module.id,
     selector: 'flexibus-attribute-input',
     templateUrl: 'flexibus-attribute-input.component.html',
     styleUrls: ['flexibus-attribute-input.component.css'],

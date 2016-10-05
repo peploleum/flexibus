@@ -5,7 +5,7 @@ import {SearchResult} from "./search-result";
 import {FlexibusAction} from "../core/flexibus-action";
 
 @Component({
-    //moduleId: module.id,
+    moduleId: module.id,
     selector: 'single-search-result',
     templateUrl: 'single-search-result.component.html',
     styleUrls: ['single-search-result.component.css']

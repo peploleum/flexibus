@@ -3,7 +3,7 @@ import {GuiComponent} from "../gui/gui-component";
 import {Observable, Observer} from "rxjs/Rx";
 import {SearchComponentService} from "./search-component.service";
 @Component({
-    //moduleId: module.id,
+    moduleId: module.id,
     selector: 'another-test',
     templateUrl: 'result-display-component.component.html',
     providers: [SearchComponentService]

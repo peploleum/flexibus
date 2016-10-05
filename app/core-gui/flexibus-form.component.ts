@@ -4,7 +4,7 @@ import {FormGroup} from "@angular/forms";
 import {FlexibusFormService} from "./flexibus-form.service";
 
 @Component({
-    //moduleId: module.id,
+    moduleId: module.id,
     selector: 'flexibus-form',
     templateUrl: 'flexibus-form.component.html',
     styleUrls: ['flexibus-form.component.css'],

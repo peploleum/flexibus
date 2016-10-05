@@ -14,6 +14,6 @@ export default {
 	  include: ['node_modules/rxjs/**','node_modules/angular2-uuid/**']
      }),
 	  
-      uglify()
+      //uglify()
   ]
 }

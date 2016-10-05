@@ -15,7 +15,7 @@ import {GuiContextService} from "./gui-context.service";
 import {GuiItem} from "../gui-api/gui-item";
 
 @Component({
-    ////moduleId:module.id,
+    moduleId:module.id,
     selector: 'gui-view',
     templateUrl: 'gui-view.component.html',
     styleUrls: ['gui-view.component.css'],
